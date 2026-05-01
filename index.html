@@ -1,0 +1,1890 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Q&M Consultoria — Hub de Soluções Tributárias</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0A1628;
+  --navy-mid: #0F2040;
+  --gold: #C9A84C;
+  --gold-light: #E8C97A;
+  --gold-pale: #F5E6C0;
+  --black: #050A10;
+  --charcoal: #1A2332;
+  --gray-dark: #2C3E50;
+  --gray-mid: #5A6A7A;
+  --gray-light: #B0BEC5;
+  --orange: #D4621A;
+  --orange-light: #F07A35;
+  --white: #F8F6F0;
+  --cream: #FAF8F3;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'Barlow', sans-serif;
+  --font-condensed: 'Barlow Condensed', sans-serif;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════
+   NAV
+═══════════════════════════════════════ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  height: 80px;
+  background: rgba(5, 10, 16, 0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+  transition: all 0.4s ease;
+}
+
+nav.scrolled {
+  height: 64px;
+  background: rgba(5, 10, 16, 0.98);
+}
+
+.nav-logo img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  list-style: none;
+}
+
+.nav-links li a {
+  display: block;
+  padding: 8px 20px;
+  font-family: var(--font-condensed);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gray-light);
+  text-decoration: none;
+  transition: color 0.3s;
+  border-right: 1px solid rgba(201, 168, 76, 0.2);
+}
+
+.nav-links li:last-child a { border-right: none; }
+
+.nav-links li a:hover { color: var(--gold); }
+
+.nav-cta {
+  background: var(--gold);
+  color: var(--black) !important;
+  padding: 8px 24px !important;
+  border-radius: 2px;
+  font-weight: 700 !important;
+  border-right: none !important;
+  transition: background 0.3s !important;
+}
+
+.nav-cta:hover { background: var(--gold-light) !important; color: var(--black) !important; }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--gold);
+  transition: all 0.3s;
+}
+
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px 48px 80px;
+  position: relative;
+  overflow: hidden;
+  background: var(--black);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -100px; left: -100px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(212,98,26,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.hero-logo img {
+  height: 90px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(1.1);
+}
+
+.hero-tagline {
+  font-family: var(--font-condensed);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-tagline::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.hero-headline {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 62px);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--white);
+}
+
+.hero-headline em {
+  font-style: normal;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.focus-box {
+  background: linear-gradient(135deg, rgba(201,168,76,0.08) 0%, rgba(201,168,76,0.02) 100%);
+  border: 1px solid rgba(201,168,76,0.25);
+  border-left: 3px solid var(--gold);
+  padding: 32px 36px;
+  position: relative;
+  overflow: hidden;
+}
+
+.focus-box::before {
+  content: '"';
+  position: absolute;
+  top: -10px; left: 20px;
+  font-family: var(--font-display);
+  font-size: 120px;
+  color: rgba(201,168,76,0.08);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.focus-box p {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2.2vw, 26px);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--white);
+  position: relative;
+  z-index: 1;
+}
+
+.focus-box .highlight-main {
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 1.1em;
+  display: inline-block;
+  background: rgba(201,168,76,0.12);
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+
+.focus-box .highlight-legal { color: #6BB8FF; font-weight: 600; }
+.focus-box .highlight-inteligente { color: var(--orange-light); font-weight: 600; }
+.focus-box .highlight-estruturada { color: #7ED87E; font-weight: 600; }
+
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-nav-pills {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid rgba(201,168,76,0.2);
+}
+
+.hero-pill {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 32px;
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  group: true;
+}
+
+.hero-pill:last-child { border-bottom: none; }
+
+.hero-pill::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 0;
+  background: rgba(201,168,76,0.06);
+  transition: width 0.4s ease;
+}
+
+.hero-pill:hover::before { width: 100%; }
+
+.hero-pill:hover { border-left: 3px solid var(--gold); padding-left: 29px; }
+
+.pill-num {
+  font-family: var(--font-condensed);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--gold);
+  opacity: 0.6;
+  min-width: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.pill-text {
+  position: relative;
+  z-index: 1;
+}
+
+.pill-text strong {
+  display: block;
+  font-family: var(--font-condensed);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--white);
+  transition: color 0.3s;
+}
+
+.hero-pill:hover .pill-text strong { color: var(--gold); }
+
+.pill-text span {
+  font-size: 12px;
+  color: var(--gray-mid);
+  font-weight: 300;
+}
+
+.pill-arrow {
+  margin-left: auto;
+  color: var(--gold);
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+  font-size: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-pill:hover .pill-arrow { opacity: 1; transform: translateX(4px); }
+
+/* ═══════════════════════════════════════
+   SECTION HEADERS
+═══════════════════════════════════════ */
+.section-label {
+  font-family: var(--font-condensed);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  max-width: 40px;
+  height: 1px;
+  background: var(--gold);
+}
+
+/* ═══════════════════════════════════════
+   SEGMENTOS CAROUSEL
+═══════════════════════════════════════ */
+.segmentos {
+  padding: 80px 48px;
+  background: var(--navy);
+  position: relative;
+  overflow: hidden;
+}
+
+.segmentos::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.segmentos-header {
+  max-width: 1400px;
+  margin: 0 auto 48px;
+}
+
+.segmentos-header h2 {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 300;
+  color: var(--white);
+}
+
+.segmentos-header h2 em {
+  font-style: normal;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.carousel-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 24px;
+  overflow: hidden;
+}
+
+.carousel-slide {
+  flex: 0 0 calc(33.333% - 16px);
+  min-width: calc(33.333% - 16px);
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  cursor: pointer;
+  aspect-ratio: 4/3;
+  text-decoration: none;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  display: block;
+}
+
+.carousel-slide:hover img { transform: scale(1.05); }
+
+.carousel-slide-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(5,10,16,0.85) 0%, rgba(5,10,16,0.2) 60%, transparent 100%);
+  transition: background 0.4s;
+}
+
+.carousel-slide:hover .carousel-slide-overlay {
+  background: linear-gradient(to top, rgba(5,10,16,0.9) 0%, rgba(5,10,16,0.4) 60%, rgba(201,168,76,0.1) 100%);
+}
+
+.carousel-slide-label {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.carousel-slide-label h3 {
+  font-family: var(--font-condensed);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.slide-cta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-condensed);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.3s;
+}
+
+.carousel-slide:hover .slide-cta { opacity: 1; transform: translateY(0); }
+
+.carousel-controls {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.carousel-btn {
+  width: 48px; height: 48px;
+  border: 1px solid rgba(201,168,76,0.4);
+  background: transparent;
+  color: var(--gold);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: all 0.3s;
+  border-radius: 2px;
+}
+
+.carousel-btn:hover {
+  background: var(--gold);
+  color: var(--black);
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(201,168,76,0.3);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.dot.active {
+  background: var(--gold);
+  width: 24px;
+  border-radius: 3px;
+}
+
+/* ═══════════════════════════════════════
+   ESPECIALISTAS
+═══════════════════════════════════════ */
+.especialistas {
+  padding: 100px 48px;
+  background: var(--black);
+  position: relative;
+  overflow: hidden;
+}
+
+.especialistas::after {
+  content: 'HUB';
+  position: absolute;
+  right: -40px; top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-condensed);
+  font-size: 200px;
+  font-weight: 800;
+  color: rgba(201,168,76,0.03);
+  pointer-events: none;
+  line-height: 1;
+}
+
+.especialistas-header {
+  max-width: 1400px;
+  margin: 0 auto 64px;
+  text-align: center;
+}
+
+.especialistas-header h2 {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 300;
+  color: var(--white);
+}
+
+.especialistas-header h2 em {
+  font-style: normal;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.especialistas-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.especialista-card {
+  background: var(--charcoal);
+  border: 1px solid rgba(201,168,76,0.12);
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.especialista-card:hover {
+  border-color: rgba(201,168,76,0.35);
+  transform: translateY(-4px);
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: none;
+}
+
+.especialista-info {
+  padding: 32px;
+}
+
+.especialista-title {
+  font-family: var(--font-condensed);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+
+.especialista-title .name-highlight {
+  color: var(--gold);
+}
+
+.especialista-roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.role-tag {
+  font-family: var(--font-condensed);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(201,168,76,0.1);
+  padding: 3px 10px;
+  border: 1px solid rgba(201,168,76,0.2);
+}
+
+.especialista-bio {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--gray-light);
+  font-weight: 300;
+}
+
+/* ═══════════════════════════════════════
+   RESULTADOS (NÚMEROS)
+═══════════════════════════════════════ */
+.resultados {
+  padding: 100px 48px;
+  background: var(--navy-mid);
+  position: relative;
+  overflow: hidden;
+}
+
+.resultados::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.resultados-quote {
+  text-align: center;
+  margin-bottom: 64px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.resultados-quote p {
+  font-family: var(--font-condensed);
+  font-size: clamp(22px, 3vw, 38px);
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.resultados-quote p em {
+  font-style: normal;
+  color: var(--gold);
+}
+
+.gold-line {
+  width: 80px;
+  height: 2px;
+  background: var(--gold);
+  margin: 16px auto 0;
+}
+
+.numeros-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.numero-card {
+  background: rgba(10, 22, 40, 0.6);
+  border: 1px solid rgba(201,168,76,0.15);
+  padding: 48px 40px;
+  cursor: pointer;
+  transition: all 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+
+.numero-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform 0.4s;
+}
+
+.numero-card:hover::before,
+.numero-card.active::before { transform: scaleX(1); }
+
+.numero-card:hover,
+.numero-card.active {
+  border-color: rgba(201,168,76,0.4);
+  background: rgba(10, 22, 40, 0.9);
+}
+
+.numero-icon {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.numero-heading {
+  font-family: var(--font-condensed);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+
+.numero-hint {
+  font-size: 12px;
+  color: var(--gold);
+  font-family: var(--font-condensed);
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0.7;
+}
+
+/* Side panel */
+.numero-panel {
+  max-width: 1400px;
+  margin: 24px auto 0;
+  background: rgba(201,168,76,0.06);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-left: 3px solid var(--gold);
+  padding: 32px 40px;
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.numero-panel.visible { display: block; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.numero-panel p {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--white);
+}
+
+/* ═══════════════════════════════════════
+   FAQ
+═══════════════════════════════════════ */
+.faq {
+  padding: 100px 48px;
+  background: var(--black);
+}
+
+.faq-header {
+  max-width: 900px;
+  margin: 0 auto 64px;
+  text-align: center;
+}
+
+.faq-header h2 {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 300;
+  color: var(--white);
+}
+
+.faq-header h2 em {
+  font-style: normal;
+  color: var(--gold);
+}
+
+.faq-list {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+  overflow: hidden;
+}
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 28px 0;
+  cursor: pointer;
+  transition: color 0.3s;
+  user-select: none;
+}
+
+.faq-question:hover { color: var(--gold); }
+
+.faq-q-num {
+  font-family: var(--font-condensed);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--gold);
+  opacity: 0.5;
+  min-width: 32px;
+}
+
+.faq-q-text {
+  font-family: var(--font-condensed);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: inherit;
+  flex: 1;
+  transition: color 0.3s;
+}
+
+.faq-toggle {
+  width: 32px; height: 32px;
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--gold);
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+
+.faq-item.open .faq-toggle {
+  background: var(--gold);
+  color: var(--black);
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.faq-answer-inner {
+  padding: 0 0 28px 52px;
+}
+
+.faq-answer p, .faq-answer ul {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--gray-light);
+  font-weight: 300;
+}
+
+.faq-answer ul {
+  padding-left: 20px;
+  margin-top: 12px;
+}
+
+.faq-answer li {
+  margin-bottom: 6px;
+}
+
+.faq-item.open .faq-answer { max-height: 600px; }
+
+/* ═══════════════════════════════════════
+   TESTIMONIALS
+═══════════════════════════════════════ */
+.testimonials {
+  padding: 100px 48px;
+  background: var(--charcoal);
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonials::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.testimonials-header {
+  max-width: 1400px;
+  margin: 0 auto 64px;
+  text-align: center;
+}
+
+.testimonials-header h2 {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 300;
+  color: var(--white);
+}
+
+.testimonials-header h2 em {
+  font-style: normal;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  background: var(--navy);
+  border: 1px solid rgba(201,168,76,0.1);
+  padding: 36px;
+  position: relative;
+  transition: all 0.4s;
+  overflow: hidden;
+}
+
+.testimonial-card::before {
+  content: '"';
+  position: absolute;
+  top: 16px; right: 24px;
+  font-family: var(--font-display);
+  font-size: 80px;
+  color: rgba(201,168,76,0.1);
+  line-height: 1;
+}
+
+.testimonial-card:hover {
+  border-color: rgba(201,168,76,0.3);
+  transform: translateY(-4px);
+}
+
+.testimonial-stars {
+  color: var(--gold);
+  font-size: 14px;
+  margin-bottom: 16px;
+  letter-spacing: 2px;
+}
+
+.testimonial-text {
+  font-family: var(--font-display);
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--gray-light);
+  font-weight: 400;
+  margin-bottom: 24px;
+  font-style: italic;
+}
+
+.testimonial-author {
+  border-top: 1px solid rgba(201,168,76,0.15);
+  padding-top: 20px;
+}
+
+.testimonial-name {
+  font-family: var(--font-condensed);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.testimonial-role {
+  font-size: 12px;
+  color: var(--gray-mid);
+  margin-top: 4px;
+}
+
+/* ═══════════════════════════════════════
+   CONTATO / FOOTER
+═══════════════════════════════════════ */
+.contato {
+  padding: 100px 48px;
+  background: var(--navy);
+  position: relative;
+  overflow: hidden;
+}
+
+.contato::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.contato-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.contato-info h2 {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.contato-info h2 em {
+  font-style: normal;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.contato-address {
+  margin: 32px 0;
+}
+
+.contato-address p {
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--gray-light);
+  font-weight: 300;
+}
+
+.contato-address strong {
+  display: block;
+  font-family: var(--font-condensed);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+.contato-address .badge {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--gold);
+  font-family: var(--font-condensed);
+  letter-spacing: 1px;
+  margin-top: 12px;
+  padding: 6px 16px;
+  border: 1px solid rgba(201,168,76,0.3);
+}
+
+.contato-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  padding: 16px 20px;
+  border: 1px solid rgba(201,168,76,0.15);
+  transition: all 0.3s;
+  color: var(--white);
+}
+
+.contact-link:hover {
+  border-color: var(--gold);
+  background: rgba(201,168,76,0.05);
+}
+
+.contact-link-icon {
+  font-size: 20px;
+  min-width: 24px;
+  text-align: center;
+}
+
+.contact-link-info strong {
+  display: block;
+  font-family: var(--font-condensed);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 2px;
+}
+
+.contact-link-info span {
+  font-size: 14px;
+  color: var(--gray-light);
+}
+
+.whatsapp-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-decoration: none;
+  padding: 20px;
+  background: #25D366;
+  color: white;
+  font-family: var(--font-condensed);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 8px;
+  transition: background 0.3s;
+}
+
+.whatsapp-btn:hover { background: #1da851; }
+
+.contato-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contato-cta-box {
+  background: linear-gradient(135deg, rgba(201,168,76,0.08) 0%, transparent 100%);
+  border: 1px solid rgba(201,168,76,0.2);
+  padding: 48px;
+  text-align: center;
+}
+
+.contato-cta-box h3 {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+.contato-cta-box h3 em {
+  font-style: normal;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.contato-cta-box p {
+  font-size: 14px;
+  color: var(--gray-light);
+  line-height: 1.8;
+  margin-bottom: 32px;
+  font-weight: 300;
+}
+
+.cta-btn-gold {
+  display: inline-block;
+  text-decoration: none;
+  background: var(--gold);
+  color: var(--black);
+  font-family: var(--font-condensed);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 16px 40px;
+  transition: background 0.3s;
+}
+
+.cta-btn-gold:hover { background: var(--gold-light); }
+
+/* FOOTER */
+footer {
+  background: var(--black);
+  border-top: 1px solid rgba(201,168,76,0.15);
+  padding: 32px 48px;
+}
+
+.footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.footer-logo img {
+  height: 36px;
+  opacity: 0.7;
+}
+
+.footer-copy {
+  font-size: 12px;
+  color: var(--gray-mid);
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-links a {
+  font-family: var(--font-condensed);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gray-mid);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover { color: var(--gold); }
+
+/* ═══════════════════════════════════════
+   MOBILE
+═══════════════════════════════════════ */
+@media (max-width: 1024px) {
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+
+  .hero { padding: 100px 24px 60px; }
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .hero-right { display: none; }
+
+  .segmentos { padding: 60px 24px; }
+  .carousel-slide { flex: 0 0 100%; min-width: 100%; }
+
+  .especialistas { padding: 60px 24px; }
+  .especialistas-grid { grid-template-columns: 1fr; }
+
+  .resultados { padding: 60px 24px; }
+  .numeros-grid { grid-template-columns: 1fr; }
+
+  .faq { padding: 60px 24px; }
+
+  .testimonials { padding: 60px 24px; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+
+  .contato { padding: 60px 24px; }
+  .contato-grid { grid-template-columns: 1fr; gap: 40px; }
+
+  footer { padding: 24px; }
+  .footer-inner { flex-direction: column; text-align: center; }
+}
+
+@media (max-width: 768px) {
+  .hero-headline { font-size: 32px; }
+  .focus-box p { font-size: 18px; }
+}
+
+/* Mobile nav open */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 80px; left: 0; right: 0; bottom: 0;
+  background: rgba(5,10,16,0.98);
+  z-index: 999;
+  flex-direction: column;
+  padding: 40px 24px;
+  gap: 0;
+  overflow-y: auto;
+}
+
+.mobile-nav.open { display: flex; }
+
+.mobile-nav a {
+  display: block;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+  font-family: var(--font-condensed);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--white);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.mobile-nav a:hover { color: var(--gold); }
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-logo">
+    <img src="https://github.com/contabilidadeqem/qem/blob/main/logo.png?raw=true" alt="Q&M Consultoria" onerror="this.parentElement.innerHTML='<span style=\'font-family:var(--font-condensed);font-size:22px;font-weight:800;letter-spacing:2px;color:var(--gold)\'>Q&M</span>'">
+  </div>
+  <ul class="nav-links">
+    <li><a href="#cara">A Cara da Q&M</a></li>
+    <li><a href="#especialistas">Hub de Especialistas</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#carreira">Carreira</a></li>
+    <li><a href="#contato" class="nav-cta">Fala com a Gente</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#cara" onclick="closeMobileNav()">A Cara da Q&M</a>
+  <a href="#especialistas" onclick="closeMobileNav()">Hub de Especialistas</a>
+  <a href="#faq" onclick="closeMobileNav()">FAQ</a>
+  <a href="#carreira" onclick="closeMobileNav()">Carreira</a>
+  <a href="#contato" onclick="closeMobileNav()">Fala com a Gente</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="cara">
+  <div class="hero-grid">
+    <div class="hero-left">
+      <div class="hero-logo">
+        <img src="https://github.com/contabilidadeqem/qem/blob/main/logo.png?raw=true" alt="Q&M Consultoria" onerror="this.innerHTML='<span style=\'font-family:var(--font-condensed);font-size:48px;font-weight:800;letter-spacing:4px;color:var(--gold)\'>Q&M</span>'">
+      </div>
+      <div class="hero-tagline">Hub de Soluções Tributárias</div>
+      <h1 class="hero-headline">
+        A consultoria tributária que mais cresce no <em>Nordeste</em>
+      </h1>
+      <div class="focus-box">
+        <p>
+          A Q&M é a consultoria tributária que mais cresce no nordeste. Nossa missão é simples: fazer você 
+          <span class="highlight-main">pagar menos impostos</span> 
+          de forma 
+          <span class="highlight-legal">legal</span>, 
+          <span class="highlight-inteligente">inteligente</span> 
+          e 
+          <span class="highlight-estruturada">estruturada</span>.
+        </p>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-nav-pills">
+        <a class="hero-pill" href="#cara">
+          <span class="pill-num">01</span>
+          <div class="pill-text">
+            <strong>A Cara da Q&M</strong>
+            <span>Quem somos e o que nos move</span>
+          </div>
+          <span class="pill-arrow">→</span>
+        </a>
+        <a class="hero-pill" href="#especialistas">
+          <span class="pill-num">02</span>
+          <div class="pill-text">
+            <strong>Um Hub de Especialistas</strong>
+            <span>Time de especialistas por nicho</span>
+          </div>
+          <span class="pill-arrow">→</span>
+        </a>
+        <a class="hero-pill" href="#contato">
+          <span class="pill-num">03</span>
+          <div class="pill-text">
+            <strong>Fala com a Gente</strong>
+            <span>Diagnóstico tributário gratuito</span>
+          </div>
+          <span class="pill-arrow">→</span>
+        </a>
+        <a class="hero-pill" href="#carreira" id="carreira">
+          <span class="pill-num">04</span>
+          <div class="pill-text">
+            <strong>Carreira</strong>
+            <span>Faça parte do nosso time</span>
+          </div>
+          <span class="pill-arrow">→</span>
+        </a>
+        <a class="hero-pill" href="#testimonials">
+          <span class="pill-num">05</span>
+          <div class="pill-text">
+            <strong>O Que o Mundo Fala</strong>
+            <span>Resultados reais, clientes reais</span>
+          </div>
+          <span class="pill-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEGMENTOS CAROUSEL -->
+<section class="segmentos" id="segmentos">
+  <div class="segmentos-header">
+    <div class="section-label">Nossos Segmentos</div>
+    <h2>Especialização que <em>faz a diferença</em></h2>
+  </div>
+  <div class="carousel-wrapper">
+    <div class="carousel-track" id="carouselTrack">
+      <a class="carousel-slide" href="area-saude.html" target="_blank">
+        <img src="https://raw.githubusercontent.com/contabilidadeqem/qem/refs/heads/main/saude.png" alt="Área da Saúde">
+        <div class="carousel-slide-overlay"></div>
+        <div class="carousel-slide-label">
+          <h3>Área da Saúde</h3>
+          <div class="slide-cta">Saiba mais →</div>
+        </div>
+      </a>
+      <a class="carousel-slide" href="area-farmaceutica.html" target="_blank">
+        <img src="https://raw.githubusercontent.com/contabilidadeqem/qem/refs/heads/main/farmacia.png" alt="Área Farmacêutica">
+        <div class="carousel-slide-overlay"></div>
+        <div class="carousel-slide-label">
+          <h3>Área Farmacêutica</h3>
+          <div class="slide-cta">Saiba mais →</div>
+        </div>
+      </a>
+      <a class="carousel-slide" href="bares-restaurantes.html" target="_blank">
+        <img src="https://raw.githubusercontent.com/contabilidadeqem/qem/refs/heads/main/restaurante.png" alt="Bares e Restaurantes">
+        <div class="carousel-slide-overlay"></div>
+        <div class="carousel-slide-label">
+          <h3>Bares e Restaurantes</h3>
+          <div class="slide-cta">Saiba mais →</div>
+        </div>
+      </a>
+      <a class="carousel-slide" href="autopecas-oficinas.html" target="_blank">
+        <img src="https://raw.githubusercontent.com/contabilidadeqem/qem/refs/heads/main/oficina.png" alt="Autopeças e Oficinas">
+        <div class="carousel-slide-overlay"></div>
+        <div class="carousel-slide-label">
+          <h3>Autopeças e Oficinas</h3>
+          <div class="slide-cta">Saiba mais →</div>
+        </div>
+      </a>
+      <a class="carousel-slide" href="educacao.html" target="_blank">
+        <img src="https://raw.githubusercontent.com/contabilidadeqem/qem/refs/heads/main/educacao.png" alt="Educação">
+        <div class="carousel-slide-overlay"></div>
+        <div class="carousel-slide-label">
+          <h3>Educação</h3>
+          <div class="slide-cta">Saiba mais →</div>
+        </div>
+      </a>
+      <a class="carousel-slide" href="advocacia.html" target="_blank">
+        <img src="https://raw.githubusercontent.com/contabilidadeqem/qem/refs/heads/main/advogado.png" alt="Advocacia">
+        <div class="carousel-slide-overlay"></div>
+        <div class="carousel-slide-label">
+          <h3>Advocacia</h3>
+          <div class="slide-cta">Saiba mais →</div>
+        </div>
+      </a>
+    </div>
+    <div class="carousel-controls">
+      <button class="carousel-btn" onclick="carouselPrev()">←</button>
+      <div class="carousel-dots" id="carouselDots"></div>
+      <button class="carousel-btn" onclick="carouselNext()">→</button>
+    </div>
+  </div>
+</section>
+
+<!-- ESPECIALISTAS -->
+<section class="especialistas" id="especialistas">
+  <div class="especialistas-header">
+    <div class="section-label" style="justify-content:center">Conheça</div>
+    <h2>Um Hub de <em>Especialistas</em></h2>
+  </div>
+  <div class="especialistas-grid">
+    <div class="especialista-card reveal">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/InqeHnZKkyc" title="Jardel Queiroz" loading="lazy" allowfullscreen></iframe>
+      </div>
+      <div class="especialista-info">
+        <div class="especialista-title">JARDEL <span class="name-highlight">QUEIROZ</span></div>
+        <div class="especialista-roles">
+          <span class="role-tag">Consultor Tributário</span>
+          <span class="role-tag">Auditor</span>
+          <span class="role-tag">Palestrante</span>
+          <span class="role-tag">Gestor de Performance</span>
+        </div>
+        <p class="especialista-bio">Com mais de 6 anos de atuação no mercado tributário, Jardel é especialista em redução de impostos para empresas da área da saúde e referência nacional em recuperação de tributos pagos a maior. Sócio fundador da Q&M Consultoria, já conduziu o processo de recuperação tributária de mais de 100 empresas, combinando rigor técnico com visão estratégica de negócio. Sua atuação vai além dos números — ele identifica oportunidades onde outros enxergam apenas obrigações.</p>
+      </div>
+    </div>
+    <div class="especialista-card reveal reveal-delay-2">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/KwRdLIir1JY" title="Alef Manoel" loading="lazy" allowfullscreen></iframe>
+      </div>
+      <div class="especialista-info">
+        <div class="especialista-title">ALEF <span class="name-highlight">MANOEL</span></div>
+        <div class="especialista-roles">
+          <span class="role-tag">Contador</span>
+          <span class="role-tag">Estrategista Tributário</span>
+        </div>
+        <p class="especialista-bio">Especialista em planejamento e estratégia tributária com foco na área da saúde, Alef tem mais de 6 anos de experiência transformando a realidade financeira de empresas por meio de uma contabilidade inteligente e orientada a resultado. Sócio fundador da Q&M Consultoria, é o profissional responsável pela reestruturação tributária de mais de 100 empresas ao longo da carreira — unindo precisão técnica e visão de crescimento para levar cada cliente ao próximo nível.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTADOS / NÚMEROS -->
+<section class="resultados" id="resultados">
+  <div class="resultados-quote">
+    <div class="section-label" style="justify-content:center">Nossa trajetória</div>
+    <p>Resultado se conquista com quem<br><em>entende do assunto!</em></p>
+    <div class="gold-line"></div>
+  </div>
+  <div class="numeros-grid">
+    <div class="numero-card reveal" onclick="toggleNumero(0)">
+      <div class="numero-icon">🏢</div>
+      <div class="numero-heading">Mais de 120 clientes em todo o Brasil</div>
+      <div class="numero-hint">↓ clique para saber mais</div>
+    </div>
+    <div class="numero-card reveal reveal-delay-1" onclick="toggleNumero(1)">
+      <div class="numero-icon">💰</div>
+      <div class="numero-heading">Mais de R$10 milhões em impostos pagos a maior recuperados</div>
+      <div class="numero-hint">↓ clique para saber mais</div>
+    </div>
+    <div class="numero-card reveal reveal-delay-2" onclick="toggleNumero(2)">
+      <div class="numero-icon">📈</div>
+      <div class="numero-heading">Participação na expansão de mais de 70% do patrimônio dos nossos clientes</div>
+      <div class="numero-hint">↓ clique para saber mais</div>
+    </div>
+  </div>
+  <div class="numero-panel" id="panel0">
+    <p>Atendemos empresas de norte a sul do país, dos mais variados segmentos. Cada cliente é tratado de forma única, com diagnóstico tributário personalizado e soluções que respeitam a realidade do seu negócio. Crescemos junto com quem confia no nosso trabalho.</p>
+  </div>
+  <div class="numero-panel" id="panel1">
+    <p>Impostos pagos a maior são mais comuns do que parecem. Com metodologia própria e profundo conhecimento da legislação tributária, identificamos cobranças indevidas e recuperamos valores que já pertenciam aos nossos clientes — de forma totalmente legal e dentro dos prazos legais.</p>
+  </div>
+  <div class="numero-panel" id="panel2">
+    <p>Pagar menos imposto de forma inteligente libera capital para o que realmente importa: crescer. A maioria dos nossos clientes registrou expansão patrimonial significativa após a reestruturação tributária realizada pela Q&M. Resultado não é promessa, é histórico.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="faq-header">
+    <div class="section-label" style="justify-content:center">Tire suas dúvidas</div>
+    <h2>FAQ — Perguntas <em>Frequentes</em></h2>
+  </div>
+  <div class="faq-list" id="faqList">
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-q-num">01</span>
+        <span class="faq-q-text">Quem é o contador responsável pela minha área?</span>
+        <div class="faq-toggle">+</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p>Cada cliente da Q&M é atendido por um especialista dedicado ao seu segmento. Nosso time é estruturado por nichos — saúde, farmácia, educação, advocacia, entre outros — e nenhum profissional atua fora da sua área de especialização. Isso não é detalhe: é o que garante que você pague menos imposto de forma legal, com quem realmente entende do seu mercado.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-q-num">02</span>
+        <span class="faq-q-text">Conheço meu contador há anos, por que ter uma segunda opinião?</span>
+        <div class="faq-toggle">+</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p>Confiar no seu contador é importante. Mas contabilidade generalista e planejamento tributário especializado são coisas diferentes. Um contador tradicional cuida das obrigações do dia a dia — e faz isso bem. A Q&M atua na camada estratégica: identificando o que está sendo pago a maior, o que pode ser recuperado e como estruturar sua empresa para pagar menos de forma legal e contínua. A segunda opinião não substitui seu contador — ela revela o que ele talvez não tenha sido treinado para enxergar.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-q-num">03</span>
+        <span class="faq-q-text">Qual a diferença entre uma contabilidade generalista e a Q&M Consultoria?</span>
+        <div class="faq-toggle">+</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p>A contabilidade generalista atende a todos os segmentos com o mesmo olhar. A Q&M é especializada: cada consultor conhece a fundo a legislação, os benefícios fiscais e as particularidades tributárias do seu setor. Isso significa menos imposto pago, mais dinheiro no caixa e uma estrutura fiscal pensada para o crescimento do seu negócio — não apenas para o cumprimento das obrigações.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-q-num">04</span>
+        <span class="faq-q-text">No que vocês podem ajudar minha empresa?</span>
+        <div class="faq-toggle">+</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p>Atuamos em toda a frente tributária e financeira do seu negócio:</p>
+          <ul>
+            <li>Planejamento tributário com foco na redução legal de impostos</li>
+            <li>Planejamento e transição para a Reforma Tributária</li>
+            <li>Gestão da folha de pagamento</li>
+            <li>Planejamento previdenciário</li>
+            <li>Estruturação trabalhista</li>
+            <li>Auditoria financeira</li>
+            <li>Perícias técnicas</li>
+          </ul>
+          <p style="margin-top:12px;">Se a sua empresa está pagando mais do que deveria, nós identificamos, estruturamos e resolvemos.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-q-num">05</span>
+        <span class="faq-q-text">Como sei se minha empresa está pagando impostos a maior?</span>
+        <div class="faq-toggle">+</div>
+      </div>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p>Na maioria dos casos, o empresário só descobre quando alguém especializado olha de perto. A Q&M realiza um diagnóstico tributário para mapear exatamente o que sua empresa paga, o que poderia ser reduzido e o que já pode ser recuperado retroativamente. O primeiro passo é uma conversa — sem compromisso.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="testimonials-header">
+    <div class="section-label" style="justify-content:center">O Que o Mundo Fala</div>
+    <h2>Resultados <em>Reais</em>, Clientes Reais</h2>
+  </div>
+  <div class="testimonials-grid">
+
+    <div class="testimonial-card reveal">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">Antes da Q&M, eu achava que estava pagando o correto. Depois do diagnóstico, recuperei mais de R$ 80 mil em impostos pagos a maior nos últimos 5 anos. Foi um choque — do bom.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-name">Dr. Rafael Mendonça</div>
+        <div class="testimonial-role">Clínica Médica — Recife/PE</div>
+      </div>
+    </div>
+
+    <div class="testimonial-card reveal reveal-delay-1">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">O que me surpreendeu não foi só o resultado financeiro, foi a forma como foram transparentes em cada etapa. Senti que tinham um especialista cuidando do meu negócio de verdade.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-name">Dra. Camila Torres</div>
+        <div class="testimonial-role">Farmácia de Manipulação — Fortaleza/CE</div>
+      </div>
+    </div>
+
+    <div class="testimonial-card reveal reveal-delay-2">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">Trabalho com contabilidade há 12 anos e nunca tinha visto um planejamento tributário tão bem estruturado para escritório de advocacia. A Q&M me mostrou um caminho que eu não conhecia.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-name">Dr. Henrique Leal</div>
+        <div class="testimonial-role">Escritório de Advocacia — João Pessoa/PB</div>
+      </div>
+    </div>
+
+    <div class="testimonial-card reveal">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">Meu restaurante estava no limite. Com o planejamento da Q&M, reduzi minha carga tributária em quase 30% e consegui respirar financeiramente para crescer.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-name">Marcos Oliveira</div>
+        <div class="testimonial-role">Rede de Restaurantes — Natal/RN</div>
+      </div>
+    </div>
+
+    <div class="testimonial-card reveal reveal-delay-1">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">Indiquei a Q&M para três colegas médicos. Os três tiveram resultados expressivos. Isso diz tudo.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-name">Dr. André Figueiredo</div>
+        <div class="testimonial-role">Ortopedista — Maceió/AL</div>
+      </div>
+    </div>
+
+    <div class="testimonial-card reveal reveal-delay-2">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">Pensei que era burocracia demais, mas o processo foi simples e o time me guiou em tudo. Em menos de 6 meses já tinha o retorno na conta.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-name">Patricia Souza</div>
+        <div class="testimonial-role">Clínica Odontológica — Recife/PE</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="contato" id="contato">
+  <div class="contato-grid">
+    <div class="contato-info">
+      <div class="section-label">Onde Estamos</div>
+      <h2>Fale com a <em>Q&M</em></h2>
+      <div class="contato-address">
+        <p>
+          <strong>Q&M Consultoria</strong>
+          Torre JAM, 19º Andar<br>
+          Av. Dr. José Augusto Moreira, 900 — Casa Caiada<br>
+          Olinda — PE, CEP 53130-410
+        </p>
+        <span class="badge">📍 Estamos no coração de Olinda, em um dos endereços corporativos mais estratégicos de Pernambuco — a poucos minutos do Recife e com fácil acesso.</span>
+        <p>
+          <strong>Horário de Atendimento</strong>
+          Segunda a sexta, das 8h às 18h<br>
+          Atendimento online disponível para todo o Brasil
+        </p>
+      </div>
+      <div class="contato-links">
+        <a href="tel:+558199403-4692" class="contact-link">
+          <div class="contact-link-icon">📞</div>
+          <div class="contact-link-info">
+            <strong>Telefone</strong>
+            <span>(81) 99403-4692</span>
+          </div>
+        </a>
+        <a href="mailto:contabilidade@qemconsultoria.com" class="contact-link">
+          <div class="contact-link-icon">📧</div>
+          <div class="contact-link-info">
+            <strong>E-mail</strong>
+            <span>contabilidade@qemconsultoria.com</span>
+          </div>
+        </a>
+        <a href="https://api.whatsapp.com/send/?phone=5581983071689&text=Ol%C3%A1%2C+Jardel%21+Quero+reduzir+os+impostos+da+minha+empresa&type=phone_number&app_absent=0&utm_source=ig" target="_blank" class="whatsapp-btn">
+          💬 Fale pelo WhatsApp
+        </a>
+      </div>
+    </div>
+    <div class="contato-right">
+      <div class="contato-cta-box">
+        <div class="section-label" style="justify-content:center">Primeiro passo</div>
+        <h3>Pronto para pagar<br><em>menos impostos?</em></h3>
+        <p>Solicite um diagnóstico tributário gratuito e descubra quanto sua empresa pode economizar de forma totalmente legal. Sem compromisso, sem burocracia.</p>
+        <a href="https://api.whatsapp.com/send/?phone=5581983071689&text=Ol%C3%A1%2C+Jardel%21+Quero+reduzir+os+impostos+da+minha+empresa&type=phone_number&app_absent=0&utm_source=ig" target="_blank" class="cta-btn-gold">Solicitar Diagnóstico Gratuito</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="https://github.com/contabilidadeqem/qem/blob/main/logo.png?raw=true" alt="Q&M Consultoria" onerror="this.parentElement.innerHTML='<span style=\'font-family:var(--font-condensed);font-size:18px;font-weight:800;letter-spacing:2px;color:var(--gold);opacity:0.7\'>Q&M</span>'">
+    </div>
+    <p class="footer-copy">© 2025 Q&M Consultoria. Todos os direitos reservados.<br>CNPJ: Q&M Consultoria — Torre JAM, Olinda/PE</p>
+    <div class="footer-links">
+      <a href="#cara">Sobre</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contato">Contato</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ═══ NAV SCROLL ═══
+window.addEventListener('scroll', () => {
+  document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ═══ MOBILE NAV ═══
+function toggleMobileNav() {
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+function closeMobileNav() {
+  document.getElementById('mobileNav').classList.remove('open');
+}
+
+// ═══ CAROUSEL ═══
+let carouselIndex = 0;
+const track = document.getElementById('carouselTrack');
+const slides = track.querySelectorAll('.carousel-slide');
+const totalSlides = slides.length;
+const dotsContainer = document.getElementById('carouselDots');
+
+function isMobile() { return window.innerWidth <= 1024; }
+function slidesPerView() { return isMobile() ? 1 : 3; }
+
+function buildDots() {
+  dotsContainer.innerHTML = '';
+  const spv = slidesPerView();
+  const numDots = totalSlides - spv + 1;
+  for (let i = 0; i < numDots; i++) {
+    const d = document.createElement('div');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.onclick = () => goToSlide(i);
+    dotsContainer.appendChild(d);
+  }
+}
+
+function goToSlide(idx) {
+  const spv = slidesPerView();
+  const maxIdx = totalSlides - spv;
+  carouselIndex = Math.max(0, Math.min(idx, maxIdx));
+  const slideW = slides[0].offsetWidth + 24;
+  track.style.transform = `translateX(-${carouselIndex * slideW}px)`;
+  track.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+  dotsContainer.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === carouselIndex));
+}
+
+function carouselNext() { goToSlide(carouselIndex + 1); }
+function carouselPrev() { goToSlide(carouselIndex - 1); }
+
+buildDots();
+window.addEventListener('resize', () => { buildDots(); goToSlide(0); });
+
+// ═══ FAQ ═══
+function toggleFaq(questionEl) {
+  const item = questionEl.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// ═══ NUMEROS ═══
+let openPanel = null;
+function toggleNumero(idx) {
+  const panels = document.querySelectorAll('.numero-panel');
+  const cards = document.querySelectorAll('.numero-card');
+
+  if (openPanel === idx) {
+    panels[idx].classList.remove('visible');
+    cards[idx].classList.remove('active');
+    openPanel = null;
+    return;
+  }
+
+  panels.forEach(p => p.classList.remove('visible'));
+  cards.forEach(c => c.classList.remove('active'));
+
+  panels[idx].classList.add('visible');
+  cards[idx].classList.add('active');
+
+  // Move panel below the grid
+  const grid = document.querySelector('.numeros-grid');
+  const panel = panels[idx];
+  grid.after(panel);
+
+  openPanel = idx;
+}
+
+// ═══ SCROLL REVEAL ═══
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.12 });
+revealEls.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
