@@ -142,10 +142,8 @@ nav.scrolled { height: 68px; background: rgba(5,10,16,0.98); }
 }
 .section-label::after { content: ''; flex: 1; max-width: 40px; height: 1px; background: var(--gold); }
 
-/* SEGMENTOS — CARROSSEL 3 EM DESTAQUE */
-.segmentos {
-  padding: 90px 0 90px; background: var(--navy); position: relative; overflow: hidden;
-}
+/* SEGMENTOS — CARROSSEL */
+.segmentos { padding: 90px 0 90px; background: var(--navy); position: relative; overflow: hidden; }
 .segmentos::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
@@ -153,59 +151,24 @@ nav.scrolled { height: 68px; background: rgba(5,10,16,0.98); }
 .segmentos-header { max-width: 1400px; margin: 0 auto 52px; padding: 0 56px; }
 .segmentos-header h2 { font-family: var(--font-display); font-size: clamp(38px, 4.5vw, 58px); font-weight: 700; color: var(--white); }
 .segmentos-header h2 em { font-style: italic; color: var(--gold); }
-
-/* Carrossel container */
-.carousel-outer {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
+.carousel-outer { position: relative; width: 100%; overflow: hidden; }
+.carousel-outer::before, .carousel-outer::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 10; pointer-events: none;
 }
-/* Fades nas bordas para dar sensação de profundidade */
-.carousel-outer::before,
-.carousel-outer::after {
-  content: '';
-  position: absolute;
-  top: 0; bottom: 0;
-  width: 80px;
-  z-index: 10;
-  pointer-events: none;
-}
-.carousel-outer::before {
-  left: 0;
-  background: linear-gradient(to right, var(--navy) 0%, transparent 100%);
-}
-.carousel-outer::after {
-  right: 0;
-  background: linear-gradient(to left, var(--navy) 0%, transparent 100%);
-}
-
+.carousel-outer::before { left: 0; background: linear-gradient(to right, var(--navy) 0%, transparent 100%); }
+.carousel-outer::after { right: 0; background: linear-gradient(to left, var(--navy) 0%, transparent 100%); }
 .carousel-track {
-  display: flex;
-  gap: 20px;
-  padding: 12px 56px 20px;
-  transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  will-change: transform;
+  display: flex; gap: 20px; padding: 12px 56px 20px;
+  transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94); will-change: transform;
 }
-
-/* Cada card ocupa exatamente 1/3 — proporção 2:1 para encaixar imagens 600x300 */
 .seg-card {
-  flex: 0 0 calc(33.333% - 14px);
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--radius);
-  cursor: pointer;
-  aspect-ratio: 2 / 1;
-  text-decoration: none;
-  display: block;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  flex: 0 0 calc(33.333% - 14px); position: relative; overflow: hidden;
+  border-radius: var(--radius); cursor: pointer; aspect-ratio: 2/1;
+  text-decoration: none; display: block; transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 .seg-card img {
-  width: 100%; height: 100%;
-  object-fit: contain;
-  object-position: center center;
-  background: var(--navy);
-  transition: transform 0.6s ease;
-  display: block;
+  width: 100%; height: 100%; object-fit: contain; object-position: center center;
+  background: var(--navy); transition: transform 0.6s ease; display: block;
 }
 .seg-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
 .seg-card:hover img { transform: scale(1.05); }
@@ -217,43 +180,22 @@ nav.scrolled { height: 68px; background: rgba(5,10,16,0.98); }
 .seg-card:hover .seg-card-overlay {
   background: linear-gradient(to top, rgba(5,10,16,0.92) 0%, rgba(5,10,16,0.35) 60%, rgba(201,168,76,0.06) 100%);
 }
-.seg-card-label {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  padding: 28px 28px 24px;
-  display: flex; flex-direction: column; gap: 8px;
-}
-.seg-card-label h3 {
-  font-family: var(--font-body); font-size: 22px; font-weight: 700;
-  color: var(--white); text-shadow: 0 2px 8px rgba(0,0,0,0.6);
-}
-.seg-cta {
-  font-family: var(--font-body); font-size: 12px; font-weight: 700;
-  letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold);
-  opacity: 0; transform: translateY(8px); transition: all 0.3s;
-}
+.seg-card-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 28px 28px 24px; display: flex; flex-direction: column; gap: 8px; }
+.seg-card-label h3 { font-family: var(--font-body); font-size: 22px; font-weight: 700; color: var(--white); text-shadow: 0 2px 8px rgba(0,0,0,0.6); }
+.seg-cta { font-family: var(--font-body); font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); opacity: 0; transform: translateY(8px); transition: all 0.3s; }
 .seg-card:hover .seg-cta { opacity: 1; transform: translateY(0); }
-
-/* Controles */
-.carousel-controls {
-  display: flex; gap: 12px; align-items: center; justify-content: center;
-  margin-top: 32px; padding: 0 56px;
-}
+.carousel-controls { display: flex; gap: 12px; align-items: center; justify-content: center; margin-top: 32px; padding: 0 56px; }
 .carousel-btn {
-  width: 52px; height: 52px;
-  border: 1px solid rgba(201,168,76,0.4);
-  background: transparent; color: var(--gold);
-  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  width: 52px; height: 52px; border: 1px solid rgba(201,168,76,0.4);
+  background: transparent; color: var(--gold); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
   font-size: 20px; transition: all 0.3s; border-radius: 50%;
 }
 .carousel-btn:hover { background: var(--gold); color: var(--black); border-color: var(--gold); }
 .carousel-btn:disabled { opacity: 0.25; cursor: default; }
 .carousel-btn:disabled:hover { background: transparent; color: var(--gold); }
 .carousel-dots { display: flex; gap: 8px; align-items: center; }
-.c-dot {
-  width: 7px; height: 7px; border-radius: 50%;
-  background: rgba(201,168,76,0.3); cursor: pointer; transition: all 0.35s;
-  border: none;
-}
+.c-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(201,168,76,0.3); cursor: pointer; transition: all 0.35s; border: none; }
 .c-dot.active { background: var(--gold); width: 26px; border-radius: 4px; }
 
 /* ESPECIALISTAS */
@@ -273,23 +215,13 @@ nav.scrolled { height: 68px; background: rgba(5,10,16,0.98); }
   transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 .especialista-card:hover { border-color: rgba(201,168,76,0.4); transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
-
-/* VIDEO LIMPO — autoplay mudo, sem barra YouTube */
-.video-wrapper {
-  position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000;
-}
+.video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000; }
 .video-wrapper iframe {
-  position: absolute;
-  /* Crop top/bottom ~60px to hide YouTube UI bars */
-  top: -60px; left: -2px;
-  width: calc(100% + 4px);
-  height: calc(100% + 120px);
-  border: none;
-  pointer-events: none;
+  position: absolute; top: -60px; left: -2px;
+  width: calc(100% + 4px); height: calc(100% + 120px);
+  border: none; pointer-events: none;
 }
-/* Block overlay to prevent click-through to YouTube controls */
 .video-click-block { position: absolute; inset: 0; z-index: 2; }
-
 .especialista-info { padding: 36px; }
 .especialista-title { font-family: var(--font-display); font-size: 28px; font-weight: 700; color: var(--white); line-height: 1.2; margin-bottom: 14px; text-transform: uppercase; }
 .especialista-title .name-highlight { color: var(--gold); font-style: italic; }
@@ -377,8 +309,314 @@ nav.scrolled { height: 68px; background: rgba(5,10,16,0.98); }
 .testimonial-name { font-family: var(--font-body); font-size: 15px; font-weight: 700; color: var(--gold); }
 .testimonial-role { font-size: 13px; color: var(--gray-mid); margin-top: 4px; }
 
+/* ═══════════════════════════════════════
+   CARREIRA
+═══════════════════════════════════════ */
+.carreira {
+  padding: 100px 56px;
+  background: var(--navy);
+  position: relative;
+  overflow: hidden;
+}
+.carreira::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.carreira::after {
+  content: 'CARREIRA';
+  position: absolute; right: -20px; top: 50%; transform: translateY(-50%);
+  font-family: var(--font-display); font-size: 160px; font-weight: 900;
+  color: rgba(201,168,76,0.03); pointer-events: none; line-height: 1; white-space: nowrap;
+}
+.carreira-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.carreira-left h2 {
+  font-family: var(--font-display);
+  font-size: clamp(38px, 4.5vw, 58px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 24px;
+}
+.carreira-left h2 em { font-style: italic; color: var(--gold); }
+.carreira-left p {
+  font-size: 17px;
+  line-height: 1.85;
+  color: var(--gray-light);
+  margin-bottom: 32px;
+}
+.carreira-valores {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 8px;
+}
+.carreira-valor {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 24px;
+  background: rgba(201,168,76,0.04);
+  border: 1px solid rgba(201,168,76,0.12);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.3s;
+}
+.carreira-valor:hover { border-color: rgba(201,168,76,0.3); }
+.carreira-valor-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+.carreira-valor-text strong {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+.carreira-valor-text span {
+  font-size: 14px;
+  color: var(--gray-light);
+  line-height: 1.6;
+}
+
+/* Formulário de candidatura */
+.carreira-right {
+  position: relative;
+}
+.carreira-form-box {
+  background: linear-gradient(135deg, rgba(201,168,76,0.07) 0%, rgba(15,32,64,0.6) 100%);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: var(--radius);
+  padding: 48px;
+}
+.carreira-form-box h3 {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.carreira-form-box h3 em { font-style: italic; color: var(--gold); }
+.carreira-form-box .form-subtitle {
+  font-size: 15px;
+  color: var(--gray-light);
+  margin-bottom: 32px;
+  line-height: 1.7;
+}
+.form-field {
+  margin-bottom: 20px;
+}
+.form-field label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  background: rgba(5,10,16,0.6);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--white);
+  outline: none;
+  transition: border-color 0.3s, background 0.3s;
+  appearance: none;
+}
+.form-field input::placeholder,
+.form-field textarea::placeholder { color: var(--gray-mid); }
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: var(--gold);
+  background: rgba(5,10,16,0.8);
+}
+.form-field select option { background: var(--navy); color: var(--white); }
+.form-field textarea { resize: vertical; min-height: 110px; }
+
+.form-email-highlight {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.25);
+  border-radius: var(--radius-sm);
+  padding: 18px 22px;
+  margin: 24px 0;
+}
+.form-email-highlight span {
+  font-size: 22px;
+}
+.form-email-highlight div strong {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+.form-email-highlight div a {
+  font-size: 16px;
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.form-email-highlight div a:hover { color: var(--gold); }
+
+.form-privacy-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 28px;
+  cursor: pointer;
+}
+.form-privacy-check input[type="checkbox"] {
+  width: 18px; height: 18px; min-width: 18px;
+  margin-top: 2px;
+  accent-color: var(--gold);
+  cursor: pointer;
+}
+.form-privacy-check span {
+  font-size: 13px;
+  color: var(--gray-light);
+  line-height: 1.6;
+}
+.form-privacy-check a {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.form-privacy-check a:hover { color: var(--gold-light); }
+
+.btn-submit {
+  width: 100%;
+  background: var(--gold);
+  color: var(--black);
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 18px 32px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.btn-submit:hover { background: var(--gold-light); transform: scale(1.02); }
+.btn-submit:active { transform: scale(0.99); }
+
+/* ═══════════════════════════════════════
+   MODAL POLÍTICA DE PRIVACIDADE
+═══════════════════════════════════════ */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(5,10,16,0.88);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  backdrop-filter: blur(8px);
+}
+.modal-overlay.open { display: flex; }
+.modal-box {
+  background: var(--navy);
+  border: 1px solid rgba(201,168,76,0.25);
+  border-radius: var(--radius);
+  max-width: 760px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+}
+.modal-header {
+  position: sticky;
+  top: 0;
+  background: var(--navy);
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+  padding: 28px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+}
+.modal-header h2 {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--white);
+}
+.modal-header h2 em { font-style: italic; color: var(--gold); }
+.modal-close {
+  width: 40px; height: 40px;
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--gold);
+  font-size: 20px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+.modal-close:hover { background: var(--gold); color: var(--black); }
+.modal-body { padding: 40px; }
+.modal-body h3 {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 28px 0 10px;
+}
+.modal-body h3:first-child { margin-top: 0; }
+.modal-body p {
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--gray-light);
+  margin-bottom: 12px;
+}
+.modal-body ul {
+  padding-left: 20px;
+  margin-bottom: 12px;
+}
+.modal-body ul li {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--gray-light);
+  margin-bottom: 6px;
+}
+.modal-footer {
+  padding: 24px 40px;
+  border-top: 1px solid rgba(201,168,76,0.15);
+  text-align: center;
+}
+.modal-footer p { font-size: 13px; color: var(--gray-mid); }
+
 /* CONTATO */
-.contato { padding: 100px 56px; background: var(--navy); position: relative; overflow: hidden; }
+.contato { padding: 100px 56px; background: var(--navy-mid); position: relative; overflow: hidden; }
 .contato::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
 .contato-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; max-width: 1400px; margin: 0 auto; }
 .contato-info h2 { font-family: var(--font-display); font-size: clamp(38px, 4.5vw, 58px); font-weight: 700; color: var(--white); margin-bottom: 8px; }
@@ -424,8 +662,8 @@ footer { background: var(--black); border-top: 1px solid rgba(201,168,76,0.15); 
 .footer-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
 .footer-logo img { height: 38px; opacity: 0.7; }
 .footer-copy { font-size: 13px; color: var(--gray-mid); text-align: center; line-height: 1.7; }
-.footer-links { display: flex; gap: 8px; }
-.footer-links a { font-family: var(--font-body); font-size: 13px; font-weight: 600; color: var(--gray-mid); text-decoration: none; transition: color 0.3s; padding: 6px 14px; border-radius: var(--radius-pill); }
+.footer-links { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.footer-links a { font-family: var(--font-body); font-size: 13px; font-weight: 600; color: var(--gray-mid); text-decoration: none; transition: color 0.3s; padding: 6px 14px; border-radius: var(--radius-pill); cursor: pointer; }
 .footer-links a:hover { color: var(--gold); background: rgba(201,168,76,0.08); }
 
 /* MOBILE */
@@ -449,24 +687,29 @@ footer { background: var(--black); border-top: 1px solid rgba(201,168,76,0.15); 
   .faq { padding: 60px 24px; }
   .testimonials { padding: 60px 24px; }
   .testimonials-grid { grid-template-columns: 1fr; }
+  .carreira { padding: 60px 24px; }
+  .carreira-inner { grid-template-columns: 1fr; gap: 48px; }
+  .carreira-form-box { padding: 32px 24px; }
   .contato { padding: 60px 24px; }
   .contato-grid { grid-template-columns: 1fr; gap: 40px; }
   footer { padding: 24px; }
   .footer-inner { flex-direction: column; text-align: center; }
+  .modal-header { padding: 20px 24px; }
+  .modal-body { padding: 24px; }
+  .modal-footer { padding: 16px 24px; }
 }
 @media (max-width: 600px) {
   .seg-card { flex: 0 0 88vw; aspect-ratio: 2/1; }
   .hero-headline { font-size: 36px; }
   .focus-box p { font-size: 20px; }
+  .testimonials-grid { grid-template-columns: 1fr; }
 }
 
-/* Mobile nav */
 .mobile-nav { display: none; position: fixed; top: 84px; left: 0; right: 0; bottom: 0; background: rgba(5,10,16,0.98); z-index: 999; flex-direction: column; padding: 40px 28px; gap: 0; overflow-y: auto; }
 .mobile-nav.open { display: flex; }
-.mobile-nav a { display: block; padding: 22px 0; border-bottom: 1px solid rgba(201,168,76,0.1); font-family: var(--font-body); font-size: 22px; font-weight: 600; color: var(--white); text-decoration: none; transition: color 0.3s; }
+.mobile-nav a { display: block; padding: 22px 0; border-bottom: 1px solid rgba(201,168,76,0.1); font-family: var(--font-body); font-size: 22px; font-weight: 600; color: var(--white); text-decoration: none; transition: color 0.3s; cursor: pointer; }
 .mobile-nav a:hover { color: var(--gold); }
 
-/* Reveal */
 .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 .reveal-delay-1 { transition-delay: 0.1s; }
@@ -474,6 +717,83 @@ footer { background: var(--black); border-top: 1px solid rgba(201,168,76,0.15); 
 </style>
 </head>
 <body>
+
+<!-- MODAL POLÍTICA DE PRIVACIDADE -->
+<div class="modal-overlay" id="privacyModal" onclick="closePrivacy(event)">
+  <div class="modal-box" role="dialog" aria-labelledby="privacyTitle" aria-modal="true">
+    <div class="modal-header">
+      <h2 id="privacyTitle">Política de <em>Privacidade</em></h2>
+      <button class="modal-close" onclick="closePrivacyDirect()" aria-label="Fechar">✕</button>
+    </div>
+    <div class="modal-body">
+      <h3>1. Quem somos</h3>
+      <p>A <strong>Q&amp;M Consultoria</strong>, inscrita como pessoa jurídica, com sede na Torre JAM, 19º Andar, Av. Dr. José Augusto Moreira, 900 — Casa Caiada, Olinda/PE, é responsável pelo tratamento dos dados pessoais coletados neste site e por e-mail, nos termos da Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018).</p>
+
+      <h3>2. Dados que coletamos</h3>
+      <p>Coletamos os seguintes dados pessoais exclusivamente quando fornecidos de forma voluntária por você:</p>
+      <ul>
+        <li>Nome completo</li>
+        <li>Endereço de e-mail</li>
+        <li>Número de telefone/WhatsApp</li>
+        <li>Área de interesse ou vaga pretendida</li>
+        <li>Currículo e informações profissionais anexadas (candidaturas)</li>
+        <li>Mensagens e informações enviadas via formulários ou e-mail</li>
+      </ul>
+
+      <h3>3. Como usamos seus dados</h3>
+      <p>Utilizamos seus dados pessoais para as seguintes finalidades:</p>
+      <ul>
+        <li>Responder às suas solicitações de contato e diagnóstico tributário</li>
+        <li>Avaliar candidaturas e processos seletivos internos</li>
+        <li>Enviar comunicações relacionadas aos serviços contratados ou solicitados</li>
+        <li>Cumprir obrigações legais e regulatórias</li>
+      </ul>
+      <p>Seus dados <strong>não são</strong> vendidos, alugados ou compartilhados com terceiros para fins de marketing sem seu consentimento expresso.</p>
+
+      <h3>4. Base legal para o tratamento</h3>
+      <p>O tratamento dos dados pessoais coletados é realizado com base nas seguintes hipóteses legais previstas na LGPD:</p>
+      <ul>
+        <li><strong>Consentimento</strong>: quando você preenche formulários e aceita esta política</li>
+        <li><strong>Execução de contrato</strong>: quando necessário para prestação dos nossos serviços</li>
+        <li><strong>Legítimo interesse</strong>: para avaliação de candidaturas e melhoria dos serviços</li>
+        <li><strong>Cumprimento de obrigação legal</strong>: quando exigido pela legislação vigente</li>
+      </ul>
+
+      <h3>5. Retenção dos dados</h3>
+      <p>Os dados pessoais são armazenados pelo tempo necessário para cumprir as finalidades descritas, ou conforme exigido por obrigações legais. Currículos de candidatos não selecionados são mantidos por até 12 meses para eventuais futuras oportunidades, salvo solicitação de exclusão.</p>
+
+      <h3>6. Seus direitos como titular</h3>
+      <p>Nos termos da LGPD, você tem os seguintes direitos:</p>
+      <ul>
+        <li>Confirmar a existência de tratamento dos seus dados</li>
+        <li>Acessar seus dados pessoais</li>
+        <li>Corrigir dados incompletos, inexatos ou desatualizados</li>
+        <li>Solicitar a anonimização, bloqueio ou eliminação dos dados</li>
+        <li>Revogar o consentimento a qualquer momento</li>
+        <li>Obter informações sobre com quem seus dados são compartilhados</li>
+      </ul>
+      <p>Para exercer seus direitos, entre em contato pelo e-mail <strong>contabilidade@qemconsultoria.com</strong>.</p>
+
+      <h3>7. Segurança</h3>
+      <p>Adotamos medidas técnicas e organizacionais adequadas para proteger seus dados contra acesso não autorizado, perda, alteração ou divulgação indevida.</p>
+
+      <h3>8. Cookies</h3>
+      <p>Este site pode utilizar cookies de funcionalidade para melhorar a experiência de navegação. Nenhum cookie de rastreamento publicitário é utilizado sem seu consentimento.</p>
+
+      <h3>9. Alterações nesta política</h3>
+      <p>Esta Política de Privacidade pode ser atualizada periodicamente. A versão mais recente estará sempre disponível neste site. Recomendamos a leitura periódica.</p>
+
+      <h3>10. Contato</h3>
+      <p>Dúvidas, solicitações ou exercício de direitos relacionados à privacidade:</p>
+      <p><strong>E-mail:</strong> contabilidade@qemconsultoria.com<br>
+      <strong>Endereço:</strong> Torre JAM, 19º Andar — Av. Dr. José Augusto Moreira, 900, Olinda/PE<br>
+      <strong>Última atualização:</strong> Janeiro de 2025</p>
+    </div>
+    <div class="modal-footer">
+      <p>Q&amp;M Consultoria — Todos os direitos reservados. Em conformidade com a LGPD (Lei nº 13.709/2018).</p>
+    </div>
+  </div>
+</div>
 
 <!-- NAV -->
 <nav id="mainNav">
@@ -542,7 +862,7 @@ footer { background: var(--black); border-top: 1px solid rgba(201,168,76,0.15); 
           <div class="pill-text"><strong>Fala com a Gente</strong><span>Diagnóstico tributário gratuito</span></div>
           <span class="pill-arrow">→</span>
         </a>
-        <a class="hero-pill" href="#carreira" id="carreira">
+        <a class="hero-pill" href="#carreira">
           <span class="pill-num">04</span>
           <div class="pill-text"><strong>Carreira</strong><span>Faça parte do nosso time</span></div>
           <span class="pill-arrow">→</span>
@@ -557,7 +877,7 @@ footer { background: var(--black); border-top: 1px solid rgba(201,168,76,0.15); 
   </div>
 </section>
 
-<!-- SEGMENTOS — CARROSSEL 3 EM DESTAQUE -->
+<!-- SEGMENTOS -->
 <section class="segmentos" id="segmentos">
   <div class="segmentos-header">
     <div class="section-label">Nossos Segmentos</div>
@@ -611,15 +931,10 @@ footer { background: var(--black); border-top: 1px solid rgba(201,168,76,0.15); 
     <h2>Um Hub de <em>Especialistas</em></h2>
   </div>
   <div class="especialistas-grid">
-
     <div class="especialista-card reveal">
       <div class="video-wrapper">
-        <iframe
-          src="https://www.youtube.com/embed/InqeHnZKkyc?autoplay=1&mute=1&loop=1&playlist=InqeHnZKkyc&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&fs=0&playsinline=1"
-          title="Jardel Queiroz"
-          allow="autoplay; encrypted-media; picture-in-picture"
-          loading="lazy">
-        </iframe>
+        <iframe src="https://www.youtube.com/embed/InqeHnZKkyc?autoplay=1&mute=1&loop=1&playlist=InqeHnZKkyc&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&fs=0&playsinline=1"
+          title="Jardel Queiroz" allow="autoplay; encrypted-media; picture-in-picture" loading="lazy"></iframe>
         <div class="video-click-block"></div>
       </div>
       <div class="especialista-info">
@@ -633,15 +948,10 @@ footer { background: var(--black); border-top: 1px solid rgba(201,168,76,0.15); 
         <p class="especialista-bio">Com mais de 6 anos de atuação no mercado tributário, Jardel é especialista em redução de impostos para empresas da área da saúde e referência nacional em recuperação de tributos pagos a maior. Sócio fundador da Q&amp;M Consultoria, já conduziu o processo de recuperação tributária de mais de 100 empresas, combinando rigor técnico com visão estratégica de negócio. Sua atuação vai além dos números, ele identifica oportunidades onde outros enxergam apenas obrigações.</p>
       </div>
     </div>
-
     <div class="especialista-card reveal reveal-delay-2">
       <div class="video-wrapper">
-        <iframe
-          src="https://www.youtube.com/embed/KwRdLIir1JY?autoplay=1&mute=1&loop=1&playlist=KwRdLIir1JY&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&fs=0&playsinline=1"
-          title="Alef Manoel"
-          allow="autoplay; encrypted-media; picture-in-picture"
-          loading="lazy">
-        </iframe>
+        <iframe src="https://www.youtube.com/embed/KwRdLIir1JY?autoplay=1&mute=1&loop=1&playlist=KwRdLIir1JY&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&fs=0&playsinline=1"
+          title="Alef Manoel" allow="autoplay; encrypted-media; picture-in-picture" loading="lazy"></iframe>
         <div class="video-click-block"></div>
       </div>
       <div class="especialista-info">
@@ -653,7 +963,6 @@ footer { background: var(--black); border-top: 1px solid rgba(201,168,76,0.15); 
         <p class="especialista-bio">Especialista em planejamento e estratégia tributária com foco na área da saúde, Alef tem mais de 6 anos de experiência transformando a realidade financeira de empresas por meio de uma contabilidade inteligente e orientada a resultado. Sócio fundador da Q&amp;M Consultoria, é o profissional responsável pela reestruturação tributária de mais de 100 empresas ao longo da carreira, unindo precisão técnica e visão de crescimento para levar cada cliente ao próximo nível.</p>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -802,6 +1111,103 @@ footer { background: var(--black); border-top: 1px solid rgba(201,168,76,0.15); 
   </div>
 </section>
 
+<!-- CARREIRA -->
+<section class="carreira" id="carreira">
+  <div class="carreira-inner">
+    <div class="carreira-left reveal">
+      <div class="section-label">Faça Parte</div>
+      <h2>Trabalhe com quem<br><em>pensa diferente</em></h2>
+      <p>Na Q&amp;M Consultoria, não contratamos apenas profissionais — buscamos pessoas que enxergam oportunidade onde outros enxergam obstáculo. Se você tem paixão por estratégia tributária e quer fazer parte de uma equipe que transforma a realidade financeira de empresas em todo o Brasil, queremos te conhecer.</p>
+      <div class="carreira-valores">
+        <div class="carreira-valor">
+          <div class="carreira-valor-icon">🎯</div>
+          <div class="carreira-valor-text">
+            <strong>Especialização de verdade</strong>
+            <span>Cada profissional atua exclusivamente no seu nicho de mercado, com profundidade técnica real.</span>
+          </div>
+        </div>
+        <div class="carreira-valor">
+          <div class="carreira-valor-icon">📈</div>
+          <div class="carreira-valor-text">
+            <strong>Crescimento acelerado</strong>
+            <span>Somos a consultoria tributária que mais cresce no Nordeste. Seu desenvolvimento cresce junto.</span>
+          </div>
+        </div>
+        <div class="carreira-valor">
+          <div class="carreira-valor-icon">🤝</div>
+          <div class="carreira-valor-text">
+            <strong>Cultura de resultado</strong>
+            <span>Valorizamos quem entrega, resolve e evolui. Meritocracia é o nosso padrão, não uma promessa.</span>
+          </div>
+        </div>
+        <div class="carreira-valor">
+          <div class="carreira-valor-icon">🌎</div>
+          <div class="carreira-valor-text">
+            <strong>Impacto nacional</strong>
+            <span>Nossos clientes estão em todo o Brasil. Você terá oportunidade de atuar com empresas de múltiplos estados.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="carreira-right reveal reveal-delay-1">
+      <div class="carreira-form-box">
+        <h3>Envie seu <em>currículo</em></h3>
+        <p class="form-subtitle">Preencha o formulário ou envie seu currículo diretamente para o nosso e-mail de recrutamento. Analisamos todas as candidaturas com atenção.</p>
+
+        <div class="form-field">
+          <label for="c-nome">Nome completo</label>
+          <input type="text" id="c-nome" placeholder="Seu nome completo">
+        </div>
+        <div class="form-field">
+          <label for="c-email">E-mail</label>
+          <input type="email" id="c-email" placeholder="seu@email.com">
+        </div>
+        <div class="form-field">
+          <label for="c-telefone">WhatsApp / Telefone</label>
+          <input type="tel" id="c-telefone" placeholder="(81) 99999-9999">
+        </div>
+        <div class="form-field">
+          <label for="c-area">Área de interesse</label>
+          <select id="c-area">
+            <option value="" disabled selected>Selecione uma área</option>
+            <option>Consultoria Tributária</option>
+            <option>Contabilidade e Escrituração</option>
+            <option>Auditoria e Perícias</option>
+            <option>Planejamento Previdenciário</option>
+            <option>Departamento Pessoal / RH</option>
+            <option>Comercial / Relacionamento</option>
+            <option>Outras áreas</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="c-msg">Sobre você (opcional)</label>
+          <textarea id="c-msg" placeholder="Conte brevemente sobre sua experiência e motivação..."></textarea>
+        </div>
+
+        <div class="form-email-highlight">
+          <span>📎</span>
+          <div>
+            <strong>Envio de currículo por e-mail</strong>
+            <a href="mailto:contabilidade@qemconsultoria.com?subject=Candidatura%20Q%26M%20Consultoria">contabilidade@qemconsultoria.com</a>
+          </div>
+        </div>
+
+        <div class="form-privacy-check">
+          <input type="checkbox" id="privacy-check">
+          <label for="privacy-check">
+            <span>Li e concordo com a <a onclick="openPrivacy()">Política de Privacidade</a> da Q&amp;M Consultoria. Autorizo o uso dos meus dados para fins de recrutamento e seleção, conforme a LGPD.</span>
+          </label>
+        </div>
+
+        <button class="btn-submit" onclick="submitCarreira()">
+          Enviar Candidatura ✉️
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTATO -->
 <section class="contato" id="contato">
   <div class="contato-grid">
@@ -811,7 +1217,7 @@ footer { background: var(--black); border-top: 1px solid rgba(201,168,76,0.15); 
       <div class="contato-address">
         <p>
           <strong>Q&amp;M Consultoria</strong>
-          O Hub de soluções que fará seu negócio ir para outro nívelr<br>
+          O Hub de soluções que fará seu negócio ir para outro nível.<br>
           Av. Dr. José Augusto Moreira, 900 — Casa Caiada<br>
           Olinda — PE, CEP 53130-410
         </p>
@@ -854,10 +1260,12 @@ footer { background: var(--black); border-top: 1px solid rgba(201,168,76,0.15); 
       <img src="https://github.com/contabilidadeqem/qem/blob/main/logo.png?raw=true" alt="Q&M Consultoria"
         onerror="this.parentElement.innerHTML='<span style=font-size:20px;font-weight:900;color:var(--gold);opacity:0.7;font-family:serif>Q&amp;M</span>'">
     </div>
-    <p class="footer-copy">© 2025 Q&amp;M Consultoria. Todos os direitos reservados.<br>Torre JAM, Olinda/PE</p>
+    <p class="footer-copy">© 2025 Q&amp;M Consultoria. Todos os direitos reservados.<br>Torre JAM, Olinda/PE — Em conformidade com a LGPD</p>
     <div class="footer-links">
       <a href="#cara">Sobre</a>
       <a href="#faq">FAQ</a>
+      <a href="#carreira">Carreira</a>
+      <a onclick="openPrivacy()">Política de Privacidade</a>
       <a href="#contato">Contato</a>
     </div>
   </div>
@@ -871,16 +1279,52 @@ window.addEventListener('scroll', () => {
 function toggleMobileNav() { document.getElementById('mobileNav').classList.toggle('open'); }
 function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); }
 
-// ═══ SEGMENTOS CAROUSEL ═══
+// POLÍTICA DE PRIVACIDADE
+function openPrivacy() {
+  document.getElementById('privacyModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closePrivacyDirect() {
+  document.getElementById('privacyModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closePrivacy(e) {
+  if (e.target === document.getElementById('privacyModal')) closePrivacyDirect();
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closePrivacyDirect(); });
+
+// CARREIRA — submit
+function submitCarreira() {
+  const nome = document.getElementById('c-nome').value.trim();
+  const email = document.getElementById('c-email').value.trim();
+  const telefone = document.getElementById('c-telefone').value.trim();
+  const area = document.getElementById('c-area').value;
+  const msg = document.getElementById('c-msg').value.trim();
+  const privacyOk = document.getElementById('privacy-check').checked;
+
+  if (!nome || !email) { alert('Por favor, preencha pelo menos seu nome e e-mail.'); return; }
+  if (!privacyOk) { alert('Para enviar sua candidatura, você precisa aceitar a Política de Privacidade.'); return; }
+
+  const subject = encodeURIComponent('Candidatura Q&M Consultoria — ' + nome);
+  const body = encodeURIComponent(
+    'Nome: ' + nome + '\n' +
+    'E-mail: ' + email + '\n' +
+    'Telefone: ' + (telefone || 'Não informado') + '\n' +
+    'Área de interesse: ' + (area || 'Não informada') + '\n\n' +
+    'Mensagem:\n' + (msg || 'Não informada') + '\n\n' +
+    '⚠️ Anexe seu currículo a este e-mail antes de enviar.'
+  );
+  window.location.href = 'mailto:contabilidade@qemconsultoria.com?subject=' + subject + '&body=' + body;
+}
+
+// CARROSSEL
 const segTrack = document.getElementById('segTrack');
 const segCards = segTrack.querySelectorAll('.seg-card');
 const segDotsEl = document.getElementById('segDots');
 const totalSeg = segCards.length;
 let segIdx = 0;
 
-function segPerView() {
-  return window.innerWidth <= 768 ? 1 : 3;
-}
+function segPerView() { return window.innerWidth <= 768 ? 1 : 3; }
 
 function buildSegDots() {
   segDotsEl.innerHTML = '';
@@ -889,7 +1333,7 @@ function buildSegDots() {
   for (let i = 0; i < count; i++) {
     const d = document.createElement('button');
     d.className = 'c-dot' + (i === 0 ? ' active' : '');
-    d.setAttribute('aria-label', 'Ir para slide ' + (i + 1));
+    d.setAttribute('aria-label', 'Slide ' + (i + 1));
     d.addEventListener('click', () => segGoTo(i));
     segDotsEl.appendChild(d);
   }
@@ -899,17 +1343,9 @@ function segGoTo(idx) {
   const spv = segPerView();
   const max = totalSeg - spv;
   segIdx = Math.max(0, Math.min(idx, max));
-
-  // Calculate offset: sum widths of cards before idx plus gaps
   const cardW = segCards[0].getBoundingClientRect().width;
-  const gap = 20;
-  const offset = segIdx * (cardW + gap);
-  segTrack.style.transform = `translateX(-${offset}px)`;
-
-  // Update dots
+  segTrack.style.transform = 'translateX(-' + (segIdx * (cardW + 20)) + 'px)';
   segDotsEl.querySelectorAll('.c-dot').forEach((d, i) => d.classList.toggle('active', i === segIdx));
-
-  // Update buttons
   document.getElementById('segPrev').disabled = segIdx === 0;
   document.getElementById('segNext').disabled = segIdx >= max;
 }
@@ -919,14 +1355,12 @@ function segSlide(dir) { segGoTo(segIdx + dir); }
 buildSegDots();
 segGoTo(0);
 
-// Touch/swipe support
 let touchStartX = 0;
 segTrack.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
 segTrack.addEventListener('touchend', e => {
   const dx = touchStartX - e.changedTouches[0].clientX;
   if (Math.abs(dx) > 50) segSlide(dx > 0 ? 1 : -1);
 });
-
 window.addEventListener('resize', () => { buildSegDots(); segGoTo(0); });
 
 // FAQ
@@ -959,7 +1393,7 @@ function toggleNumero(idx) {
 // SCROLL REVEAL
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-}, { threshold: 0.12 });
+}, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 </body>
