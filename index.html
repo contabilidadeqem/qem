@@ -142,46 +142,118 @@ nav.scrolled { height: 68px; background: rgba(5,10,16,0.98); }
 }
 .section-label::after { content: ''; flex: 1; max-width: 40px; height: 1px; background: var(--gold); }
 
-/* SEGMENTOS — GRADE 3x2 COMPLETA */
+/* SEGMENTOS — CARROSSEL 3 EM DESTAQUE */
 .segmentos {
-  padding: 90px 56px; background: var(--navy); position: relative; overflow: hidden;
+  padding: 90px 0 90px; background: var(--navy); position: relative; overflow: hidden;
 }
 .segmentos::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
-.segmentos-header { max-width: 1400px; margin: 0 auto 52px; }
+.segmentos-header { max-width: 1400px; margin: 0 auto 52px; padding: 0 56px; }
 .segmentos-header h2 { font-family: var(--font-display); font-size: clamp(38px, 4.5vw, 58px); font-weight: 700; color: var(--white); }
 .segmentos-header h2 em { font-style: italic; color: var(--gold); }
-.segmentos-grid {
-  max-width: 1400px; margin: 0 auto;
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+
+/* Carrossel container */
+.carousel-outer {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
 }
+/* Fades nas bordas para dar sensação de profundidade */
+.carousel-outer::before,
+.carousel-outer::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 80px;
+  z-index: 10;
+  pointer-events: none;
+}
+.carousel-outer::before {
+  left: 0;
+  background: linear-gradient(to right, var(--navy) 0%, transparent 100%);
+}
+.carousel-outer::after {
+  right: 0;
+  background: linear-gradient(to left, var(--navy) 0%, transparent 100%);
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  padding: 12px 56px 20px;
+  transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+/* Cada card ocupa exatamente 1/3 da viewport menos gaps e padding */
 .seg-card {
-  position: relative; overflow: hidden; border-radius: var(--radius);
-  cursor: pointer; aspect-ratio: 4/3; text-decoration: none; display: block;
+  flex: 0 0 calc(33.333% - 14px);
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  cursor: pointer;
+  aspect-ratio: 16/10;
+  text-decoration: none;
+  display: block;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
-.seg-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; display: block; }
-.seg-card:hover img { transform: scale(1.06); }
+.seg-card img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.6s ease;
+  display: block;
+}
+.seg-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+.seg-card:hover img { transform: scale(1.05); }
 .seg-card-overlay {
   position: absolute; inset: 0; border-radius: var(--radius);
-  background: linear-gradient(to top, rgba(5,10,16,0.88) 0%, rgba(5,10,16,0.15) 55%, transparent 100%);
+  background: linear-gradient(to top, rgba(5,10,16,0.88) 0%, rgba(5,10,16,0.1) 50%, transparent 100%);
   transition: background 0.4s;
 }
 .seg-card:hover .seg-card-overlay {
-  background: linear-gradient(to top, rgba(5,10,16,0.92) 0%, rgba(5,10,16,0.4) 60%, rgba(201,168,76,0.08) 100%);
+  background: linear-gradient(to top, rgba(5,10,16,0.92) 0%, rgba(5,10,16,0.35) 60%, rgba(201,168,76,0.06) 100%);
 }
 .seg-card-label {
   position: absolute; bottom: 0; left: 0; right: 0;
-  padding: 24px 28px; display: flex; flex-direction: column; gap: 8px;
+  padding: 28px 28px 24px;
+  display: flex; flex-direction: column; gap: 8px;
 }
-.seg-card-label h3 { font-family: var(--font-body); font-size: 20px; font-weight: 700; color: var(--white); }
+.seg-card-label h3 {
+  font-family: var(--font-body); font-size: 22px; font-weight: 700;
+  color: var(--white); text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
 .seg-cta {
-  font-family: var(--font-body); font-size: 13px; font-weight: 600;
-  letter-spacing: 0.5px; text-transform: uppercase; color: var(--gold);
+  font-family: var(--font-body); font-size: 12px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold);
   opacity: 0; transform: translateY(8px); transition: all 0.3s;
 }
 .seg-card:hover .seg-cta { opacity: 1; transform: translateY(0); }
+
+/* Controles */
+.carousel-controls {
+  display: flex; gap: 12px; align-items: center; justify-content: center;
+  margin-top: 32px; padding: 0 56px;
+}
+.carousel-btn {
+  width: 52px; height: 52px;
+  border: 1px solid rgba(201,168,76,0.4);
+  background: transparent; color: var(--gold);
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  font-size: 20px; transition: all 0.3s; border-radius: 50%;
+}
+.carousel-btn:hover { background: var(--gold); color: var(--black); border-color: var(--gold); }
+.carousel-btn:disabled { opacity: 0.25; cursor: default; }
+.carousel-btn:disabled:hover { background: transparent; color: var(--gold); }
+.carousel-dots { display: flex; gap: 8px; align-items: center; }
+.c-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: rgba(201,168,76,0.3); cursor: pointer; transition: all 0.35s;
+  border: none;
+}
+.c-dot.active { background: var(--gold); width: 26px; border-radius: 4px; }
 
 /* ESPECIALISTAS */
 .especialistas { padding: 100px 56px; background: var(--black); position: relative; overflow: hidden; }
@@ -363,8 +435,12 @@ footer { background: var(--black); border-top: 1px solid rgba(201,168,76,0.15); 
   .hero { padding: 100px 24px 60px; }
   .hero-grid { grid-template-columns: 1fr; gap: 40px; }
   .hero-right { display: none; }
-  .segmentos { padding: 60px 24px; }
-  .segmentos-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .segmentos { padding: 60px 0; }
+  .segmentos-header { padding: 0 24px; }
+  .carousel-track { padding: 12px 24px 20px; gap: 14px; }
+  .seg-card { flex: 0 0 80vw; aspect-ratio: 4/3; }
+  .carousel-outer::before, .carousel-outer::after { width: 30px; }
+  .carousel-controls { padding: 0 24px; }
   .especialistas { padding: 60px 24px; }
   .especialistas-grid { grid-template-columns: 1fr; }
   .resultados { padding: 60px 24px; }
@@ -378,7 +454,7 @@ footer { background: var(--black); border-top: 1px solid rgba(201,168,76,0.15); 
   .footer-inner { flex-direction: column; text-align: center; }
 }
 @media (max-width: 600px) {
-  .segmentos-grid { grid-template-columns: 1fr; }
+  .seg-card { flex: 0 0 88vw; }
   .hero-headline { font-size: 36px; }
   .focus-box p { font-size: 20px; }
 }
@@ -480,43 +556,50 @@ footer { background: var(--black); border-top: 1px solid rgba(201,168,76,0.15); 
   </div>
 </section>
 
-<!-- SEGMENTOS — TODOS OS 6 VISÍVEIS -->
+<!-- SEGMENTOS — CARROSSEL 3 EM DESTAQUE -->
 <section class="segmentos" id="segmentos">
   <div class="segmentos-header">
     <div class="section-label">Nossos Segmentos</div>
     <h2>Especialização que <em>faz a diferença</em></h2>
   </div>
-  <div class="segmentos-grid">
-    <a class="seg-card" href="area-saude.html" target="_blank">
-      <img src="https://raw.githubusercontent.com/contabilidadeqem/qem/refs/heads/main/saude.png" alt="Área da Saúde">
-      <div class="seg-card-overlay"></div>
-      <div class="seg-card-label"><h3>Área da Saúde</h3><div class="seg-cta">Saiba mais →</div></div>
-    </a>
-    <a class="seg-card" href="area-farmaceutica.html" target="_blank">
-      <img src="https://raw.githubusercontent.com/contabilidadeqem/qem/refs/heads/main/farmacia.png" alt="Área Farmacêutica">
-      <div class="seg-card-overlay"></div>
-      <div class="seg-card-label"><h3>Área Farmacêutica</h3><div class="seg-cta">Saiba mais →</div></div>
-    </a>
-    <a class="seg-card" href="bares-restaurantes.html" target="_blank">
-      <img src="https://raw.githubusercontent.com/contabilidadeqem/qem/refs/heads/main/restaurante.png" alt="Bares e Restaurantes">
-      <div class="seg-card-overlay"></div>
-      <div class="seg-card-label"><h3>Bares e Restaurantes</h3><div class="seg-cta">Saiba mais →</div></div>
-    </a>
-    <a class="seg-card" href="autopecas-oficinas.html" target="_blank">
-      <img src="https://raw.githubusercontent.com/contabilidadeqem/qem/refs/heads/main/oficina.png" alt="Autopeças e Oficinas">
-      <div class="seg-card-overlay"></div>
-      <div class="seg-card-label"><h3>Autopeças e Oficinas</h3><div class="seg-cta">Saiba mais →</div></div>
-    </a>
-    <a class="seg-card" href="educacao.html" target="_blank">
-      <img src="https://raw.githubusercontent.com/contabilidadeqem/qem/refs/heads/main/educacao.png" alt="Educação">
-      <div class="seg-card-overlay"></div>
-      <div class="seg-card-label"><h3>Educação</h3><div class="seg-cta">Saiba mais →</div></div>
-    </a>
-    <a class="seg-card" href="advocacia.html" target="_blank">
-      <img src="https://raw.githubusercontent.com/contabilidadeqem/qem/refs/heads/main/advogado.png" alt="Advocacia">
-      <div class="seg-card-overlay"></div>
-      <div class="seg-card-label"><h3>Advocacia</h3><div class="seg-cta">Saiba mais →</div></div>
-    </a>
+  <div class="carousel-outer">
+    <div class="carousel-track" id="segTrack">
+      <a class="seg-card" href="area-saude.html" target="_blank">
+        <img src="https://raw.githubusercontent.com/contabilidadeqem/qem/refs/heads/main/saude.png" alt="Área da Saúde">
+        <div class="seg-card-overlay"></div>
+        <div class="seg-card-label"><h3>Área da Saúde</h3><div class="seg-cta">SAIBA MAIS →</div></div>
+      </a>
+      <a class="seg-card" href="area-farmaceutica.html" target="_blank">
+        <img src="https://raw.githubusercontent.com/contabilidadeqem/qem/refs/heads/main/farmacia.png" alt="Área Farmacêutica">
+        <div class="seg-card-overlay"></div>
+        <div class="seg-card-label"><h3>Área Farmacêutica</h3><div class="seg-cta">SAIBA MAIS →</div></div>
+      </a>
+      <a class="seg-card" href="bares-restaurantes.html" target="_blank">
+        <img src="https://raw.githubusercontent.com/contabilidadeqem/qem/refs/heads/main/restaurante.png" alt="Bares e Restaurantes">
+        <div class="seg-card-overlay"></div>
+        <div class="seg-card-label"><h3>Bares e Restaurantes</h3><div class="seg-cta">SAIBA MAIS →</div></div>
+      </a>
+      <a class="seg-card" href="autopecas-oficinas.html" target="_blank">
+        <img src="https://raw.githubusercontent.com/contabilidadeqem/qem/refs/heads/main/oficina.png" alt="Autopeças e Oficinas">
+        <div class="seg-card-overlay"></div>
+        <div class="seg-card-label"><h3>Autopeças e Oficinas</h3><div class="seg-cta">SAIBA MAIS →</div></div>
+      </a>
+      <a class="seg-card" href="educacao.html" target="_blank">
+        <img src="https://raw.githubusercontent.com/contabilidadeqem/qem/refs/heads/main/educacao.png" alt="Educação">
+        <div class="seg-card-overlay"></div>
+        <div class="seg-card-label"><h3>Educação</h3><div class="seg-cta">SAIBA MAIS →</div></div>
+      </a>
+      <a class="seg-card" href="advocacia.html" target="_blank">
+        <img src="https://raw.githubusercontent.com/contabilidadeqem/qem/refs/heads/main/advogado.png" alt="Advocacia">
+        <div class="seg-card-overlay"></div>
+        <div class="seg-card-label"><h3>Advocacia</h3><div class="seg-cta">SAIBA MAIS →</div></div>
+      </a>
+    </div>
+  </div>
+  <div class="carousel-controls">
+    <button class="carousel-btn" id="segPrev" onclick="segSlide(-1)" aria-label="Anterior">←</button>
+    <div class="carousel-dots" id="segDots"></div>
+    <button class="carousel-btn" id="segNext" onclick="segSlide(1)" aria-label="Próximo">→</button>
   </div>
 </section>
 
@@ -780,12 +863,72 @@ footer { background: var(--black); border-top: 1px solid rgba(201,168,76,0.15); 
 </footer>
 
 <script>
+// NAV
 window.addEventListener('scroll', () => {
   document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60);
 });
 function toggleMobileNav() { document.getElementById('mobileNav').classList.toggle('open'); }
 function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); }
 
+// ═══ SEGMENTOS CAROUSEL ═══
+const segTrack = document.getElementById('segTrack');
+const segCards = segTrack.querySelectorAll('.seg-card');
+const segDotsEl = document.getElementById('segDots');
+const totalSeg = segCards.length;
+let segIdx = 0;
+
+function segPerView() {
+  return window.innerWidth <= 768 ? 1 : 3;
+}
+
+function buildSegDots() {
+  segDotsEl.innerHTML = '';
+  const spv = segPerView();
+  const count = totalSeg - spv + 1;
+  for (let i = 0; i < count; i++) {
+    const d = document.createElement('button');
+    d.className = 'c-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Ir para slide ' + (i + 1));
+    d.addEventListener('click', () => segGoTo(i));
+    segDotsEl.appendChild(d);
+  }
+}
+
+function segGoTo(idx) {
+  const spv = segPerView();
+  const max = totalSeg - spv;
+  segIdx = Math.max(0, Math.min(idx, max));
+
+  // Calculate offset: sum widths of cards before idx plus gaps
+  const cardW = segCards[0].getBoundingClientRect().width;
+  const gap = 20;
+  const offset = segIdx * (cardW + gap);
+  segTrack.style.transform = `translateX(-${offset}px)`;
+
+  // Update dots
+  segDotsEl.querySelectorAll('.c-dot').forEach((d, i) => d.classList.toggle('active', i === segIdx));
+
+  // Update buttons
+  document.getElementById('segPrev').disabled = segIdx === 0;
+  document.getElementById('segNext').disabled = segIdx >= max;
+}
+
+function segSlide(dir) { segGoTo(segIdx + dir); }
+
+buildSegDots();
+segGoTo(0);
+
+// Touch/swipe support
+let touchStartX = 0;
+segTrack.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+segTrack.addEventListener('touchend', e => {
+  const dx = touchStartX - e.changedTouches[0].clientX;
+  if (Math.abs(dx) > 50) segSlide(dx > 0 ? 1 : -1);
+});
+
+window.addEventListener('resize', () => { buildSegDots(); segGoTo(0); });
+
+// FAQ
 function toggleFaq(questionEl) {
   const item = questionEl.parentElement;
   const isOpen = item.classList.contains('open');
@@ -793,6 +936,7 @@ function toggleFaq(questionEl) {
   if (!isOpen) item.classList.add('open');
 }
 
+// NUMEROS
 let openPanel = null;
 function toggleNumero(idx) {
   const panels = document.querySelectorAll('.numero-panel');
@@ -811,6 +955,7 @@ function toggleNumero(idx) {
   openPanel = idx;
 }
 
+// SCROLL REVEAL
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
 }, { threshold: 0.12 });
