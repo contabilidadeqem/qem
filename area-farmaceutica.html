@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farmácias e Drogarias — Q&M Consultoria</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Barlow+Condensed:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#050A10;color:#F8F6F0;font-family:'Barlow Condensed',sans-serif;line-height:1.5;overflow-x:hidden;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+
+/* ============ HEADER ============ */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(5,10,16,0.85);backdrop-filter:blur(8px);border-bottom:1px solid rgba(201,168,76,0.15);}
+.topbar-inner{max-width:1280px;margin:0 auto;padding:18px 32px;display:flex;justify-content:space-between;align-items:center;}
+.brand{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:2px;color:#F8F6F0;}
+.brand em{color:#C9A84C;font-style:normal;}
+.nav-back{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;border:1px solid #C9A84C;padding:10px 22px;transition:all 0.3s;}
+.nav-back:hover{background:#C9A84C;color:#050A10;}
+
+/* ============ HERO TITLE ============ */
+.hero-title{padding:160px 32px 80px;text-align:center;}
+.label{font-size:12px;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;margin-bottom:24px;}
+h1.main{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,7vw,92px);font-weight:300;line-height:1.05;margin-bottom:24px;}
+h1.main em{font-style:normal;color:#C9A84C;font-weight:600;}
+.line{width:80px;height:2px;background:#C9A84C;margin:0 auto 24px;}
+.subtitle{font-size:18px;color:#8B96A3;max-width:680px;margin:0 auto;letter-spacing:1px;}
+
+/* ============ VIDEO HERO BLOCK ============ */
+.video-hero{position:relative;width:100%;min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
+.video-bg{position:absolute;top:50%;left:50%;width:100vw;height:56.25vw;min-height:100%;min-width:177.77vh;transform:translate(-50%,-50%);pointer-events:none;border:0;}
+.video-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,10,16,0.78) 0%,rgba(5,10,16,0.65) 50%,rgba(5,10,16,0.85) 100%);}
+.video-content{position:relative;z-index:2;max-width:1100px;padding:120px 32px;}
+.video-content .quote{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(32px,4.5vw,56px);line-height:1.2;color:#F8F6F0;}
+.video-content .quote strong{color:#C9A84C;font-weight:600;font-style:italic;}
+.quote-divider{width:60px;height:2px;background:#C9A84C;margin:32px auto;}
+.video-content .quote-sub{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:clamp(22px,2.6vw,32px);color:#E8C97A;}
+
+/* ============ NEWS PANEL ============ */
+.section{padding:120px 32px;max-width:1280px;margin:0 auto;}
+.section-head{text-align:center;margin-bottom:64px;}
+.section-head h2{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,64px);font-weight:300;line-height:1.1;}
+.section-head h2 em{font-style:normal;color:#C9A84C;font-weight:600;}
+.section-head p{font-size:16px;color:#8B96A3;margin-top:16px;letter-spacing:1px;}
+
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+.news-card{background:#0A1018;border:1px solid rgba(201,168,76,0.18);display:flex;flex-direction:column;transition:all 0.4s;position:relative;overflow:hidden;color:inherit;text-decoration:none;cursor:pointer;}
+.news-card::before{content:'';position:absolute;top:0;left:0;width:0;height:2px;background:#C9A84C;transition:width 0.4s;z-index:3;}
+.news-card:hover{border-color:rgba(201,168,76,0.5);transform:translateY(-6px);}
+.news-card:hover::before{width:100%;}
+.news-cover{position:relative;width:100%;height:180px;background:linear-gradient(135deg,#0F1822 0%,#0A1018 100%);overflow:hidden;border-bottom:1px solid rgba(201,168,76,0.18);}
+.news-cover svg{width:100%;height:100%;display:block;}
+.news-card:hover .news-cover svg{transform:scale(1.04);transition:transform 0.6s;}
+.news-body{padding:36px 32px;display:flex;flex-direction:column;flex:1;}
+.news-tag{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#C9A84C;margin-bottom:20px;}
+.news-card h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;line-height:1.2;margin-bottom:20px;color:#F8F6F0;}
+.news-card .news-lead{font-size:16px;color:#B8C0CC;line-height:1.6;margin-bottom:24px;flex:1;}
+.news-card ul{list-style:none;margin-bottom:24px;}
+.news-card ul li{font-size:14px;color:#8B96A3;padding-left:20px;position:relative;margin-bottom:10px;line-height:1.5;}
+.news-card ul li::before{content:'—';position:absolute;left:0;color:#C9A84C;}
+.news-base{font-size:12px;color:#5A6A7A;letter-spacing:1px;border-top:1px solid rgba(201,168,76,0.12);padding-top:16px;margin-bottom:16px;}
+.news-readmore{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#C9A84C;margin-top:auto;display:inline-flex;align-items:center;gap:8px;transition:gap 0.3s;}
+.news-card:hover .news-readmore{gap:14px;color:#E8C97A;}
+
+/* ============ BEFORE / AFTER ============ */
+.compare-section{background:#070D14;padding:120px 32px;border-top:1px solid rgba(201,168,76,0.12);border-bottom:1px solid rgba(201,168,76,0.12);}
+.compare-inner{max-width:1280px;margin:0 auto;}
+.summary-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(201,168,76,0.18);margin-bottom:48px;border:1px solid rgba(201,168,76,0.18);}
+.summary-cell{background:#0A1018;padding:32px 24px;text-align:center;}
+.summary-cell .lbl{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#8B96A3;margin-bottom:12px;}
+.summary-cell .val{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;color:#F8F6F0;margin-bottom:6px;}
+.summary-cell.gold .val{color:#C9A84C;}
+.summary-cell .sub{font-size:13px;color:#5A6A7A;}
+
+.ba-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:32px;align-items:stretch;}
+.ba-card{background:#0A1018;border:1px solid rgba(201,168,76,0.18);padding:40px 32px;}
+.ba-card.before{border-color:rgba(220,80,80,0.25);}
+.ba-card.after{border-color:rgba(201,168,76,0.45);}
+.ba-card .ba-tag{display:inline-block;font-size:11px;letter-spacing:3px;text-transform:uppercase;padding:6px 14px;margin-bottom:20px;}
+.ba-card.before .ba-tag{background:rgba(220,80,80,0.15);color:#E07A7A;}
+.ba-card.after .ba-tag{background:rgba(201,168,76,0.18);color:#C9A84C;}
+.ba-card h3{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;margin-bottom:8px;}
+.ba-card h3 strong{font-weight:600;}
+.ba-card.before h3 strong{color:#E07A7A;}
+.ba-card.after h3 strong{color:#C9A84C;}
+.ba-card .ba-sub{font-size:14px;color:#8B96A3;margin-bottom:28px;letter-spacing:1px;}
+.ba-rows{list-style:none;}
+.ba-rows li{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid rgba(201,168,76,0.08);font-size:15px;}
+.ba-rows li:last-child{border-bottom:0;}
+.ba-rows li .k{color:#B8C0CC;}
+.ba-rows li .v{color:#F8F6F0;font-weight:600;letter-spacing:1px;}
+.ba-rows li.total{margin-top:8px;padding-top:18px;border-top:2px solid rgba(201,168,76,0.25);border-bottom:0;}
+.ba-rows li.total .k{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#8B96A3;}
+.ba-rows li.total .v{font-family:'Cormorant Garamond',serif;font-size:28px;}
+.ba-card.before .ba-rows li.total .v{color:#E07A7A;}
+.ba-card.after .ba-rows li.total .v{color:#C9A84C;}
+
+.ba-arrow{display:flex;flex-direction:column;align-items:center;justify-content:center;color:#C9A84C;}
+.ba-arrow .arrow-icon{font-size:48px;line-height:1;}
+.ba-arrow .arrow-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;margin-top:12px;}
+
+.result-banner{margin-top:48px;background:linear-gradient(90deg,rgba(201,168,76,0.12) 0%,rgba(201,168,76,0.04) 100%);border:1px solid rgba(201,168,76,0.35);padding:40px 48px;display:flex;justify-content:space-between;align-items:center;gap:32px;}
+.result-banner .text-block .tag{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#C9A84C;margin-bottom:8px;}
+.result-banner .text-block h4{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:#F8F6F0;margin-bottom:6px;}
+.result-banner .text-block p{font-size:15px;color:#8B96A3;}
+.result-banner .pct{font-family:'Cormorant Garamond',serif;font-size:96px;font-weight:600;color:#C9A84C;line-height:1;}
+
+.legal{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.legal-item{padding:24px;border-left:2px solid #C9A84C;background:rgba(201,168,76,0.03);}
+.legal-item h5{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:10px;}
+.legal-item p{font-size:13px;color:#8B96A3;line-height:1.6;}
+
+/* ============ CALCULATOR ============ */
+.calc-section{padding:120px 32px;text-align:center;max-width:1280px;margin:0 auto;}
+.calc-frame-wrap{position:relative;border:1px solid rgba(201,168,76,0.25);background:#0A1018;padding:8px;}
+.calc-frame{width:100%;height:780px;border:0;display:block;background:#fff;}
+.calc-cta{margin-top:24px;font-size:14px;color:#8B96A3;letter-spacing:1px;}
+.calc-cta a{color:#C9A84C;border-bottom:1px solid #C9A84C;}
+
+/* ============ FORM ============ */
+.form-section{padding:120px 32px;max-width:880px;margin:0 auto;}
+.form-wrap{background:#0A1018;border:1px solid rgba(201,168,76,0.25);padding:56px 48px;}
+.form-section .section-head{margin-bottom:48px;}
+form.lead-form{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+form.lead-form .full{grid-column:1/-1;}
+form.lead-form label{display:block;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#C9A84C;margin-bottom:10px;}
+form.lead-form input,form.lead-form textarea{width:100%;background:#050A10;border:1px solid rgba(201,168,76,0.25);color:#F8F6F0;font-family:'Barlow Condensed',sans-serif;font-size:16px;padding:14px 16px;letter-spacing:1px;transition:border-color 0.3s;}
+form.lead-form input:focus,form.lead-form textarea:focus{outline:none;border-color:#C9A84C;}
+form.lead-form textarea{resize:vertical;min-height:100px;}
+form.lead-form button{background:#C9A84C;color:#050A10;border:0;padding:18px 40px;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:13px;cursor:pointer;transition:background 0.3s;width:auto;justify-self:center;}
+form.lead-form button:hover{background:#E8C97A;}
+form.lead-form button:disabled{opacity:0.5;cursor:not-allowed;}
+.form-feedback{grid-column:1/-1;text-align:center;font-size:14px;letter-spacing:1px;margin-top:8px;min-height:20px;}
+.form-feedback.success{color:#7AC97E;}
+.form-feedback.error{color:#E07A7A;}
+.form-foot{grid-column:1/-1;font-size:12px;color:#5A6A7A;text-align:center;letter-spacing:1px;margin-top:8px;}
+
+/* ============ CONTACT ============ */
+.contact{padding:120px 32px 160px;text-align:center;background:#070D14;border-top:1px solid rgba(201,168,76,0.12);}
+.contact h2{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4.5vw,52px);font-weight:300;margin-bottom:16px;}
+.contact h2 em{font-style:normal;color:#C9A84C;font-weight:600;}
+.contact p{font-size:17px;color:#8B96A3;margin-bottom:48px;max-width:600px;margin-left:auto;margin-right:auto;letter-spacing:1px;}
+.btn-whats{display:inline-flex;align-items:center;gap:14px;background:#25D366;color:#050A10;padding:20px 40px;font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:14px;transition:all 0.3s;border:2px solid #25D366;}
+.btn-whats:hover{background:#1FB855;border-color:#1FB855;transform:translateY(-2px);}
+.btn-whats svg{width:24px;height:24px;flex-shrink:0;}
+.contact-foot{margin-top:32px;font-size:13px;color:#5A6A7A;letter-spacing:2px;}
+
+/* ============ FOOTER ============ */
+footer{padding:32px;text-align:center;border-top:1px solid rgba(201,168,76,0.12);}
+footer p{font-size:12px;color:#5A6A7A;letter-spacing:2px;text-transform:uppercase;}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:960px){
+  .news-grid{grid-template-columns:1fr;}
+  .ba-grid{grid-template-columns:1fr;}
+  .ba-arrow{transform:rotate(90deg);}
+  .summary-bar{grid-template-columns:repeat(2,1fr);}
+  .legal{grid-template-columns:1fr;}
+  .result-banner{flex-direction:column;text-align:center;}
+  .result-banner .pct{font-size:72px;}
+  .topbar-inner{padding:14px 20px;}
+  .brand{font-size:18px;}
+  .nav-back{padding:8px 16px;font-size:11px;}
+}
+@media(max-width:600px){
+  .summary-bar{grid-template-columns:1fr;}
+  .section,.compare-section,.calc-section,.contact,.form-section{padding-left:20px;padding-right:20px;}
+  .calc-frame{height:680px;}
+  .form-wrap{padding:40px 24px;}
+  form.lead-form{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">Q<em>&</em>M Consultoria</div>
+    <a href="index.html" class="nav-back">← Voltar</a>
+  </div>
+</header>
+
+<!-- TÍTULO PRINCIPAL -->
+<section class="hero-title">
+  <div class="label">Setor Farmacêutico</div>
+  <h1 class="main"><em>Farmácias</em> e <em>Drogarias</em></h1>
+  <div class="line"></div>
+  <p class="subtitle">Tributação especializada para quem trabalha com saúde, prescrição e estoque regulado.</p>
+</section>
+
+<!-- HERO COM VÍDEO 1 -->
+<section class="video-hero">
+  <iframe class="video-bg"
+    src="https://www.youtube.com/embed/EWtp87C4WZA?autoplay=1&mute=1&loop=1&playlist=EWtp87C4WZA&controls=0&showinfo=0&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1&playsinline=1"
+    title="Background video"
+    allow="autoplay; encrypted-media"
+    allowfullscreen></iframe>
+  <div class="video-overlay"></div>
+  <div class="video-content">
+    <p class="quote">Contabilidade especializada em <strong>farmácias</strong>. Porque saúde financeira também precisa de prescrição.</p>
+    <div class="quote-divider"></div>
+    <p class="quote-sub">Sua farmácia em equilíbrio. Seu imposto na dose certa.</p>
+  </div>
+</section>
+
+<!-- PAINEL DE NOTÍCIAS -->
+<section class="section">
+  <div class="section-head">
+    <div class="label">Atualizações Tributárias</div>
+    <h2>O que está <em>mudando</em> no seu setor</h2>
+    <p>Três frentes que já estão redesenhando o caixa, a nota fiscal e a margem de farmácias e drogarias.</p>
+  </div>
+
+  <div class="news-grid">
+
+    <!-- CARD 1: IBS e CBS Farmácia -->
+    <a class="news-card" href="noticia-ibs-cbs-farmacia.html" target="_blank" rel="noopener">
+      <div class="news-cover">
+        <svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <line x1="40" y1="100" x2="360" y2="100" stroke="#C9A84C" stroke-width="1.5" opacity="0.3"/>
+          <g font-family="Barlow Condensed, sans-serif" fill="#C9A84C" font-weight="700">
+            <circle cx="80" cy="100" r="5" fill="#C9A84C"/>
+            <text x="80" y="86" text-anchor="middle" font-size="11" letter-spacing="2">2026</text>
+            <circle cx="170" cy="100" r="7" fill="#C9A84C"/>
+            <text x="170" y="84" text-anchor="middle" font-size="13" letter-spacing="2">2027</text>
+            <circle cx="260" cy="100" r="5" fill="#C9A84C" opacity="0.6"/>
+            <text x="260" y="86" text-anchor="middle" font-size="11" letter-spacing="2" opacity="0.7">2029</text>
+            <circle cx="340" cy="100" r="8" fill="#E8C97A"/>
+            <text x="340" y="84" text-anchor="middle" font-size="14" letter-spacing="2">2033</text>
+          </g>
+          <!-- cesta básica medicamentos -->
+          <g font-family="Barlow Condensed, sans-serif" fill="#5A6A7A" font-size="9" letter-spacing="2" text-anchor="middle">
+            <text x="115" y="40">CESTA BÁSICA</text>
+            <text x="115" y="52">MEDICAMENTOS</text>
+            <text x="285" y="40">DEMAIS</text>
+            <text x="285" y="52">MEDICAMENTOS</text>
+          </g>
+          <g font-family="Cormorant Garamond, serif" font-weight="600">
+            <text x="115" y="155" text-anchor="middle" font-size="22" fill="#C9A84C">Alíquota 0%</text>
+            <text x="285" y="155" text-anchor="middle" font-size="22" fill="#C9A84C">−60%</text>
+          </g>
+        </svg>
+      </div>
+      <div class="news-body">
+        <div class="news-tag">Reforma Tributária</div>
+        <h3>IBS e CBS no Setor Farmacêutico</h3>
+        <p class="news-lead">Cinco tributos viram dois — mas medicamentos têm tratamento diferenciado. Cesta básica de medicamentos com alíquota zero, demais medicamentos com redução de 60% e perfumaria/conveniência com alíquota cheia.</p>
+        <ul>
+          <li>2026: alíquota simbólica (0,9% CBS / 0,1% IBS) para teste</li>
+          <li>2027: CBS substitui PIS/COFINS com alíquota cheia</li>
+          <li>Lista de medicamentos beneficiados definida pelo Comitê Gestor</li>
+          <li>Mix de produtos exige nova classificação fiscal</li>
+        </ul>
+        <div class="news-base">Base legal: LC 214/2025 · LC 192/2022</div>
+        <span class="news-readmore">Ler matéria completa →</span>
+      </div>
+    </a>
+
+    <!-- CARD 2: PIS/COFINS Monofásico em Medicamentos -->
+    <a class="news-card" href="noticia-pis-cofins-monofasico-farmacia.html" target="_blank" rel="noopener">
+      <div class="news-cover">
+        <svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <!-- Receita médica -->
+          <g transform="translate(50,30)">
+            <rect x="0" y="0" width="120" height="130" fill="#0F1822" stroke="#C9A84C" stroke-width="1.5"/>
+            <!-- Rx symbol -->
+            <text x="14" y="34" font-family="Cormorant Garamond, serif" font-weight="700" font-style="italic" fill="#C9A84C" font-size="22">℞</text>
+            <text x="60" y="22" text-anchor="middle" font-family="Barlow Condensed, sans-serif" fill="#C9A84C" font-size="9" letter-spacing="2">RECEITA</text>
+            <line x1="38" y1="40" x2="108" y2="40" stroke="#C9A84C" stroke-width="0.5" opacity="0.4"/>
+            <g font-family="Barlow Condensed, sans-serif" font-size="9">
+              <text x="14" y="58" fill="#8B96A3">Lista positiva</text>
+              <text x="14" y="74" fill="#8B96A3">Lista neutra</text>
+              <text x="14" y="90" fill="#8B96A3">Lista negativa</text>
+              <line x1="14" y1="98" x2="108" y2="98" stroke="#5A6A7A" stroke-width="0.4" opacity="0.4"/>
+              <text x="14" y="114" fill="#E07A7A">PIS/COFINS</text>
+              <text x="14" y="124" fill="#E07A7A">pago a mais</text>
+            </g>
+          </g>
+          <g transform="translate(190,90)">
+            <line x1="0" y1="0" x2="60" y2="0" stroke="#C9A84C" stroke-width="2"/>
+            <path d="M52 -7 L60 0 L52 7" fill="none" stroke="#C9A84C" stroke-width="2"/>
+            <text x="30" y="-12" text-anchor="middle" font-family="Barlow Condensed, sans-serif" fill="#C9A84C" font-size="9" letter-spacing="2">5 ANOS</text>
+          </g>
+          <g transform="translate(280,40)">
+            <circle cx="40" cy="50" r="32" fill="none" stroke="#C9A84C" stroke-width="2"/>
+            <text x="40" y="58" text-anchor="middle" font-family="Cormorant Garamond, serif" fill="#C9A84C" font-size="24" font-weight="600">R$</text>
+            <circle cx="80" cy="100" r="22" fill="none" stroke="#C9A84C" stroke-width="1.5" opacity="0.6"/>
+            <text x="80" y="106" text-anchor="middle" font-family="Cormorant Garamond, serif" fill="#C9A84C" font-size="16" font-weight="600" opacity="0.6">R$</text>
+          </g>
+        </svg>
+      </div>
+      <div class="news-body">
+        <div class="news-tag">Recuperação de Créditos</div>
+        <h3>PIS/COFINS Monofásico em Medicamentos</h3>
+        <p class="news-lead">Farmácias que revendem medicamentos da lista positiva não devem pagar PIS e COFINS sobre esses itens — o tributo já foi recolhido na origem. O direito de recuperar os últimos 5 anos está garantido.</p>
+        <ul>
+          <li>Alíquota zero para revendedores de medicamentos lista positiva</li>
+          <li>Vale para Simples, Lucro Presumido e Lucro Real</li>
+          <li>ICMS-ST: restituição quando a venda real é menor que a base presumida</li>
+          <li>Restituição PIS/COFINS em 30 a 60 dias após protocolo</li>
+        </ul>
+        <div class="news-base">Base legal: Lei 10.147/2000 · CF Art. 150 §7º · IN RFB 2055/2021</div>
+        <span class="news-readmore">Ler matéria completa →</span>
+      </div>
+    </a>
+
+    <!-- CARD 3: Split Payment Farmácia -->
+    <a class="news-card" href="noticia-split-payment-farmacia.html" target="_blank" rel="noopener">
+      <div class="news-cover">
+        <svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <g transform="translate(30,60)">
+            <rect x="0" y="0" width="100" height="62" rx="6" fill="#0F1822" stroke="#C9A84C" stroke-width="1.5"/>
+            <rect x="10" y="14" width="22" height="16" fill="#C9A84C" opacity="0.6"/>
+            <line x1="10" y1="40" x2="90" y2="40" stroke="#C9A84C" stroke-width="0.6" opacity="0.4"/>
+            <line x1="10" y1="48" x2="64" y2="48" stroke="#C9A84C" stroke-width="0.6" opacity="0.4"/>
+          </g>
+          <g transform="translate(165,90)">
+            <circle cx="0" cy="0" r="10" fill="#0A1018" stroke="#C9A84C" stroke-width="1.5"/>
+            <line x1="-5" y1="0" x2="5" y2="0" stroke="#C9A84C" stroke-width="1.5"/>
+            <line x1="0" y1="-5" x2="0" y2="5" stroke="#C9A84C" stroke-width="1.5"/>
+          </g>
+          <line x1="135" y1="92" x2="155" y2="92" stroke="#C9A84C" stroke-width="1.5"/>
+          <path d="M175 86 Q210 60 250 50" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
+          <path d="M245 46 L252 50 L246 56" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
+          <path d="M175 96 Q210 122 250 132" fill="none" stroke="#C9A84C" stroke-width="1.5" opacity="0.7"/>
+          <path d="M245 128 L252 132 L246 138" fill="none" stroke="#C9A84C" stroke-width="1.5" opacity="0.7"/>
+          <g transform="translate(255,32)">
+            <rect x="0" y="0" width="110" height="40" fill="#0F1822" stroke="#C9A84C" stroke-width="1"/>
+            <text x="55" y="18" text-anchor="middle" font-family="Barlow Condensed, sans-serif" fill="#8B96A3" font-size="9" letter-spacing="3">FARMÁCIA</text>
+            <text x="55" y="33" text-anchor="middle" font-family="Cormorant Garamond, serif" fill="#C9A84C" font-size="14" font-weight="600">líquido</text>
+          </g>
+          <g transform="translate(255,114)">
+            <rect x="0" y="0" width="110" height="40" fill="#0F1822" stroke="#C9A84C" stroke-width="1" opacity="0.85"/>
+            <text x="55" y="18" text-anchor="middle" font-family="Barlow Condensed, sans-serif" fill="#8B96A3" font-size="9" letter-spacing="3">FISCO</text>
+            <text x="55" y="33" text-anchor="middle" font-family="Cormorant Garamond, serif" fill="#C9A84C" font-size="14" font-weight="600">IBS+CBS</text>
+          </g>
+        </svg>
+      </div>
+      <div class="news-body">
+        <div class="news-tag">Impacto no Caixa</div>
+        <h3>Split Payment: o imposto sai antes</h3>
+        <p class="news-lead">A partir de 2027, parte de cada cartão e Pix é separada automaticamente e enviada ao governo. O dinheiro do imposto deixa de transitar pelo caixa da farmácia — e o capital de giro encurta.</p>
+        <ul>
+          <li>Vigência prevista: 2027 (2026 é ano de teste)</li>
+          <li>Aplica-se a vendas por cartão, boleto e Pix</li>
+          <li>Convênios e cartões saúde também afetados</li>
+          <li>Em compensação, créditos de IBS e CBS são liberados mais rápido</li>
+        </ul>
+        <div class="news-base">Base legal: LC 214/2025 · NT 2025.002-RTC</div>
+        <span class="news-readmore">Ler matéria completa →</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- HERO COM VÍDEO 2 -->
+<section class="video-hero">
+  <iframe class="video-bg"
+    src="https://www.youtube.com/embed/i7wM7_-GCcY?autoplay=1&mute=1&loop=1&playlist=i7wM7_-GCcY&controls=0&showinfo=0&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1&playsinline=1"
+    title="Background video"
+    allow="autoplay; encrypted-media"
+    allowfullscreen></iframe>
+  <div class="video-overlay"></div>
+  <div class="video-content">
+    <p class="quote">Você entende de <strong>bula, fórmula e estoque</strong>. A gente entende de <strong>imposto, regime tributário e fluxo de caixa</strong>.</p>
+    <div class="quote-divider"></div>
+    <p class="quote-sub">Juntos, sua farmácia rende mais.</p>
+  </div>
+</section>
+
+<!-- ANTES x DEPOIS -->
+<section class="compare-section">
+  <div class="compare-inner">
+
+    <div class="section-head">
+      <div class="label">Planejamento Tributário · Farmácia</div>
+      <h2>Antes <em>x</em> Depois</h2>
+      <p>Simulação real com faturamento de R$ 150.000/mês. Mesma farmácia, mesmo regime, sem mudar o faturamento.</p>
+    </div>
+
+    <!-- RESUMO -->
+    <div class="summary-bar">
+      <div class="summary-cell">
+        <div class="lbl">Faturamento mensal</div>
+        <div class="val">R$ 150.000</div>
+        <div class="sub">Base de cálculo</div>
+      </div>
+      <div class="summary-cell">
+        <div class="lbl">Imposto antes</div>
+        <div class="val">R$ 13.500</div>
+        <div class="sub">Simples 9% s/ total</div>
+      </div>
+      <div class="summary-cell">
+        <div class="lbl">Imposto depois</div>
+        <div class="val">R$ 9.450</div>
+        <div class="sub">Com segregação aplicada</div>
+      </div>
+      <div class="summary-cell gold">
+        <div class="lbl">Economia mensal</div>
+        <div class="val">R$ 4.050</div>
+        <div class="sub">R$ 48.600 ao ano</div>
+      </div>
+    </div>
+
+    <!-- COMPARATIVO -->
+    <div class="ba-grid">
+      <div class="ba-card before">
+        <span class="ba-tag">Antes</span>
+        <h3>Sem <strong>planejamento</strong></h3>
+        <p class="ba-sub">DAS calculado sobre 100% do faturamento</p>
+        <ul class="ba-rows">
+          <li><span class="k">Faturamento total</span><span class="v">R$ 150.000</span></li>
+          <li><span class="k">Base de cálculo DAS</span><span class="v">R$ 150.000</span></li>
+          <li><span class="k">Alíquota Simples Nacional</span><span class="v">9,00%</span></li>
+          <li><span class="k">Segregação de medicamentos</span><span class="v">não realizada</span></li>
+          <li><span class="k">Exclusão PIS/COFINS monofásico</span><span class="v">não aplicada</span></li>
+          <li><span class="k">Exclusão ICMS-ST</span><span class="v">não aplicada</span></li>
+          <li class="total"><span class="k">Total de imposto</span><span class="v">R$ 13.500</span></li>
+        </ul>
+      </div>
+
+      <div class="ba-arrow">
+        <div class="arrow-icon">→</div>
+        <div class="arrow-label">Planejamento</div>
+      </div>
+
+      <div class="ba-card after">
+        <span class="ba-tag">Depois</span>
+        <h3>Com <strong>planejamento</strong></h3>
+        <p class="ba-sub">75% das vendas segregadas (lista positiva + ICMS-ST)</p>
+        <ul class="ba-rows">
+          <li><span class="k">Faturamento total</span><span class="v">R$ 150.000</span></li>
+          <li><span class="k">Vendas c/ produtos segregados</span><span class="v">75% — R$ 112.500</span></li>
+          <li><span class="k">Base de cálculo DAS reduzida</span><span class="v">R$ 37.500</span></li>
+          <li><span class="k">Exclusão PIS/COFINS monofásico</span><span class="v">aplicada</span></li>
+          <li><span class="k">Exclusão ICMS-ST da receita</span><span class="v">aplicada</span></li>
+          <li><span class="k">Alíquota Simples Nacional</span><span class="v">9,00%</span></li>
+          <li class="total"><span class="k">Total de imposto</span><span class="v">R$ 9.450</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- BANNER DE RESULTADO -->
+    <div class="result-banner">
+      <div class="text-block">
+        <div class="tag">Resultado do planejamento</div>
+        <h4>Redução de 30% na carga tributária mensal</h4>
+        <p>R$ 4.050 por mês a menos de imposto — sem mudar o regime, sem abrir mão do faturamento.</p>
+      </div>
+      <div class="pct">30%</div>
+    </div>
+
+    <!-- FUNDAMENTAÇÃO LEGAL -->
+    <div class="legal">
+      <div class="legal-item">
+        <h5>PIS/COFINS Monofásico</h5>
+        <p>Lei 10.147/2000 — Art. 2º<br>Alíquota zero para revendedores de medicamentos da lista positiva.</p>
+      </div>
+      <div class="legal-item">
+        <h5>ICMS-ST · Exclusão da base</h5>
+        <p>Art. 150, §7º — Constituição Federal<br>Convênio ICMS 76/94 e regulamentações estaduais.</p>
+      </div>
+      <div class="legal-item">
+        <h5>Simples Nacional · Segregação</h5>
+        <p>LC 123/2006 — Art. 2º, §4º<br>Resolução CGSN 140/2018.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CALCULADORA TRIBUTÁRIA -->
+<section class="calc-section" id="calculadora">
+  <div class="section-head">
+    <div class="label">Diagnóstico em tempo real</div>
+    <h2>Sua <em>calculadora tributária</em></h2>
+    <p>Simule abaixo o impacto do planejamento na sua farmácia ou drogaria.</p>
+  </div>
+
+  <div class="calc-frame-wrap">
+    <iframe class="calc-frame"
+      src="https://diagnostico-tributario-seven.vercel.app/"
+      title="Diagnóstico Tributário"
+      loading="lazy"></iframe>
+  </div>
+  <p class="calc-cta">Prefere abrir em tela cheia? <a href="https://diagnostico-tributario-seven.vercel.app/" target="_blank" rel="noopener">Acessar a calculadora</a></p>
+</section>
+
+<!-- FORMULÁRIO -->
+<section class="form-section" id="contato">
+  <div class="section-head">
+    <div class="label">Deixe seus dados</div>
+    <h2>Receba um <em>diagnóstico</em> personalizado</h2>
+    <p>Preencha o formulário abaixo. Em até 1 dia útil, um especialista entra em contato para entender sua operação e estimar o impacto tributário.</p>
+  </div>
+
+  <div class="form-wrap">
+    <form class="lead-form" id="leadForm" action="https://formspree.io/f/xyklqllq" method="POST">
+      <div class="full">
+        <label for="nome">Nome completo</label>
+        <input type="text" id="nome" name="nome" required placeholder="Seu nome">
+      </div>
+      <div>
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" required placeholder="voce@empresa.com">
+      </div>
+      <div>
+        <label for="whatsapp">WhatsApp</label>
+        <input type="tel" id="whatsapp" name="whatsapp" required placeholder="(81) 99999-9999">
+      </div>
+      <div class="full">
+        <label for="mensagem">Mensagem (opcional)</label>
+        <textarea id="mensagem" name="mensagem" placeholder="Conte um pouco sobre sua farmácia ou drogaria"></textarea>
+      </div>
+      <input type="hidden" name="origem" value="Página Área Farmacêutica">
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <div class="full" style="text-align:center;">
+        <button type="submit" id="leadSubmit">Enviar</button>
+      </div>
+      <div class="form-feedback" id="formFeedback" role="status" aria-live="polite"></div>
+      <div class="form-foot">Seus dados são usados apenas para retorno do contato. Não enviamos spam.</div>
+    </form>
+  </div>
+</section>
+
+<!-- CONTATO WHATSAPP -->
+<section class="contact">
+  <div class="label">Próximo passo</div>
+  <h2>Fale com um <em>especialista</em></h2>
+  <p>Em poucos minutos, descubra quanto a sua farmácia pode estar pagando a mais de imposto — e o que dá para recuperar dos últimos 5 anos.</p>
+
+  <a class="btn-whats"
+     href="https://wa.me/5581994034692?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20falar%20sobre%20planejamento%20tribut%C3%A1rio%20para%20farm%C3%A1cia."
+     target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12.05 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.889-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.886 9.884zm8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.463 3.488z"/>
+    </svg>
+    Entre em contato com um especialista
+  </a>
+  <div class="contact-foot">WhatsApp · (81) 99403-4692</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Q&M Consultoria · Tributação para o Setor Farmacêutico</p>
+</footer>
+
+<script>
+(function(){
+  var form = document.getElementById('leadForm');
+  if(!form) return;
+  var btn = document.getElementById('leadSubmit');
+  var feedback = document.getElementById('formFeedback');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    feedback.textContent = '';
+    feedback.className = 'form-feedback';
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    var data = new FormData(form);
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function(res){
+      if(res.ok){
+        form.reset();
+        feedback.textContent = 'Recebemos seus dados. Entraremos em contato em breve.';
+        feedback.className = 'form-feedback success';
+        btn.textContent = 'Enviado';
+        setTimeout(function(){ btn.disabled = false; btn.textContent = 'Enviar'; }, 4000);
+      } else {
+        return res.json().then(function(json){
+          var msg = (json && json.errors && json.errors.length) ? json.errors.map(function(er){return er.message;}).join(', ') : 'Não foi possível enviar agora. Tente novamente.';
+          feedback.textContent = msg;
+          feedback.className = 'form-feedback error';
+          btn.disabled = false;
+          btn.textContent = 'Enviar';
+        });
+      }
+    })
+    .catch(function(){
+      feedback.textContent = 'Erro de conexão. Tente novamente em instantes.';
+      feedback.className = 'form-feedback error';
+      btn.disabled = false;
+      btn.textContent = 'Enviar';
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
