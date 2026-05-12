@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ISS Fixo na Advocacia — Q&M Consultoria</title>
+<meta name="description" content="O regime do ISS Fixo para sociedades uniprofissionais de advogados. DL 406/68, LC 116/2003 e a recuperação dos últimos 5 anos.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Barlow+Condensed:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#050A10;color:#F8F6F0;font-family:'Barlow Condensed',sans-serif;line-height:1.6;}
+a{color:#C9A84C;text-decoration:none;}
+
+.topbar{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(5,10,16,0.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(201,168,76,0.15);}
+.topbar-inner{max-width:1100px;margin:0 auto;padding:18px 32px;display:flex;justify-content:space-between;align-items:center;}
+.brand{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:2px;color:#F8F6F0;}
+.brand em{color:#C9A84C;font-style:normal;}
+.nav-back{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;border:1px solid #C9A84C;padding:10px 22px;transition:all 0.3s;}
+.nav-back:hover{background:#C9A84C;color:#050A10;}
+
+.hero{padding:160px 32px 60px;max-width:1000px;margin:0 auto;text-align:center;}
+.tag{font-size:12px;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;margin-bottom:24px;}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,5.5vw,68px);font-weight:300;line-height:1.1;margin-bottom:24px;color:#F8F6F0;}
+h1 em{font-style:normal;color:#C9A84C;font-weight:600;}
+.lead{font-size:20px;color:#B8C0CC;max-width:780px;margin:0 auto 40px;}
+.meta{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#5A6A7A;}
+
+.cover{max-width:1000px;margin:0 auto 60px;padding:0 32px;}
+.cover-svg{width:100%;height:auto;background:linear-gradient(135deg,#0A1018 0%,#0F1822 100%);border:1px solid rgba(201,168,76,0.18);}
+
+article.body{max-width:780px;margin:0 auto;padding:0 32px 100px;}
+article.body h2{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;color:#F8F6F0;margin:48px 0 20px;line-height:1.2;}
+article.body h3{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:#C9A84C;margin:32px 0 14px;}
+article.body p{font-size:18px;color:#D8DDE5;margin-bottom:18px;}
+article.body p strong{color:#F8F6F0;}
+article.body .legal-box{background:rgba(201,168,76,0.06);border-left:3px solid #C9A84C;padding:20px 24px;margin:24px 0;font-size:16px;color:#B8C0CC;}
+article.body .legal-box strong{color:#C9A84C;letter-spacing:1px;}
+article.body ul{margin:18px 0 24px 0;padding-left:24px;}
+article.body ul li{font-size:18px;color:#D8DDE5;margin-bottom:10px;list-style:none;position:relative;padding-left:18px;}
+article.body ul li::before{content:'—';position:absolute;left:-4px;color:#C9A84C;}
+article.body .divider{width:60px;height:2px;background:#C9A84C;margin:48px auto;}
+
+.cta-box{margin-top:64px;padding:48px;background:#0A1018;border:1px solid rgba(201,168,76,0.25);text-align:center;}
+.cta-box h3{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:#F8F6F0;margin-bottom:12px;}
+.cta-box h3 em{font-style:normal;color:#C9A84C;font-weight:600;}
+.cta-box p{font-size:16px;color:#8B96A3;margin-bottom:28px;}
+.cta-box .btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+.btn-primary{display:inline-block;background:#C9A84C;color:#050A10;padding:16px 32px;font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:13px;transition:all 0.3s;}
+.btn-primary:hover{background:#E8C97A;}
+.btn-ghost{display:inline-block;border:1px solid #C9A84C;color:#C9A84C;padding:16px 32px;font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:13px;transition:all 0.3s;}
+.btn-ghost:hover{background:#C9A84C;color:#050A10;}
+
+footer{padding:32px;text-align:center;border-top:1px solid rgba(201,168,76,0.12);}
+footer p{font-size:12px;color:#5A6A7A;letter-spacing:2px;text-transform:uppercase;}
+
+@media(max-width:600px){
+  .hero{padding:120px 20px 40px;}
+  article.body{padding:0 20px 60px;}
+  article.body p, article.body ul li{font-size:17px;}
+  .cta-box{padding:32px 24px;}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">Q<em>&</em>M Consultoria</div>
+    <a href="advocacia.html" class="nav-back">← Advocacia</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="tag">Benefício Tributário</div>
+  <h1><em>ISS Fixo</em>: o regime que escritórios podem aplicar</h1>
+  <p class="lead">Como sociedades uniprofissionais de advogados podem trocar o ISS de 5% sobre o faturamento por um valor fixo por profissional — e recuperar os últimos 5 anos.</p>
+  <div class="meta">Q&M Consultoria · Tributação Jurídica</div>
+</section>
+
+<div class="cover">
+  <svg class="cover-svg" viewBox="0 0 1000 360" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="goldGrad2" x1="0" x2="1">
+        <stop offset="0%" stop-color="#C9A84C"/>
+        <stop offset="100%" stop-color="#E8C97A"/>
+      </linearGradient>
+    </defs>
+
+    <!-- balança da justiça watermark -->
+    <g opacity="0.05" transform="translate(500,180)">
+      <line x1="0" y1="-80" x2="0" y2="100" stroke="#C9A84C" stroke-width="8"/>
+      <line x1="-120" y1="-60" x2="120" y2="-60" stroke="#C9A84C" stroke-width="5"/>
+      <circle cx="-120" cy="-30" r="30" fill="none" stroke="#C9A84C" stroke-width="4"/>
+      <circle cx="120" cy="-30" r="30" fill="none" stroke="#C9A84C" stroke-width="4"/>
+      <line x1="-50" y1="100" x2="50" y2="100" stroke="#C9A84C" stroke-width="5"/>
+    </g>
+
+    <!-- ANTES box -->
+    <g>
+      <text x="180" y="80" text-anchor="middle" font-family="Barlow Condensed, sans-serif" fill="#E07A7A" font-size="12" letter-spacing="4">ANTES</text>
+      <rect x="100" y="100" width="160" height="200" fill="none" stroke="#E07A7A" stroke-width="2" opacity="0.6"/>
+      <text x="180" y="200" text-anchor="middle" font-family="Cormorant Garamond, serif" fill="#E07A7A" font-size="72" font-weight="600">5%</text>
+      <text x="180" y="240" text-anchor="middle" font-family="Barlow Condensed, sans-serif" fill="#B8C0CC" font-size="11" letter-spacing="2">DO FATURAMENTO</text>
+      <text x="180" y="262" text-anchor="middle" font-family="Barlow Condensed, sans-serif" fill="#5A6A7A" font-size="10" letter-spacing="2">ISS variável</text>
+    </g>
+
+    <!-- arrow -->
+    <g transform="translate(340,200)">
+      <line x1="0" y1="0" x2="120" y2="0" stroke="#C9A84C" stroke-width="2"/>
+      <path d="M110 -10 L120 0 L110 10" fill="none" stroke="#C9A84C" stroke-width="2"/>
+      <text x="60" y="-20" text-anchor="middle" font-family="Barlow Condensed, sans-serif" fill="#C9A84C" font-size="13" letter-spacing="3">DL 406/68</text>
+      <text x="60" y="-4" text-anchor="middle" font-family="Barlow Condensed, sans-serif" fill="#8B96A3" font-size="10" letter-spacing="2">Art. 9º · §3º</text>
+      <text x="60" y="26" text-anchor="middle" font-family="Barlow Condensed, sans-serif" fill="#8B96A3" font-size="10" letter-spacing="2">Sociedade Uniprofissional</text>
+    </g>
+
+    <!-- DEPOIS box -->
+    <g>
+      <text x="800" y="80" text-anchor="middle" font-family="Barlow Condensed, sans-serif" fill="#C9A84C" font-size="12" letter-spacing="4">DEPOIS</text>
+      <rect x="620" y="100" width="360" height="200" fill="none" stroke="#C9A84C" stroke-width="2"/>
+      <text x="800" y="190" text-anchor="middle" font-family="Cormorant Garamond, serif" fill="#C9A84C" font-size="48" font-weight="600">ISS FIXO</text>
+      <text x="800" y="230" text-anchor="middle" font-family="Barlow Condensed, sans-serif" fill="#B8C0CC" font-size="13" letter-spacing="2">POR ADVOGADO HABILITADO</text>
+      <text x="800" y="258" text-anchor="middle" font-family="Barlow Condensed, sans-serif" fill="#5A6A7A" font-size="11" letter-spacing="2">independente do faturamento</text>
+    </g>
+
+    <line x1="40" y1="40" x2="80" y2="40" stroke="#C9A84C" stroke-width="1" opacity="0.4"/>
+    <line x1="40" y1="40" x2="40" y2="80" stroke="#C9A84C" stroke-width="1" opacity="0.4"/>
+    <line x1="960" y1="40" x2="920" y2="40" stroke="#C9A84C" stroke-width="1" opacity="0.4"/>
+    <line x1="960" y1="40" x2="960" y2="80" stroke="#C9A84C" stroke-width="1" opacity="0.4"/>
+    <line x1="40" y1="320" x2="80" y2="320" stroke="#C9A84C" stroke-width="1" opacity="0.4"/>
+    <line x1="40" y1="320" x2="40" y2="280" stroke="#C9A84C" stroke-width="1" opacity="0.4"/>
+    <line x1="960" y1="320" x2="920" y2="320" stroke="#C9A84C" stroke-width="1" opacity="0.4"/>
+    <line x1="960" y1="320" x2="960" y2="280" stroke="#C9A84C" stroke-width="1" opacity="0.4"/>
+  </svg>
+</div>
+
+<article class="body">
+
+  <p>Se você tem um escritório de advocacia constituído como sociedade simples e está pagando ISS como percentual do faturamento, existe uma chance alta de que esteja <strong>recolhendo imposto a mais — todo mês — sem necessidade legal alguma</strong>. O regime do ISS Fixo é antigo, está vigente, e foi pacificado pela jurisprudência. Mas a maioria dos escritórios nunca aplicou.</p>
+
+  <h2>O que é o ISS Fixo</h2>
+  <p>O ISS Fixo é um regime tributário que permite a determinadas sociedades de profissionais recolher o ISS por <strong>valor fixo, por profissional habilitado</strong> — em vez de pagar um percentual (em geral 5%) sobre o faturamento.</p>
+  <p>O valor fixo varia conforme a legislação de cada município, mas em geral fica entre R$ 150 e R$ 400 por advogado, por mês. Para um escritório com cinco advogados em município com ISS de 5%, isso significa pagar R$ 1.250 em vez de R$ 5.000 — todo mês, para o mesmo faturamento.</p>
+  <div class="legal-box"><strong>Base legal:</strong> Decreto-Lei 406/1968, Art. 9º, §3º. Foi recepcionado pela Constituição Federal de 1988 e mantido em vigor pela Lei Complementar 116/2003, Art. 9º.</div>
+
+  <h2>Por que esse benefício existe</h2>
+  <p>O regime do ISS Fixo nasceu da ideia de que serviços <strong>prestados de forma personalíssima por profissionais regulamentados</strong> — como advogados, médicos, dentistas, engenheiros — não são equiparáveis ao comércio. O profissional vende sua intelectualidade, não um produto. A tributação por valor fixo reconhece isso.</p>
+  <p>Para escritórios de advocacia, a lógica é clara: independentemente do tamanho da causa ou do valor dos honorários, o serviço continua sendo prestado <strong>diretamente pelo advogado, com sua responsabilidade pessoal</strong>. Por isso a tributação não pode se comportar como uma alíquota proporcional ao tamanho do negócio.</p>
+
+  <h2>O entendimento dos tribunais superiores</h2>
+  <p>O Superior Tribunal de Justiça e o Supremo Tribunal Federal já se manifestaram em diversas oportunidades pela <strong>validade do regime fixo do ISS</strong> para sociedades uniprofissionais. A jurisprudência é consolidada: o município não pode, por lei ou por interpretação, retirar o direito ao regime fixo de uma sociedade que cumpre os requisitos legais.</p>
+  <p>Mais relevante ainda: os tribunais firmaram que a <strong>simples adoção da forma societária não basta para descaracterizar o direito</strong>. A análise é caso a caso — o que importa é a natureza efetiva da atividade, não o tipo de sociedade no contrato social.</p>
+  <div class="legal-box"><strong>STJ:</strong> "Sociedade de profissionais que presta serviços personalíssimos, sem caráter empresarial, faz jus ao regime de tributação fixa do ISS previsto no §3º do art. 9º do Decreto-Lei 406/68."</div>
+
+  <h2>Quem tem direito</h2>
+  <p>Tem direito ao ISS Fixo a sociedade que cumpre, cumulativamente, três condições:</p>
+
+  <h3>1. Ser sociedade simples (S/S)</h3>
+  <p>O contrato social precisa indicar a empresa como <strong>sociedade simples</strong>, e não sociedade empresária. Para advocacia, a regra geral é que a Sociedade de Advogados (registrada na OAB) já tem natureza simples por força do Estatuto da Advocacia (Lei 8.906/94, Art. 16).</p>
+
+  <h3>2. Ser uniprofissional</h3>
+  <p>Todos os sócios precisam ser profissionais habilitados na mesma profissão regulamentada — no caso, todos advogados inscritos na OAB. Sociedades com sócios de outras profissões (multiprofissionais) podem não se enquadrar.</p>
+
+  <h3>3. Não ter caráter empresarial</h3>
+  <p>Esse é o ponto mais sensível e onde os municípios mais autuam. A sociedade não pode operar como empresa — com estrutura, escala e impessoalidade próprias de atividade econômica organizada. <strong>O serviço precisa ser prestado pessoalmente pelos sócios advogados</strong>, com responsabilidade individual.</p>
+  <p>Filiais, equipes muito grandes, terceirização extensiva ou operação como "fábrica de petições" pode levar a Fazenda municipal a descaracterizar o caráter pessoal e exigir o ISS proporcional.</p>
+
+  <h2>Quanto isso representa em números</h2>
+  <p>Considere uma sociedade com 5 advogados, faturando R$ 100.000/mês, em município com ISS de 5%:</p>
+  <ul>
+    <li><strong>Sem ISS Fixo:</strong> ISS = 5% × R$ 100.000 = <strong>R$ 5.000/mês</strong></li>
+    <li><strong>Com ISS Fixo:</strong> ISS ≈ 5 × R$ 250 = <strong>R$ 1.250/mês</strong></li>
+    <li><strong>Economia mensal:</strong> R$ 3.750</li>
+    <li><strong>Economia anual:</strong> R$ 45.000</li>
+    <li><strong>Recuperação retroativa (5 anos):</strong> até R$ 225.000</li>
+  </ul>
+  <p>Esses números variam conforme o município, o valor fixo definido em lei municipal e o porte do escritório, mas a ordem de grandeza é essa. A redução típica fica entre <strong>70% e 85% sobre o ISS</strong>.</p>
+
+  <h2>O que está sendo pago a mais</h2>
+  <p>Muitos escritórios de advocacia continuam pagando ISS proporcional simplesmente porque o cadastro municipal nunca foi adequado ao regime fixo. Em outros casos, o contador aplicou alíquota proporcional por desconhecimento ou por entender — equivocadamente — que o regime fixo seria mais arriscado.</p>
+  <p>O resultado é direto: o escritório paga <strong>de 3 a 6 vezes mais ISS</strong> do que deveria, mês após mês.</p>
+  <p>O direito de recuperar o que foi pago a mais nos <strong>últimos 5 anos</strong> está garantido pelo Código Tributário Nacional. Escritórios que comprovam o enquadramento podem solicitar restituição ou compensação com o ISS a vencer.</p>
+
+  <h2>Os passos práticos para aplicar</h2>
+  <p>Para implementar o ISS Fixo sem risco de autuação, o escritório precisa:</p>
+  <ul>
+    <li><strong>Revisar o contrato social</strong> para confirmar a natureza simples e uniprofissional</li>
+    <li><strong>Verificar a legislação municipal específica</strong> sobre o regime fixo</li>
+    <li><strong>Solicitar o enquadramento</strong> no cadastro mobiliário municipal</li>
+    <li><strong>Mapear os últimos 5 anos</strong> de pagamentos para identificar valores recuperáveis</li>
+    <li><strong>Protocolar pedido de restituição ou compensação</strong> com a documentação correta</li>
+  </ul>
+
+  <h2>E com a Reforma Tributária?</h2>
+  <p>A partir de 2027, o ISS começa a ser substituído pelo IBS. A regulamentação do IBS ainda está em desenvolvimento, e o tratamento das sociedades uniprofissionais é tema sensível. Por isso, <strong>aplicar o ISS Fixo agora — enquanto vigora — é estratégico: além da economia mensal, há a janela de recuperação dos 5 anos retroativos antes que o regime mude.</strong></p>
+
+  <h2>Antes de sair daqui</h2>
+  <p>Se seu escritório é sociedade uniprofissional de advogados e paga ISS proporcional, a chance de estar pagando imposto a mais é altíssima. Isso não é especulação, é o padrão que encontramos nos escritórios que chegam até nós.</p>
+  <p>O diagnóstico começa pelo levantamento dos últimos 5 anos. Se quiser entender quanto seu escritório tem a recuperar — e quanto pode economizar a partir do próximo mês — esse é o próximo passo.</p>
+
+  <div class="divider"></div>
+
+  <div class="cta-box">
+    <h3>Seu escritório pode estar <em>pagando 4x mais</em> ISS</h3>
+    <p>Faça o diagnóstico e descubra o quanto o ISS Fixo pode reduzir.</p>
+    <div class="btns">
+      <a class="btn-primary" href="advocacia.html#calculadora">Abrir Calculadora</a>
+      <a class="btn-ghost" href="https://wa.me/5581994034692?text=Ol%C3%A1!%20Quero%20saber%20se%20meu%20escrit%C3%B3rio%20tem%20direito%20ao%20ISS%20Fixo." target="_blank" rel="noopener">Falar no WhatsApp</a>
+    </div>
+  </div>
+
+</article>
+
+<footer><p>Q&M Consultoria · Tributação para o Setor Jurídico</p></footer>
+
+</body>
+</html>
