@@ -713,6 +713,101 @@ footer { background: var(--black); border-top: 1px solid rgba(201,168,76,0.15); 
 }
 .carreira-teaser-btn:hover { background: var(--gold-light); transform: scale(1.03); }
 
+/* BANNER REFORMA TRIBUTÁRIA */
+.banner-reforma {
+  position: relative;
+  overflow: hidden;
+  background: var(--black);
+}
+.banner-reforma::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold) 30%, #E05252 70%, transparent);
+}
+.banner-reforma-inner {
+  max-width: 1400px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr auto;
+  align-items: center; gap: 48px;
+  padding: 56px 56px;
+}
+.banner-reforma-text {
+  display: flex; flex-direction: column; gap: 0;
+}
+.banner-reforma-eyebrow {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 14px;
+}
+.banner-reforma-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(224,82,82,0.1); border: 1px solid rgba(224,82,82,0.3);
+  border-radius: var(--radius-pill); padding: 4px 14px;
+  font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  color: #E88;
+}
+.banner-reforma-badge-gold {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.25);
+  border-radius: var(--radius-pill); padding: 4px 14px;
+  font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gold);
+}
+.banner-reforma-text h2 {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.5vw, 48px);
+  font-weight: 700; color: var(--white); line-height: 1.15; margin-bottom: 14px;
+}
+.banner-reforma-text h2 em { font-style: italic; color: var(--gold); }
+.banner-reforma-text p {
+  font-size: 16px; color: var(--gray-light); line-height: 1.75; max-width: 680px;
+}
+.banner-reforma-text p strong { color: var(--white); }
+
+/* Pills de setores */
+.banner-reforma-pills {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px;
+}
+.banner-reforma-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-pill); padding: 6px 14px;
+  font-size: 13px; font-weight: 500; color: var(--gray-light);
+}
+
+/* CTA lado direito */
+.banner-reforma-cta {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 16px; flex-shrink: 0;
+}
+.banner-reforma-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  background: var(--gold); color: var(--black);
+  font-family: var(--font-body); font-size: 16px; font-weight: 700;
+  padding: 18px 36px; border-radius: var(--radius-pill);
+  text-decoration: none; white-space: nowrap;
+  transition: background 0.3s, transform 0.2s;
+  box-shadow: 0 8px 32px rgba(201,168,76,0.25);
+}
+.banner-reforma-btn:hover { background: var(--gold-light); transform: scale(1.04); }
+.banner-reforma-sub {
+  font-size: 12px; color: var(--gray-mid); text-align: center;
+  font-weight: 500; letter-spacing: 0.3px;
+}
+
+/* Decoração numérica */
+.banner-reforma-deco {
+  position: absolute; right: 56px; top: 50%; transform: translateY(-50%);
+  font-family: var(--font-display); font-size: clamp(80px,10vw,140px); font-weight: 900;
+  color: rgba(201,168,76,0.04); pointer-events: none; line-height: 1;
+  white-space: nowrap; z-index: 0;
+}
+
+/* Linha divisória entre textos */
+.banner-reforma-divider {
+  width: 100%; height: 1px;
+  background: linear-gradient(90deg, var(--gold), rgba(224,82,82,0.4), transparent);
+  margin: 0 56px; width: calc(100% - 112px);
+}
+
 /* MOBILE */
 @media (max-width: 1024px) {
   nav { padding: 0 24px; }
@@ -727,6 +822,11 @@ footer { background: var(--black); border-top: 1px solid rgba(201,168,76,0.15); 
   .seg-card { flex: 0 0 80vw; aspect-ratio: 2/1; }
   .carousel-outer::before, .carousel-outer::after { width: 30px; }
   .carousel-controls { padding: 0 24px; }
+  .banner-reforma-inner { grid-template-columns: 1fr; gap: 32px; padding: 48px 24px; }
+  .banner-reforma-cta { align-items: flex-start; }
+  .banner-reforma-btn { width: 100%; justify-content: center; }
+  .banner-reforma-deco { display: none; }
+  .banner-reforma-divider { margin: 0 24px; width: calc(100% - 48px); }
   .especialistas { padding: 60px 24px; }
   .especialistas-grid { grid-template-columns: 1fr; }
   .resultados { padding: 60px 24px; }
@@ -973,6 +1073,33 @@ footer { background: var(--black); border-top: 1px solid rgba(201,168,76,0.15); 
     <button class="carousel-btn" id="segNext" onclick="segSlide(1)" aria-label="Próximo">→</button>
   </div>
 </section>
+
+<!-- BANNER REFORMA TRIBUTÁRIA -->
+<div class="banner-reforma reveal">
+  <div class="banner-reforma-deco">2026</div>
+  <div class="banner-reforma-inner">
+    <div class="banner-reforma-text">
+      <div class="banner-reforma-eyebrow">
+        <span class="banner-reforma-badge">🚨 Em vigor agora</span>
+        <span class="banner-reforma-badge-gold">LC 214/2025</span>
+      </div>
+      <h2>A Reforma Tributária já começou.<br>A sua empresa está <em>preparada?</em></h2>
+      <p>5 impostos sendo extintos. Uma nova lógica de cobrança. Split payment chegando em 2027. Quem entender primeiro vai pagar menos — quem esperar vai pagar a conta. <strong>Entenda o que muda para o seu setor em linguagem de empresário.</strong></p>
+      <div class="banner-reforma-pills">
+        <span class="banner-reforma-pill">🏥 Área da Saúde</span>
+        <span class="banner-reforma-pill">⚖️ Advocacia</span>
+        <span class="banner-reforma-pill">🍽️ Bares e Restaurantes</span>
+      </div>
+    </div>
+    <div class="banner-reforma-cta">
+      <a href="reforma-tributaria.html" class="banner-reforma-btn">
+        Entender a Reforma →
+      </a>
+      <span class="banner-reforma-sub">Conteúdo gratuito — sem cadastro</span>
+    </div>
+  </div>
+  <div class="banner-reforma-divider"></div>
+</div>
 
 <!-- ESPECIALISTAS -->
 <section class="especialistas" id="especialistas">
