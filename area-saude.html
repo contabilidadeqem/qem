@@ -112,6 +112,18 @@ h1.main em{font-style:normal;color:#C9A84C;font-weight:600;}
 .legal-item h5{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:10px;}
 .legal-item p{font-size:13px;color:#8B96A3;line-height:1.6;}
 
+/* ============ BANNER PROVOCATIVO ============ */
+.banner-provoc{background:linear-gradient(135deg,#0A1018 0%,#050A10 100%);border-top:2px solid #C9A84C;border-bottom:1px solid rgba(201,168,76,0.15);padding:80px 32px;text-align:center;position:relative;overflow:hidden;}
+.banner-provoc::before{content:'"';position:absolute;top:-40px;left:50%;transform:translateX(-50%);font-family:'Cormorant Garamond',serif;font-size:320px;color:rgba(201,168,76,0.04);line-height:1;pointer-events:none;}
+.banner-provoc-inner{max-width:900px;margin:0 auto;position:relative;z-index:1;}
+.banner-provoc .bp-label{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:rgba(201,168,76,0.6);margin-bottom:28px;}
+.banner-provoc blockquote{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4vw,52px);font-weight:300;line-height:1.25;color:#F8F6F0;margin-bottom:32px;}
+.banner-provoc blockquote strong{font-weight:600;color:#C9A84C;font-style:italic;}
+.banner-provoc blockquote em{font-style:italic;color:#E8C97A;}
+.bp-line{width:60px;height:2px;background:#C9A84C;margin:0 auto 28px;}
+.banner-provoc .bp-sub{font-size:16px;color:#8B96A3;letter-spacing:1px;line-height:1.7;}
+.banner-provoc .bp-sub strong{color:#F8F6F0;}
+
 /* ============ BANNER ESTUDO DE CASO ============ */
 .banner-estudo{background:#070D14;border-top:1px solid rgba(201,168,76,0.15);border-bottom:1px solid rgba(201,168,76,0.15);padding:0;}
 .banner-estudo-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr auto;align-items:center;gap:48px;padding:56px 32px;}
@@ -501,6 +513,20 @@ footer p{font-size:12px;color:#5A6A7A;letter-spacing:2px;text-transform:uppercas
 
   </div>
 </section>
+
+<!-- BANNER PROVOCATIVO -->
+<div class="banner-provoc">
+  <div class="banner-provoc-inner">
+    <div class="bp-label">A verdade que ninguém fala</div>
+    <blockquote>
+      Contadores genéricos não conseguem gerar essa economia para você.<br>
+      <strong>Se pudessem, já teriam feito.</strong><br>
+      Nós conseguimos porque somos <em>especialistas na área da saúde.</em>
+    </blockquote>
+    <div class="bp-line"></div>
+    <p class="bp-sub">A diferença não está no esforço — está no <strong>conhecimento específico</strong>.<br>Equiparação hospitalar, fator R, split payment, Reforma Tributária para clínicas.<br>Esse é o nosso único assunto. Todo dia.</p>
+  </div>
+</div>
 
 <!-- BANNER ESTUDO DE CASO — TRIBUTAÇÃO ODONTOLÓGICA -->
 <div class="banner-estudo">
