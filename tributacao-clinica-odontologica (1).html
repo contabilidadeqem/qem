@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tributação de Clínica Odontológica: Simples, Lucro Presumido e Equiparação Hospitalar | Q&M</title>
+<meta name="description" content="Veja quanto uma clínica odontológica que fatura R$ 100 mil por mês paga de imposto no Simples Nacional, Lucro Presumido, com Equiparação Hospitalar e na Reforma Tributária.">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Q&M Consultoria">
+<meta property="og:title" content="Clínica odontológica que fatura R$ 100k: quanto paga de imposto?">
+<meta property="og:description" content="Simples Nacional, Lucro Presumido, Equiparação Hospitalar e Reforma Tributária. Veja os números reais e descubra onde está o dinheiro que você está deixando na mesa.">
+<meta property="og:url" content="https://qemconsultoria.com.br/tributacao-clinica-odontologica.html">
+<meta property="og:image" content="https://raw.githubusercontent.com/contabilidadeqem/qem/main/reforma.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/contabilidadeqem/qem/main/reforma.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1628;--navy-mid:#0F2040;--gold:#C9A84C;--gold-light:#E8C97A;
+  --black:#050A10;--charcoal:#1A2332;--gray-mid:#5A6A7A;--gray-light:#B0BEC5;
+  --orange:#D4621A;--white:#F8F6F0;--red:#E05252;--green:#52C778;
+  --font-d:'Playfair Display',serif;--font-b:'DM Sans',sans-serif;
+  --r:14px;--rs:8px;--rp:999px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--white);font-family:var(--font-b);overflow-x:hidden;line-height:1.7;font-size:17px;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 56px;height:80px;background:rgba(5,10,16,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,168,76,0.15);}
+nav.scrolled{height:65px;}
+.nav-logo img{height:46px;width:auto;object-fit:contain;}
+.nav-right{display:flex;align-items:center;gap:12px;}
+.nav-back{font-size:13px;font-weight:600;color:var(--gray-light);text-decoration:none;padding:8px 16px;border:1px solid rgba(201,168,76,0.2);border-radius:var(--rs);transition:all 0.3s;}
+.nav-back:hover{color:var(--gold);border-color:rgba(201,168,76,0.5);}
+.nav-cta{background:var(--gold);color:var(--black);font-size:13px;font-weight:700;padding:9px 22px;border-radius:var(--rp);text-decoration:none;transition:background 0.3s;}
+.nav-cta:hover{background:var(--gold-light);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--gold);}
+.mobile-nav{display:none;position:fixed;top:80px;left:0;right:0;bottom:0;background:rgba(5,10,16,0.98);z-index:999;flex-direction:column;padding:40px 28px;}
+.mobile-nav.open{display:flex;}
+.mobile-nav a{display:block;padding:20px 0;border-bottom:1px solid rgba(201,168,76,0.1);font-size:20px;font-weight:600;color:var(--white);text-decoration:none;}
+.mobile-nav a:hover{color:var(--gold);}
+
+/* HERO */
+.hero{padding:140px 56px 80px;background:var(--navy);position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(201,168,76,0.08) 0%,transparent 55%),radial-gradient(ellipse at 10% 80%,rgba(82,199,120,0.04) 0%,transparent 50%);pointer-events:none;}
+.hero::after{content:'R$100K';position:absolute;right:-20px;bottom:-20px;font-family:var(--font-d);font-size:clamp(80px,12vw,180px);font-weight:900;color:rgba(201,168,76,0.04);pointer-events:none;line-height:1;white-space:nowrap;}
+.hero-inner{max-width:960px;margin:0 auto;position:relative;z-index:1;}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-mid);margin-bottom:28px;}
+.breadcrumb a{color:var(--gray-mid);text-decoration:none;transition:color 0.3s;}
+.breadcrumb a:hover{color:var(--gold);}
+.breadcrumb span{color:rgba(201,168,76,0.4);}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(82,199,120,0.1);border:1px solid rgba(82,199,120,0.3);border-radius:var(--rp);padding:5px 14px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#7ED87E;margin-bottom:20px;}
+.hero h1{font-family:var(--font-d);font-size:clamp(40px,5.5vw,72px);font-weight:700;color:var(--white);line-height:1.08;margin-bottom:24px;}
+.hero h1 em{font-style:italic;color:var(--gold);}
+.hero-lead{font-size:clamp(17px,1.8vw,20px);color:var(--gray-light);line-height:1.8;max-width:820px;margin-bottom:40px;font-weight:300;}
+.hero-stats{display:flex;gap:40px;flex-wrap:wrap;}
+.hero-stat{display:flex;flex-direction:column;gap:4px;}
+.hero-stat .n{font-family:var(--font-d);font-size:36px;font-weight:700;color:var(--gold);line-height:1;}
+.hero-stat .l{font-size:12px;color:var(--gray-mid);letter-spacing:1px;text-transform:uppercase;font-weight:600;}
+.gold-line-full{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+
+/* PERFIL DA CLÍNICA */
+.perfil{padding:80px 56px;background:var(--black);}
+.perfil-inner{max-width:1200px;margin:0 auto;}
+.section-label{font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.section-label::after{content:'';flex:1;max-width:40px;height:1px;background:var(--gold);}
+.perfil-inner h2{font-family:var(--font-d);font-size:clamp(32px,3.5vw,50px);font-weight:700;color:var(--white);margin-bottom:12px;}
+.perfil-inner h2 em{font-style:italic;color:var(--gold);}
+.perfil-inner > p{font-size:16px;color:var(--gray-light);line-height:1.8;max-width:720px;margin-bottom:48px;}
+.perfil-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.perfil-card{background:var(--charcoal);border:1px solid rgba(201,168,76,0.1);border-radius:var(--r);padding:28px 24px;transition:border-color 0.3s,transform 0.3s;}
+.perfil-card:hover{border-color:rgba(201,168,76,0.3);transform:translateY(-4px);}
+.perfil-card-icon{font-size:28px;margin-bottom:14px;}
+.perfil-card-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.perfil-card-val{font-family:var(--font-d);font-size:26px;font-weight:700;color:var(--white);line-height:1.1;margin-bottom:6px;}
+.perfil-card-sub{font-size:13px;color:var(--gray-mid);line-height:1.5;}
+
+/* ESTRUTURA FINANCEIRA */
+.estrutura{padding:0 56px 80px;background:var(--black);}
+.estrutura-inner{max-width:1200px;margin:0 auto;}
+.estrutura-inner h3{font-family:var(--font-d);font-size:28px;font-weight:600;color:var(--white);margin-bottom:24px;}
+.estrutura-inner h3 em{font-style:italic;color:var(--gold);}
+.receita-desp{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:32px;}
+.rd-card{background:var(--charcoal);border-radius:var(--r);padding:32px;border:1px solid rgba(201,168,76,0.1);}
+.rd-card h4{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;}
+.rd-card.receitas h4{color:#7ED87E;}
+.rd-card.despesas h4{color:#E88;}
+.rd-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.05);font-size:15px;}
+.rd-row:last-child{border-bottom:none;padding-top:16px;margin-top:4px;border-top:1px solid rgba(201,168,76,0.2);}
+.rd-row .k{color:var(--gray-light);}
+.rd-row .v{font-weight:700;color:var(--white);}
+.rd-row.total .k{font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--gray-mid);}
+.rd-row.total .v{font-family:var(--font-d);font-size:22px;}
+.rd-card.receitas .rd-row.total .v{color:#7ED87E;}
+.rd-card.despesas .rd-row.total .v{color:#E88;}
+.lucro-box{background:linear-gradient(135deg,rgba(201,168,76,0.08) 0%,rgba(201,168,76,0.02) 100%);border:1px solid rgba(201,168,76,0.25);border-left:3px solid var(--gold);border-radius:0 var(--rs) var(--rs) 0;padding:24px 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.lucro-box .lb-text p{font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;}
+.lucro-box .lb-text span{font-size:15px;color:var(--gray-light);}
+.lucro-box .lb-val{font-family:var(--font-d);font-size:40px;font-weight:700;color:var(--gold);}
+
+/* CENÁRIOS */
+.cenarios{padding:80px 56px;background:var(--navy);position:relative;}
+.cenarios::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.cenarios-inner{max-width:1200px;margin:0 auto;}
+.cenarios-inner>h2{font-family:var(--font-d);font-size:clamp(32px,3.5vw,50px);font-weight:700;color:var(--white);margin-bottom:12px;}
+.cenarios-inner>h2 em{font-style:italic;color:var(--gold);}
+.cenarios-inner>p{font-size:16px;color:var(--gray-light);line-height:1.8;max-width:720px;margin-bottom:56px;}
+
+/* Tabs */
+.tabs{display:flex;gap:8px;margin-bottom:40px;flex-wrap:wrap;}
+.tab-btn{padding:12px 24px;border:1px solid rgba(201,168,76,0.2);background:transparent;color:var(--gray-light);font-family:var(--font-b);font-size:14px;font-weight:600;border-radius:var(--rp);cursor:pointer;transition:all 0.3s;white-space:nowrap;}
+.tab-btn:hover{border-color:rgba(201,168,76,0.5);color:var(--gold);}
+.tab-btn.active{background:var(--gold);color:var(--black);border-color:var(--gold);}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+
+/* Cenário layout */
+.cenario-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;}
+.cenario-info h3{font-family:var(--font-d);font-size:32px;font-weight:700;color:var(--white);margin-bottom:8px;}
+.cenario-info h3 em{font-style:italic;color:var(--gold);}
+.cenario-info .ci-sub{font-size:15px;color:var(--gray-mid);margin-bottom:24px;font-weight:500;}
+.cenario-info p{font-size:16px;color:var(--gray-light);line-height:1.85;margin-bottom:16px;}
+.cenario-info p strong{color:var(--white);}
+
+/* Alertas inline */
+.inline-alert{display:flex;gap:14px;padding:18px 20px;border-radius:var(--rs);border-left:3px solid;margin-bottom:14px;}
+.ia-warn{background:rgba(212,98,26,0.08);border-color:var(--orange);}
+.ia-ok{background:rgba(82,199,120,0.08);border-color:var(--green);}
+.ia-info{background:rgba(201,168,76,0.06);border-color:rgba(201,168,76,0.4);}
+.ia-danger{background:rgba(224,82,82,0.08);border-color:var(--red);}
+.ia-icon{font-size:18px;flex-shrink:0;margin-top:1px;}
+.ia-text{font-size:14px;color:var(--gray-light);line-height:1.7;}
+.ia-text strong{color:var(--white);}
+
+/* Cálculo box */
+.calc-box{background:var(--charcoal);border:1px solid rgba(201,168,76,0.15);border-radius:var(--r);overflow:hidden;}
+.calc-box-header{background:rgba(201,168,76,0.06);border-bottom:1px solid rgba(201,168,76,0.15);padding:20px 28px;}
+.calc-box-header h4{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);}
+.calc-box-body{padding:28px;}
+.calc-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.05);font-size:15px;}
+.calc-row:last-child{border-bottom:none;}
+.calc-row .ck{color:var(--gray-light);}
+.calc-row .cv{font-weight:700;color:var(--white);}
+.calc-row .cv.neg{color:#E88;}
+.calc-row .cv.pos{color:#7ED87E;}
+.calc-row .cv.gold{color:var(--gold);}
+.calc-row.divider{border-top:2px solid rgba(201,168,76,0.2);margin-top:8px;padding-top:16px;}
+.calc-row.divider .ck{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--gray-mid);}
+.calc-row.divider .cv{font-family:var(--font-d);font-size:28px;}
+
+/* Resultado resumo */
+.resultado-bar{margin-top:24px;background:linear-gradient(90deg,rgba(201,168,76,0.1) 0%,rgba(201,168,76,0.03) 100%);border:1px solid rgba(201,168,76,0.25);border-radius:var(--r);padding:28px 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;}
+.rb-item{text-align:center;}
+.rb-item .rb-val{font-family:var(--font-d);font-size:32px;font-weight:700;line-height:1;margin-bottom:4px;}
+.rb-item .rb-label{font-size:11px;color:var(--gray-mid);letter-spacing:1px;text-transform:uppercase;font-weight:600;}
+.rb-item.rb-neg .rb-val{color:#E88;}
+.rb-item.rb-pos .rb-val{color:#7ED87E;}
+.rb-item.rb-gold .rb-val{color:var(--gold);}
+.rb-divider{width:1px;height:60px;background:rgba(201,168,76,0.2);}
+
+/* Requisitos */
+.req-list{display:flex;flex-direction:column;gap:10px;margin-top:20px;}
+.req-item{display:flex;align-items:flex-start;gap:12px;font-size:14px;color:var(--gray-light);line-height:1.6;}
+.req-icon{flex-shrink:0;margin-top:1px;font-size:16px;}
+
+/* COMPARATIVO GERAL */
+.comparativo{padding:80px 56px;background:var(--black);position:relative;}
+.comparativo::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.comparativo-inner{max-width:1200px;margin:0 auto;}
+.comparativo-inner h2{font-family:var(--font-d);font-size:clamp(32px,3.5vw,50px);font-weight:700;color:var(--white);margin-bottom:12px;}
+.comparativo-inner h2 em{font-style:italic;color:var(--gold);}
+.comparativo-inner>p{font-size:16px;color:var(--gray-light);line-height:1.8;max-width:720px;margin-bottom:48px;}
+
+.comp-table{width:100%;border-collapse:collapse;border-radius:var(--r);overflow:hidden;}
+.comp-table th{background:rgba(201,168,76,0.08);border-bottom:1px solid rgba(201,168,76,0.2);padding:16px 20px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);text-align:left;}
+.comp-table th:not(:first-child){text-align:center;}
+.comp-table td{padding:18px 20px;border-bottom:1px solid rgba(255,255,255,0.05);font-size:15px;color:var(--gray-light);}
+.comp-table td:not(:first-child){text-align:center;font-weight:700;}
+.comp-table tr:last-child td{border-bottom:none;}
+.comp-table tr:hover td{background:rgba(201,168,76,0.03);}
+.comp-table td.row-label{font-weight:600;color:var(--white);}
+.comp-table td.highlight-red{color:#E88;}
+.comp-table td.highlight-gold{color:var(--gold);}
+.comp-table td.highlight-green{color:#7ED87E;}
+.comp-table td.best{background:rgba(82,199,120,0.06);color:#7ED87E;position:relative;}
+.comp-table td.best::after{content:'✓ Melhor';position:absolute;top:6px;right:8px;font-size:10px;font-weight:700;letter-spacing:1px;color:rgba(82,199,120,0.6);}
+
+.economia-destaque{margin-top:32px;background:linear-gradient(135deg,rgba(82,199,120,0.08) 0%,rgba(82,199,120,0.02) 100%);border:1px solid rgba(82,199,120,0.25);border-left:3px solid var(--green);border-radius:0 var(--r) var(--r) 0;padding:32px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;}
+.ed-text h4{font-family:var(--font-d);font-size:26px;font-weight:700;color:var(--white);margin-bottom:8px;}
+.ed-text p{font-size:15px;color:var(--gray-light);line-height:1.7;}
+.ed-num{text-align:right;}
+.ed-num .n1{font-family:var(--font-d);font-size:56px;font-weight:700;color:#7ED87E;line-height:1;}
+.ed-num .n2{font-size:13px;color:var(--gray-mid);letter-spacing:1px;}
+
+/* REFORMA TRIBUTÁRIA */
+.reforma{padding:80px 56px;background:var(--navy-mid);position:relative;}
+.reforma::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#E05252,transparent);}
+.reforma-inner{max-width:1200px;margin:0 auto;}
+.reforma-inner h2{font-family:var(--font-d);font-size:clamp(32px,3.5vw,50px);font-weight:700;color:var(--white);margin-bottom:12px;}
+.reforma-inner h2 em{font-style:italic;color:#E88;}
+.reforma-inner>p{font-size:16px;color:var(--gray-light);line-height:1.8;max-width:720px;margin-bottom:48px;}
+.reforma-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+.reforma-cenario{background:var(--charcoal);border:1px solid rgba(201,168,76,0.12);border-radius:var(--r);padding:36px;transition:border-color 0.3s;}
+.reforma-cenario:hover{border-color:rgba(201,168,76,0.3);}
+.rc-badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:var(--rp);margin-bottom:16px;}
+.rc-badge.atual{background:rgba(176,190,197,0.1);color:var(--gray-light);border:1px solid rgba(176,190,197,0.2);}
+.rc-badge.novo{background:rgba(224,82,82,0.1);color:#E88;border:1px solid rgba(224,82,82,0.3);}
+.rc-badge.oport{background:rgba(82,199,120,0.1);color:#7ED87E;border:1px solid rgba(82,199,120,0.3);}
+.reforma-cenario h3{font-family:var(--font-b);font-size:20px;font-weight:700;color:var(--white);margin-bottom:12px;}
+.reforma-cenario p{font-size:15px;color:var(--gray-light);line-height:1.8;margin-bottom:16px;}
+.reforma-cenario p strong{color:var(--white);}
+.reforma-aliq{display:flex;flex-direction:column;gap:10px;margin-top:16px;}
+.ra-row{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.ra-label{font-size:13px;color:var(--gray-light);}
+.ra-bar-wrap{flex:1;height:8px;background:rgba(255,255,255,0.06);border-radius:var(--rp);overflow:hidden;}
+.ra-fill{height:100%;border-radius:var(--rp);}
+.fill-red{background:rgba(224,82,82,0.7);}
+.fill-gold{background:linear-gradient(90deg,var(--gold),var(--gold-light));}
+.fill-green{background:linear-gradient(90deg,#52C778,#7ED87E);}
+.ra-pct{font-weight:700;font-size:14px;min-width:50px;text-align:right;}
+.reforma-split{grid-column:1/-1;background:rgba(224,82,82,0.05);border:1px solid rgba(224,82,82,0.2);border-radius:var(--r);padding:36px;}
+.reforma-split h3{font-family:var(--font-b);font-size:20px;font-weight:700;color:var(--white);margin-bottom:12px;}
+.split-flow{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;margin:24px 0;}
+.sf-box{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:var(--rs);padding:16px 24px;text-align:center;min-width:140px;}
+.sf-icon{font-size:28px;margin-bottom:6px;}
+.sf-label{font-size:12px;color:var(--gray-light);line-height:1.4;}
+.sf-val{font-family:var(--font-d);font-size:20px;font-weight:700;margin-top:4px;}
+.sf-arrow{font-size:24px;color:var(--red);padding:0 16px;opacity:0.6;}
+.sf-split-arrow{display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 16px;}
+.sf-split-arrow span{font-size:13px;color:var(--gray-mid);}
+.split-detail{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px;}
+.split-d-box{padding:16px 20px;border-radius:var(--rs);}
+.split-d-gov{background:rgba(224,82,82,0.08);border:1px solid rgba(224,82,82,0.2);}
+.split-d-emp{background:rgba(82,199,120,0.08);border:1px solid rgba(82,199,120,0.2);}
+.split-d-box .sd-label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;}
+.split-d-gov .sd-label{color:#E88;}
+.split-d-emp .sd-label{color:#7ED87E;}
+.split-d-box .sd-val{font-family:var(--font-d);font-size:24px;font-weight:700;}
+.split-d-gov .sd-val{color:#E88;}
+.split-d-emp .sd-val{color:#7ED87E;}
+.split-d-box p{font-size:13px;color:var(--gray-light);margin-top:6px;line-height:1.5;}
+
+/* CTA */
+.cta-sec{padding:80px 56px;background:var(--navy);position:relative;overflow:hidden;}
+.cta-sec::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.cta-sec::after{content:'Q&M';position:absolute;right:-10px;bottom:-30px;font-family:var(--font-d);font-size:clamp(100px,15vw,200px);font-weight:900;color:rgba(201,168,76,0.04);pointer-events:none;line-height:1;}
+.cta-inner{max-width:860px;margin:0 auto;text-align:center;position:relative;z-index:1;}
+.cta-inner h2{font-family:var(--font-d);font-size:clamp(32px,4vw,54px);font-weight:700;color:var(--white);margin-bottom:16px;line-height:1.2;}
+.cta-inner h2 em{font-style:italic;color:var(--gold);}
+.cta-inner p{font-size:17px;color:var(--gray-light);line-height:1.8;margin-bottom:36px;}
+.cta-row{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
+.btn-gold{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--black);font-size:15px;font-weight:700;padding:17px 36px;border-radius:var(--rp);text-decoration:none;transition:background 0.3s,transform 0.2s;}
+.btn-gold:hover{background:var(--gold-light);transform:scale(1.03);}
+.btn-out{display:inline-flex;align-items:center;gap:10px;background:transparent;color:var(--white);font-size:15px;font-weight:600;padding:17px 36px;border-radius:var(--rp);text-decoration:none;border:1px solid rgba(255,255,255,0.2);transition:all 0.3s;}
+.btn-out:hover{border-color:var(--gold);color:var(--gold);}
+
+/* FOOTER */
+footer{background:var(--black);border-top:1px solid rgba(201,168,76,0.15);padding:32px 56px;}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+.footer-logo img{height:36px;opacity:0.7;}
+.footer-copy{font-size:12px;color:var(--gray-mid);text-align:center;line-height:1.7;}
+.footer-links{display:flex;gap:8px;flex-wrap:wrap;}
+.footer-links a{font-size:12px;font-weight:600;color:var(--gray-mid);text-decoration:none;padding:5px 12px;border-radius:var(--rp);transition:color 0.3s;}
+.footer-links a:hover{color:var(--gold);background:rgba(201,168,76,0.08);}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.rd1{transition-delay:0.1s;}.rd2{transition-delay:0.2s;}.rd3{transition-delay:0.3s;}.rd4{transition-delay:0.4s;}
+
+/* MOBILE */
+@media(max-width:1024px){
+  nav{padding:0 24px;}
+  .nav-right .nav-back,.nav-right .nav-cta{display:none;}
+  .hamburger{display:flex;}
+  .hero,.perfil,.estrutura,.cenarios,.comparativo,.reforma,.cta-sec{padding-left:24px;padding-right:24px;}
+  .perfil-cards{grid-template-columns:1fr 1fr;}
+  .cenario-grid{grid-template-columns:1fr;}
+  .reforma-grid{grid-template-columns:1fr;}
+  .reforma-split{grid-column:auto;}
+  .split-flow{flex-direction:column;}
+  .sf-arrow{transform:rotate(90deg);}
+  .split-detail{grid-template-columns:1fr;}
+  footer{padding:24px;}
+  .footer-inner{flex-direction:column;text-align:center;}
+  .receita-desp{grid-template-columns:1fr;}
+  .comp-table{font-size:13px;}
+  .comp-table th,.comp-table td{padding:12px 10px;}
+}
+@media(max-width:600px){
+  .perfil-cards{grid-template-columns:1fr;}
+  .hero-stats{flex-direction:column;gap:20px;}
+  .tabs{gap:6px;}
+  .tab-btn{font-size:12px;padding:10px 16px;}
+  .resultado-bar{flex-direction:column;text-align:center;}
+  .rb-divider{width:60px;height:1px;}
+  .economia-destaque{flex-direction:column;}
+  .ed-num{text-align:left;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-logo">
+    <img src="https://github.com/contabilidadeqem/qem/blob/main/logo.png?raw=true" alt="Q&M Consultoria"
+      onerror="this.parentElement.innerHTML='<span style=font-family:serif;font-size:22px;font-weight:900;color:var(--gold)>Q&amp;M</span>'">
+  </div>
+  <div class="nav-right">
+    <a href="index.html" class="nav-back">← Voltar ao site</a>
+    <a href="area-saude.html" class="nav-back">Área da Saúde</a>
+    <a href="https://api.whatsapp.com/send/?phone=5581983071689&text=Ol%C3%A1!+Quero+um+diagn%C3%B3stico+tribut%C3%A1rio+para+minha+cl%C3%ADnica" target="_blank" class="nav-cta">Falar com Especialista</a>
+  </div>
+  <div class="hamburger" onclick="toggleMobileNav()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html" onclick="closeMobileNav()">← Voltar ao site</a>
+  <a href="area-saude.html" onclick="closeMobileNav()">Área da Saúde</a>
+  <a href="reforma-tributaria.html" onclick="closeMobileNav()">Reforma Tributária</a>
+  <a href="https://api.whatsapp.com/send/?phone=5581983071689&text=Ol%C3%A1!+Quero+um+diagn%C3%B3stico+tribut%C3%A1rio+para+minha+cl%C3%ADnica" target="_blank">Falar com Especialista</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Q&amp;M Consultoria</a><span>/</span>
+      <a href="area-saude.html">Área da Saúde</a><span>/</span>
+      <span style="color:var(--white)">Tributação Odontológica</span>
+    </div>
+    <div class="hero-badge">📊 Estudo de Caso Real — 2025/2026</div>
+    <h1>Sua clínica fatura R$ 100 mil por mês.<br>Mas quanto fica <em>no seu bolso?</em></h1>
+    <p class="hero-lead">Vamos usar o exemplo de uma clínica odontológica real — um dentista e uma recepcionista, faturando R$ 100 mil por mês — para mostrar exatamente quanto vai para o governo em cada regime tributário. Sem enrolação, com os números na mesa.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="n">R$100k</div><div class="l">Faturamento mensal</div></div>
+      <div class="hero-stat"><div class="n">4</div><div class="l">Cenários analisados</div></div>
+      <div class="hero-stat"><div class="n">R$71,3k</div><div class="l">Diferença máx. por ano</div></div>
+    </div>
+  </div>
+</div>
+<div class="gold-line-full"></div>
+
+<!-- PERFIL DA CLÍNICA -->
+<section class="perfil">
+  <div class="perfil-inner">
+    <div class="section-label reveal">O caso</div>
+    <h2 class="reveal">Conheça a <em>Clínica Sorriso</em></h2>
+    <p class="reveal">Para este estudo, vamos trabalhar com uma clínica odontológica fictícia mas com números absolutamente reais e comuns no mercado. Ela representa milhares de clínicas pelo Brasil — e provavelmente se parece muito com a sua.</p>
+    <div class="perfil-cards">
+      <div class="perfil-card reveal">
+        <div class="perfil-card-icon">🦷</div>
+        <div class="perfil-card-label">Estrutura</div>
+        <div class="perfil-card-val">1 dentista</div>
+        <div class="perfil-card-sub">Sócio-proprietário com pró-labore de R$ 8.000/mês + 1 recepcionista CLT</div>
+      </div>
+      <div class="perfil-card reveal rd1">
+        <div class="perfil-card-icon">💰</div>
+        <div class="perfil-card-label">Faturamento</div>
+        <div class="perfil-card-val">R$ 100.000</div>
+        <div class="perfil-card-sub">R$ 75k em procedimentos elegíveis à equiparação + R$ 25k em convênios, planos e consultas</div>
+      </div>
+      <div class="perfil-card reveal rd2">
+        <div class="perfil-card-icon">📍</div>
+        <div class="perfil-card-label">Localização</div>
+        <div class="perfil-card-val">Recife/PE</div>
+        <div class="perfil-card-sub">ISS municipal de 5% aplicado nos cálculos. Verifique a alíquota da sua cidade</div>
+      </div>
+      <div class="perfil-card reveal rd3">
+        <div class="perfil-card-icon">🏢</div>
+        <div class="perfil-card-label">Tipo jurídico</div>
+        <div class="perfil-card-val">Soc. Ltda.</div>
+        <div class="perfil-card-sub">Sociedade Limitada — requisito para acessar Simples, Lucro Presumido e Equiparação Hospitalar</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESTRUTURA FINANCEIRA -->
+<section class="estrutura">
+  <div class="estrutura-inner">
+    <h3 class="reveal">Estrutura de custos da <em>clínica</em></h3>
+    <div class="receita-desp">
+      <div class="rd-card receitas reveal">
+        <h4>📈 Receitas mensais</h4>
+        <div class="rd-row"><span class="k">Procedimentos (particular + cirurgias)</span><span class="v">R$ 75.000</span></div>
+        <div class="rd-row"><span class="k">Convênios, planos e consultas</span><span class="v">R$ 25.000</span></div>
+        <div class="rd-row total"><span class="k">Total Faturamento</span><span class="v">R$ 100.000</span></div>
+      </div>
+      <div class="rd-card despesas reveal rd1">
+        <h4>📉 Custos operacionais (sem imposto)</h4>
+        <div class="rd-row"><span class="k">Aluguel do consultório</span><span class="v">R$ 3.500</span></div>
+        <div class="rd-row"><span class="k">Recepcionista CLT (salário + encargos)</span><span class="v">R$ 2.800</span></div>
+        <div class="rd-row"><span class="k">Pró-labore do dentista</span><span class="v">R$ 8.000</span></div>
+        <div class="rd-row"><span class="k">Materiais e consumíveis</span><span class="v">R$ 6.000</span></div>
+        <div class="rd-row"><span class="k">Energia, internet, telefone</span><span class="v">R$ 900</span></div>
+        <div class="rd-row"><span class="k">Software odontológico + outros</span><span class="v">R$ 800</span></div>
+        <div class="rd-row total"><span class="k">Total Custos Fixos</span><span class="v">R$ 22.000</span></div>
+      </div>
+    </div>
+    <div class="lucro-box reveal">
+      <div class="lb-text">
+        <p>Resultado antes dos impostos</p>
+        <span>R$ 100.000 de faturamento − R$ 22.000 de custos fixos</span>
+      </div>
+      <div class="lb-val">R$ 78.000/mês</div>
+    </div>
+  </div>
+</section>
+
+<!-- CENÁRIOS TRIBUTÁRIOS -->
+<section class="cenarios">
+  <div class="cenarios-inner">
+    <div class="section-label reveal">Os 3 regimes + reforma</div>
+    <h2 class="reveal">Quanto vai para o governo em <em>cada cenário?</em></h2>
+    <p class="reveal">Clique em cada regime para ver o cálculo completo. As diferenças são brutais — e na maioria dos casos, a clínica está pagando mais do que deveria.</p>
+
+    <div class="tabs reveal">
+      <button class="tab-btn active" onclick="switchTab('simples')">Simples Nacional</button>
+      <button class="tab-btn" onclick="switchTab('presumido')">Lucro Presumido</button>
+      <button class="tab-btn" onclick="switchTab('equiparado')">+ Equiparação Hospitalar</button>
+    </div>
+
+    <!-- TAB 1: SIMPLES -->
+    <div class="tab-panel active" id="tab-simples">
+      <div class="cenario-grid">
+        <div class="cenario-info">
+          <h3>Simples <em>Nacional</em></h3>
+          <div class="ci-sub">Fator R: R$ 10.800 ÷ R$ 100.000 = 10,8% → Anexo V</div>
+          <p>O Simples Nacional unifica todos os impostos numa única guia (DAS) e parece simples. Mas para a maioria das clínicas odontológicas, ele esconde uma armadilha: o <strong>Fator R</strong>.</p>
+          <p>O Fator R compara a folha de pagamento (pró-labore + salários + encargos) com o faturamento dos últimos 12 meses. Se esse percentual for <strong>abaixo de 28%</strong>, a clínica cai no Anexo V — com alíquota inicial de 15,5%, muito mais cara.</p>
+          <p>Na Clínica Sorriso: pró-labore R$ 8.000 + recepcionista R$ 2.800 = <strong>R$ 10.800</strong>. Isso representa apenas <strong>10,8% do faturamento</strong> — muito abaixo dos 28%. Resultado: <strong>Anexo V obrigatório</strong>.</p>
+          <div class="inline-alert ia-danger">
+            <div class="ia-icon">🚨</div>
+            <div class="ia-text"><strong>Alerta crítico:</strong> com faturamento de R$ 1,2 milhão/ano na 3ª faixa do Anexo V, a alíquota efetiva aproximada é de <strong>20%</strong> sobre o faturamento — a mais cara entre todos os regimes analisados.</div>
+          </div>
+          <div class="inline-alert ia-info">
+            <div class="ia-icon">💡</div>
+            <div class="ia-text"><strong>Como sair do Anexo V:</strong> o dentista precisaria aumentar a folha para R$ 28.000/mês (28% de R$ 100k) para migrar para o Anexo III (alíquota de ~11%). Isso significa aumentar muito o pró-labore — o que eleva INSS e IRPF pessoal.</div>
+          </div>
+        </div>
+        <div>
+          <div class="calc-box">
+            <div class="calc-box-header"><h4>Cálculo mensal — Simples Nacional Anexo V</h4></div>
+            <div class="calc-box-body">
+              <div class="calc-row"><span class="ck">Faturamento bruto</span><span class="cv">R$ 100.000</span></div>
+              <div class="calc-row"><span class="ck">RBT12 (receita acumulada 12 meses)</span><span class="cv">R$ 1.200.000</span></div>
+              <div class="calc-row"><span class="ck">Faixa do Anexo V (3ª faixa)</span><span class="cv">Até R$ 1,8M/ano</span></div>
+              <div class="calc-row"><span class="ck" style="color:var(--gold);font-weight:600">CÁLCULO DA ALÍQUOTA EFETIVA</span><span class="cv"></span></div>
+              <div class="calc-row"><span class="ck">Alíquota nominal da 3ª faixa</span><span class="cv">21,00%</span></div>
+              <div class="calc-row"><span class="ck">Parcela a deduzir (3ª faixa)</span><span class="cv">R$ 9.360/ano</span></div>
+              <div class="calc-row"><span class="ck">Alíquota efetiva resultante</span><span class="cv">20,22%</span></div>
+              <div class="calc-row"><span class="ck" style="color:var(--gold);font-weight:600">IMPOSTOS MENSAIS</span><span class="cv"></span></div>
+              <div class="calc-row"><span class="ck">DAS — guia única do Simples</span><span class="cv neg">− R$ 20.220</span></div>
+              <div class="calc-row"><span class="ck">INSS sobre pró-labore (11%)</span><span class="cv neg">− R$ 880</span></div>
+              <div class="calc-row divider"><span class="ck">Total de impostos/mês</span><span class="cv neg">R$ 21.100</span></div>
+              <div class="calc-row divider"><span class="ck">Sobra após impostos e custos fixos</span><span class="cv pos">R$ 56.900</span></div>
+            </div>
+          </div>
+          <div class="resultado-bar">
+            <div class="rb-item rb-neg"><div class="rb-val">R$ 21.100</div><div class="rb-label">Imposto/mês</div></div>
+            <div class="rb-divider"></div>
+            <div class="rb-item rb-neg"><div class="rb-val">R$ 253.200</div><div class="rb-label">Imposto/ano</div></div>
+            <div class="rb-divider"></div>
+            <div class="rb-item rb-pos"><div class="rb-val">R$ 56.900</div><div class="rb-label">Sobra/mês</div></div>
+            <div class="rb-divider"></div>
+            <div class="rb-item rb-neg"><div class="rb-val">21%</div><div class="rb-label">Carga efetiva</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: LUCRO PRESUMIDO -->
+    <div class="tab-panel" id="tab-presumido">
+      <div class="cenario-grid">
+        <div class="cenario-info">
+          <h3>Lucro <em>Presumido</em></h3>
+          <div class="ci-sub">Base de presunção: 32% × R$ 100.000 = R$ 32.000</div>
+          <p>No Lucro Presumido, o governo presume que <strong>32% do faturamento é lucro</strong> e aplica IRPJ e CSLL sobre esse valor. Você paga ainda PIS, Cofins e ISS sobre o faturamento bruto.</p>
+          <p>A boa notícia: diferentemente do Simples, o Lucro Presumido <strong>não depende da folha de pagamento</strong>. A clínica da Dra. Ana paga a mesma carga independentemente do tamanho da equipe.</p>
+          <p>Atenção ao <strong>adicional de IRPJ de 10%</strong>: quando o lucro presumido trimestral ultrapassa R$ 60.000, incide 10% sobre o excedente. Com R$ 100k/mês, a base trimestral é R$ 96.000 — R$ 36.000 acima do limite. Isso gera R$ 1.200/mês a mais de IRPJ.</p>
+          <p>Com ISS de 5% em Recife, a carga total chega a <strong>18,4% do faturamento</strong>.</p>
+          <div class="inline-alert ia-ok">
+            <div class="ia-icon">✅</div>
+            <div class="ia-text"><strong>Mesmo com INSS patronal, é melhor que o Simples (Anexo V):</strong> a clínica economiza R$ 690/mês migrando do Simples para o Lucro Presumido — R$ 8.280 por ano sem fazer mais nada.</div>
+          </div>
+          <div class="inline-alert ia-warn">
+            <div class="ia-icon">⚠️</div>
+            <div class="ia-text"><strong>Atenção:</strong> o Lucro Presumido tem mais obrigações acessórias (SPED, ECF, etc.) e apuração trimestral do IRPJ/CSLL. É mais complexo que o Simples, mas vale muito para faturamentos acima de R$ 50 mil/mês.</div>
+          </div>
+        </div>
+        <div>
+          <div class="calc-box">
+            <div class="calc-box-header"><h4>Cálculo mensal — Lucro Presumido padrão <span style="font-weight:400;opacity:0.6">(IRPJ/CSLL = média do trimestre)</span></h4></div>
+            <div class="calc-box-body">
+              <div class="calc-row"><span class="ck">Faturamento bruto</span><span class="cv">R$ 100.000</span></div>
+              <div class="calc-row"><span class="ck" style="color:var(--gold);font-weight:600">SOBRE O FATURAMENTO</span><span class="cv"></span></div>
+              <div class="calc-row"><span class="ck">PIS (0,65%)</span><span class="cv neg">− R$ 650</span></div>
+              <div class="calc-row"><span class="ck">Cofins (3,00%)</span><span class="cv neg">− R$ 3.000</span></div>
+              <div class="calc-row"><span class="ck">ISS (5,00%)</span><span class="cv neg">− R$ 5.000</span></div>
+              <div class="calc-row"><span class="ck" style="color:var(--gold);font-weight:600">IRPJ e CSLL — BASE PRESUMIDA 32%</span><span class="cv"></span></div>
+              <div class="calc-row"><span class="ck">IRPJ 15% sobre base presumida</span><span class="cv neg">− R$ 4.800</span></div>
+              <div class="calc-row"><span class="ck" style="color:#E88;font-size:13px;">⚠ Adicional IRPJ 10% (base excede R$ 60k/tri)</span><span class="cv neg" style="color:#E88">− R$ 1.200</span></div>
+              <div class="calc-row"><span class="ck">CSLL 9% sobre base presumida</span><span class="cv neg">− R$ 2.880</span></div>
+              <div class="calc-row"><span class="ck" style="color:var(--gold);font-weight:600">ENCARGOS PREVIDENCIÁRIOS</span><span class="cv"></span></div>
+              <div class="calc-row"><span class="ck">INSS patronal 20% sobre pró-labore (R$ 8.000)</span><span class="cv neg">− R$ 1.600</span></div>
+              <div class="calc-row"><span class="ck">INSS patronal 20% sobre salário recepcionista (R$ 2.000)</span><span class="cv neg">− R$ 400</span></div>
+              <div class="calc-row"><span class="ck">INSS empregado retido (11% × R$ 8.000 pró-labore)</span><span class="cv neg">− R$ 880</span></div>
+              <div class="calc-row divider"><span class="ck">Total de impostos e encargos/mês</span><span class="cv neg">R$ 20.410</span></div>
+              <div class="calc-row divider"><span class="ck">Sobra após impostos e custos fixos</span><span class="cv pos">R$ 57.590</span></div>
+            </div>
+          </div>
+          <div class="resultado-bar">
+            <div class="rb-item rb-neg"><div class="rb-val">R$ 20.410</div><div class="rb-label">Imposto/mês</div></div>
+            <div class="rb-divider"></div>
+            <div class="rb-item rb-neg"><div class="rb-val">R$ 244.920</div><div class="rb-label">Imposto/ano</div></div>
+            <div class="rb-divider"></div>
+            <div class="rb-item rb-pos"><div class="rb-val">R$ 57.590</div><div class="rb-label">Sobra/mês</div></div>
+            <div class="rb-divider"></div>
+            <div class="rb-item rb-neg"><div class="rb-val">20,4%</div><div class="rb-label">Carga efetiva</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: EQUIPARAÇÃO HOSPITALAR -->
+    <div class="tab-panel" id="tab-equiparado">
+      <div class="cenario-grid">
+        <div class="cenario-info">
+          <h3>Lucro Presumido +<br><em>Equiparação Hospitalar</em></h3>
+          <div class="ci-sub">R$ 75k/mês em base 8% IRPJ / 12% CSLL — R$ 25k em base 32% (convênios e consultas)</div>
+          <p>A Equiparação Hospitalar é o benefício tributário mais poderoso e subutilizado na odontologia. Com base legal na <strong>Lei 9.249/1995</strong> e consolidado pelo <strong>STJ no Tema 217</strong>, ele permite que clínicas que realizam procedimentos cirúrgicos sejam tributadas como hospitais.</p>
+          <p>O resultado: a base de cálculo do IRPJ cai de <strong>32% para 8%</strong> do faturamento nos procedimentos elegíveis, e a do CSLL de <strong>32% para 12%</strong>. PIS, Cofins e ISS permanecem iguais.</p>
+          <p>Na Clínica Sorriso, <strong>R$ 75.000 dos R$ 100.000 mensais</strong> são elegíveis — procedimentos realizados no consultório (implantes, extrações cirúrgicas, cirurgias periodontais, enxertos). Apenas os R$ 25.000 de convênios e consultas simples ficam na base padrão de 32%.</p>
+          <p>Com essa proporção, a base do IRPJ trimestral cai para R$ 42.000 — <strong>abaixo do limite de R$ 60.000</strong> do adicional de 10%. Ou seja: a equiparação elimina também o adicional nesse cenário.</p>
+          <div class="req-list">
+            <div class="req-item"><div class="req-icon">✅</div><span><strong>Ser sociedade empresária</strong> registrada na Junta Comercial (não sociedade simples)</span></div>
+            <div class="req-item"><div class="req-icon">✅</div><span><strong>Estar no Lucro Presumido</strong> — o benefício não se aplica ao Simples Nacional</span></div>
+            <div class="req-item"><div class="req-icon">✅</div><span><strong>Realizar procedimentos hospitalares</strong> de alta complexidade: cirurgias, implantes, extrações avulsas, sedação</span></div>
+            <div class="req-item"><div class="req-icon">✅</div><span><strong>Ter alvará sanitário e registro na ANVISA</strong> conforme RDC 50/2002 para estabelecimentos de saúde</span></div>
+            <div class="req-item"><div class="req-icon">✅</div><span><strong>Segregar as receitas</strong> hospitalares das não-hospitalares (consultas simples ficam fora do benefício)</span></div>
+          </div>
+          <div class="inline-alert ia-ok" style="margin-top:20px;">
+            <div class="ia-icon">🏆</div>
+            <div class="ia-text"><strong>Resultado:</strong> com 75% do faturamento elegível à equiparação e base trimestral abaixo de R$ 60k — <strong>sem adicional de IRPJ</strong>. Economia de R$ 5.250/mês frente ao Lucro Presumido padrão, e <strong>R$ 5.940/mês — R$ 71.280 por ano</strong> frente ao Simples Anexo V.</div>
+          </div>
+        </div>
+        <div>
+          <div class="calc-box">
+            <div class="calc-box-header"><h4>Cálculo mensal — Com Equiparação Hospitalar <span style="font-weight:400;opacity:0.6">(IRPJ/CSLL = média do trimestre)</span></h4></div>
+            <div class="calc-box-body">
+              <div class="calc-row"><span class="ck">Faturamento bruto total</span><span class="cv">R$ 100.000</span></div>
+              <div class="calc-row"><span class="ck" style="color:var(--gold);font-weight:600">SOBRE O FATURAMENTO (iguais ao LP padrão)</span><span class="cv"></span></div>
+              <div class="calc-row"><span class="ck">PIS (0,65%)</span><span class="cv neg">− R$ 650</span></div>
+              <div class="calc-row"><span class="ck">Cofins (3,00%)</span><span class="cv neg">− R$ 3.000</span></div>
+              <div class="calc-row"><span class="ck">ISS (5,00%)</span><span class="cv neg">− R$ 5.000</span></div>
+              <div class="calc-row"><span class="ck" style="color:var(--gold);font-weight:600">IRPJ e CSLL — BASE REDUZIDA COM EQUIPARAÇÃO</span><span class="cv"></span></div>
+              <div class="calc-row"><span class="ck">Procedimentos elegíveis (R$ 75k): base IRPJ 8%</span><span class="cv gold">R$ 6.000/tri × 3 = R$ 18.000</span></div>
+              <div class="calc-row"><span class="ck">Convênios e consultas (R$ 25k): base IRPJ 32%</span><span class="cv" style="color:var(--gray-light)">R$ 8.000/tri × 3 = R$ 24.000</span></div>
+              <div class="calc-row"><span class="ck">Base total IRPJ trimestral</span><span class="cv gold">R$ 42.000 &lt; R$ 60k → sem adicional ✓</span></div>
+              <div class="calc-row"><span class="ck">IRPJ 15% × R$ 42.000 ÷ 3</span><span class="cv neg">− R$ 2.100</span></div>
+              <div class="calc-row"><span class="ck">Procedimentos elegíveis (R$ 75k): base CSLL 12%</span><span class="cv gold">R$ 9.000/tri × 3 = R$ 27.000</span></div>
+              <div class="calc-row"><span class="ck">Convênios e consultas (R$ 25k): base CSLL 32%</span><span class="cv" style="color:var(--gray-light)">R$ 8.000/tri × 3 = R$ 24.000</span></div>
+              <div class="calc-row"><span class="ck">CSLL 9% × R$ 51.000 ÷ 3</span><span class="cv neg">− R$ 1.530</span></div>
+              <div class="calc-row"><span class="ck" style="color:var(--gold);font-weight:600">ENCARGOS PREVIDENCIÁRIOS</span><span class="cv"></span></div>
+              <div class="calc-row"><span class="ck">INSS patronal 20% sobre pró-labore (R$ 8.000)</span><span class="cv neg">− R$ 1.600</span></div>
+              <div class="calc-row"><span class="ck">INSS patronal 20% sobre salário recepcionista (R$ 2.000)</span><span class="cv neg">− R$ 400</span></div>
+              <div class="calc-row"><span class="ck">INSS empregado retido (11% × R$ 8.000 pró-labore)</span><span class="cv neg">− R$ 880</span></div>
+              <div class="calc-row divider"><span class="ck">Total de impostos e encargos/mês</span><span class="cv neg">R$ 15.160</span></div>
+              <div class="calc-row divider"><span class="ck">Sobra após impostos e custos fixos</span><span class="cv pos">R$ 62.840</span></div>
+            </div>
+          </div>
+          <div class="resultado-bar">
+            <div class="rb-item rb-neg"><div class="rb-val">R$ 15.160</div><div class="rb-label">Imposto/mês</div></div>
+            <div class="rb-divider"></div>
+            <div class="rb-item rb-neg"><div class="rb-val">R$ 181.920</div><div class="rb-label">Imposto/ano</div></div>
+            <div class="rb-divider"></div>
+            <div class="rb-item rb-pos"><div class="rb-val">R$ 62.840</div><div class="rb-label">Sobra/mês</div></div>
+            <div class="rb-divider"></div>
+            <div class="rb-item rb-gold"><div class="rb-val">15,2%</div><div class="rb-label">Carga efetiva</div></div>
+          </div>
+          <div class="inline-alert ia-info" style="margin-top:16px;">
+            <div class="ia-icon">💡</div>
+            <div class="ia-text">Neste exemplo, a clínica tem apenas 10% de receita hospitalar (cirurgias/implantes). Clínicas com <strong>maior proporção de procedimentos cirúrgicos</strong> têm economia muito maior. Uma clínica com 50% de receita hospitalar economizaria mais de R$ 3.000/mês a mais.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- COMPARATIVO GERAL -->
+<section class="comparativo">
+  <div class="comparativo-inner">
+    <div class="section-label reveal">Resumo</div>
+    <h2 class="reveal">Os números lado a <em>lado</em></h2>
+    <p class="reveal">Tudo na mesma tabela para você ver onde está o dinheiro que está deixando na mesa.</p>
+
+    <div class="reveal" style="overflow-x:auto;">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Simples (Anexo V)</th>
+            <th>Lucro Presumido</th>
+            <th>Lucro Pres. + Equiparação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row-label">Imposto mensal</td>
+            <td class="highlight-red">R$ 21.100</td>
+            <td class="highlight-gold">R$ 20.410</td>
+            <td class="best">R$ 15.160</td>
+          </tr>
+          <tr>
+            <td class="row-label">Imposto anual</td>
+            <td class="highlight-red">R$ 253.200</td>
+            <td class="highlight-gold">R$ 244.920</td>
+            <td class="best">R$ 181.920</td>
+          </tr>
+          <tr>
+            <td class="row-label">Carga efetiva</td>
+            <td class="highlight-red">~21%</td>
+            <td class="highlight-gold">~20,4%</td>
+            <td class="best">~15,2%</td>
+          </tr>
+          <tr>
+            <td class="row-label">Sobra mensal (após impostos e custos)</td>
+            <td class="highlight-red">R$ 56.900</td>
+            <td class="highlight-gold">R$ 57.590</td>
+            <td class="best">R$ 62.840</td>
+          </tr>
+          <tr>
+            <td class="row-label">Depende do Fator R?</td>
+            <td>Sim — prejudica a clínica</td>
+            <td>Não</td>
+            <td>Não</td>
+          </tr>
+          <tr>
+            <td class="row-label">Exige procedimentos cirúrgicos?</td>
+            <td>Não</td>
+            <td>Não</td>
+            <td>Sim (para o benefício)</td>
+          </tr>
+          <tr>
+            <td class="row-label">Pode recuperar valores retroativos?</td>
+            <td>Não</td>
+            <td>Não</td>
+            <td>Sim — até 5 anos anteriores</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="economia-destaque reveal">
+      <div class="ed-text">
+        <h4>Quanto essa clínica deixa de pagar migrando do Simples para o Lucro Presumido com Equiparação Hospitalar</h4>
+        <p>Com 75% do faturamento elegível, a base trimestral do IRPJ cai abaixo de R$ 60k — eliminando também o adicional de 10%. Todos os encargos corretos incluídos. E ainda existe o potencial de recuperar os últimos 5 anos de recolhimento a maior.</p>
+      </div>
+      <div class="ed-num">
+        <div class="n1">R$ 71.280</div>
+        <div class="n2">de economia por ano</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REFORMA TRIBUTÁRIA -->
+<section class="reforma">
+  <div class="reforma-inner">
+    <div class="section-label reveal">Atenção: mudança vindo aí</div>
+    <h2 class="reveal">E a Reforma Tributária?<br>Como impacta <em>esta clínica?</em></h2>
+    <p class="reveal">A LC 214/2025 já está em vigor. A transição é gradual até 2033, mas as decisões tomadas agora definem quanto sua clínica vai pagar ao longo de toda essa fase. Veja o que muda.</p>
+
+    <div class="reforma-grid">
+
+      <div class="reforma-cenario reveal">
+        <span class="rc-badge atual">Sistema atual (até 2026)</span>
+        <h3>Como a clínica é tributada hoje</h3>
+        <p>No Lucro Presumido, a clínica paga <strong>PIS + Cofins + IRPJ + CSLL + ISS</strong>. Cada um com sua alíquota, prazo e guia de pagamento. Com a Equiparação Hospitalar, IRPJ e CSLL têm base reduzida.</p>
+        <p>Em 2026, o novo sistema está em fase de testes — os impostos IBS (0,1%) e CBS (0,9%) aparecem na nota fiscal mas com alíquota quase zero. <strong>Sem impacto financeiro real ainda.</strong></p>
+        <div class="reforma-aliq">
+          <div class="ra-row"><span class="ra-label">PIS + Cofins</span><div class="ra-bar-wrap"><div class="ra-fill fill-gold" style="width:20%"></div></div><span class="ra-pct" style="color:var(--gold)">3,65%</span></div>
+          <div class="ra-row"><span class="ra-label">IRPJ + CSLL (base 32%)</span><div class="ra-bar-wrap"><div class="ra-fill fill-gold" style="width:28%"></div></div><span class="ra-pct" style="color:var(--gold)">7,68%</span></div>
+          <div class="ra-row"><span class="ra-label">ISS municipal</span><div class="ra-bar-wrap"><div class="ra-fill fill-gold" style="width:19%"></div></div><span class="ra-pct" style="color:var(--gold)">5,00%</span></div>
+        </div>
+      </div>
+
+      <div class="reforma-cenario reveal rd1">
+        <span class="rc-badge novo">Novo sistema (a partir de 2027)</span>
+        <h3>O que muda com IBS e CBS</h3>
+        <p><strong>PIS e Cofins são extintos</strong> e substituídos pela CBS a partir de 2027. O ISS vai sendo gradualmente substituído pelo IBS entre 2029 e 2033.</p>
+        <p>A boa notícia: o setor de saúde está no <strong>Anexo X da LC 214/2025</strong>, garantindo <strong>redução de 60%</strong> nas alíquotas de IBS e CBS. Se a alíquota padrão for 26,5%, a clínica pagará cerca de <strong>10,6%</strong> nesse componente — similar ao que paga hoje.</p>
+        <p><strong>IRPJ e CSLL não mudam.</strong> A Equiparação Hospitalar continua válida.</p>
+        <div class="reforma-aliq">
+          <div class="ra-row"><span class="ra-label">CBS + IBS (60% redução saúde)</span><div class="ra-bar-wrap"><div class="ra-fill fill-green" style="width:40%"></div></div><span class="ra-pct" style="color:#7ED87E">~10,6%</span></div>
+          <div class="ra-row"><span class="ra-label">IRPJ + CSLL (não muda)</span><div class="ra-bar-wrap"><div class="ra-fill fill-gold" style="width:28%"></div></div><span class="ra-pct" style="color:var(--gold)">7,68%</span></div>
+          <div class="ra-row"><span class="ra-label">ISS (sendo extinto até 2033)</span><div class="ra-bar-wrap"><div class="ra-fill fill-red" style="width:0%"></div></div><span class="ra-pct" style="color:#7ED87E">zero</span></div>
+        </div>
+      </div>
+
+      <div class="reforma-cenario reveal rd2">
+        <span class="rc-badge oport">Oportunidade</span>
+        <h3>O lado positivo da reforma para a odontologia</h3>
+        <p>O novo sistema é <strong>não cumulativo</strong>: tudo que a clínica compra com CBS/IBS na nota gera crédito tributário — materiais, equipamentos, aluguel, energia, software. Hoje no Lucro Presumido você não recupera nada disso.</p>
+        <p>Clínicas bem estruturadas contabilmente podem <strong>reduzir a carga líquida</strong> abaixo do patamar atual aproveitando esses créditos. O sistema premia quem tem organização fiscal.</p>
+        <div class="req-list" style="margin-top:12px;">
+          <div class="req-item"><div class="req-icon">✅</div><span>Crédito sobre materiais odontológicos (IBS/CBS na NF)</span></div>
+          <div class="req-item"><div class="req-icon">✅</div><span>Crédito sobre equipamentos, aluguel, energia</span></div>
+          <div class="req-item"><div class="req-icon">✅</div><span>Alíquota reduzida 60% (Anexo X LC 214/2025)</span></div>
+          <div class="req-item"><div class="req-icon">✅</div><span>Equiparação Hospitalar segue válida em IRPJ/CSLL</span></div>
+        </div>
+      </div>
+
+      <div class="reforma-cenario reveal rd3">
+        <span class="rc-badge novo">🚨 Split Payment — 2027</span>
+        <h3>O maior risco para o fluxo de caixa</h3>
+        <p>A partir de 2027, quando um convênio ou paciente pagar sua nota, o imposto será <strong>debitado automaticamente</strong> antes de cair na sua conta. Isso é o split payment.</p>
+        <p>Hoje você recebe o valor cheio e paga o imposto no vencimento. Com o split, esse prazo acaba. Especialmente crítico para clínicas que recebem de convênios — o valor já entra líquido.</p>
+        <p><strong>O que fazer agora:</strong> revisar contratos com convênios, ajustar tabela de honorários e projetar o fluxo de caixa novo com antecedência.</p>
+      </div>
+
+      <!-- SPLIT DIAGRAM ocupa linha inteira -->
+      <div class="reforma-split reveal">
+        <h3>Como funciona o Split Payment na prática — Clínica Sorriso recebe R$ 100.000</h3>
+        <div class="split-flow">
+          <div class="sf-box"><div class="sf-icon">🛍️</div><div class="sf-label">Paciente / convênio paga</div><div class="sf-val" style="color:var(--white)">R$ 100.000</div></div>
+          <div class="sf-arrow">→</div>
+          <div class="sf-box" style="border-color:rgba(224,82,82,0.3);background:rgba(224,82,82,0.05);">
+            <div class="sf-icon">⚡</div>
+            <div class="sf-label">Sistema debita imposto na hora</div>
+            <div class="sf-val" style="color:#E88">− R$ 16.670</div>
+          </div>
+          <div class="sf-arrow">→</div>
+          <div class="sf-box" style="border-color:rgba(82,199,120,0.3);background:rgba(82,199,120,0.05);">
+            <div class="sf-icon">🏢</div>
+            <div class="sf-label">Clínica recebe</div>
+            <div class="sf-val" style="color:#7ED87E">R$ 83.330</div>
+          </div>
+        </div>
+        <div class="split-detail">
+          <div class="split-d-box split-d-gov">
+            <div class="sd-label">Governo recebe (automático)</div>
+            <div class="sd-val">R$ 16.670</div>
+            <p>Debitado no momento do pagamento. Sem prazo, sem guia manual, sem float fiscal.</p>
+          </div>
+          <div class="split-d-box split-d-emp">
+            <div class="sd-label">Clínica recebe (líquido)</div>
+            <div class="sd-val">R$ 83.330</div>
+            <p>Valor já descontado do imposto. Organize seu fluxo de caixa para receber esse valor líquido a partir de 2027.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec">
+  <div class="cta-inner reveal">
+    <div class="section-label" style="justify-content:center">Próximo passo</div>
+    <h2>Sua clínica pode estar pagando<br><em>R$ 71 mil a mais por ano.</em></h2>
+    <p>Números reais, com INSS patronal, encargos completos e 75% do faturamento elegível à Equiparação Hospitalar. A diferença entre ficar no Simples e estruturar corretamente chega a R$ 5.940/mês — e ainda existe o potencial de recuperar retroativamente até 5 anos de recolhimento a maior. A Q&amp;M faz esse diagnóstico sem compromisso.</p>
+    <div class="cta-row">
+      <a href="https://api.whatsapp.com/send/?phone=5581983071689&text=Ol%C3%A1!+Vi+o+estudo+da+cl%C3%ADnica+odontol%C3%B3gica+e+quero+um+diagn%C3%B3stico+para+minha+cl%C3%ADnica" target="_blank" class="btn-gold">Solicitar diagnóstico gratuito →</a>
+      <a href="calculadora.qemconsultoria.com.br" target="_blank" class="btn-out">Usar a calculadora</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="https://github.com/contabilidadeqem/qem/blob/main/logo.png?raw=true" alt="Q&M Consultoria"
+        onerror="this.parentElement.innerHTML='<span style=font-size:18px;font-weight:900;color:var(--gold);opacity:0.7;font-family:serif>Q&amp;M</span>'">
+    </div>
+    <p class="footer-copy">© 2025 Q&amp;M Consultoria. Conteúdo informativo com base na legislação vigente (LC 214/2025, Lei 9.249/95, STJ Tema 217).<br>Os valores são estimativas para fins educacionais. Consulte um especialista para análise do seu caso.</p>
+    <div class="footer-links">
+      <a href="index.html">Início</a>
+      <a href="area-saude.html">Área da Saúde</a>
+      <a href="reforma-tributaria.html">Reforma Tributária</a>
+      <a href="index.html#contato">Contato</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>60);});
+function toggleMobileNav(){document.getElementById('mobileNav').classList.toggle('open');}
+function closeMobileNav(){document.getElementById('mobileNav').classList.remove('open');}
+
+function switchTab(id){
+  document.querySelectorAll('.tab-btn').forEach((b,i)=>{
+    const ids=['simples','presumido','equiparado'];
+    b.classList.toggle('active',ids[i]===id);
+  });
+  document.querySelectorAll('.tab-panel').forEach(p=>{
+    p.classList.toggle('active',p.id==='tab-'+id);
+  });
+}
+
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
